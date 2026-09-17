@@ -459,6 +459,7 @@ body {
   color: #fff;
   background: linear-gradient(135deg, #fff, var(--cyan));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
 }
@@ -926,6 +927,7 @@ body {
   transition: border-color 0.18s ease, box-shadow 0.18s ease;
   backdrop-filter: blur(12px);
   -webkit-appearance: none;
+  appearance: none;
 }
 .search-input::placeholder { color: var(--txt3); }
 .search-input:focus {

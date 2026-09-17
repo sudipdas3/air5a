@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#03060d">
+<meta name="description" content="B.Tech.(CSE)-AIR 2024 • Sem 5 — PPT Submission Portal">
+<title>B.Tech.(CSE)-AIR 2024 · Sem 5 — PPT Submission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- FIXED BACKGROUND SYSTEM -->
+<div class="bg-layer bg-mesh"></div>
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer bg-noise"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<canvas id="constellation"></canvas>
+
+<!-- FLOATING TOP NAVIGATION PILL -->
+<header class="site-nav-wrap">
+  <div class="site-nav">
+    <div class="nav-brand" onclick="nav('home')">
+      <span class="nav-dot"></span>
+      <span class="nav-title">AIR 5A</span>
+    </div>
+    <nav class="nav-links">
+      <button class="nav-link active" onclick="nav('home')" data-nav="home">Home</button>
+      <button class="nav-link" onclick="nav('subjects')" data-nav="subjects">Subjects</button>
+      <button class="nav-link" onclick="nav('topics')" data-nav="topics">Topics</button>
+      <button class="nav-link" onclick="nav('deadlines')" data-nav="deadlines">Deadlines</button>
+    </nav>
+    <button class="nav-btn-submit" onclick="nav('subjects')">
+      <span>Submit PPT</span>
+      <span class="btn-arrow">↗</span>
+    </button>
+  </div>
+</header>
+
+<!-- =========================================================================
+     PAGE 1: HOME LANDING PAGE
+========================================================================= -->
+<div class="page active" id="home">
+
+  <div class="uni-badge">
+    <span class="uni-badge-pulse"></span>
+    Brainware University &nbsp;•&nbsp; Department of CSE-AI
+  </div>
+
+  <h1 class="hero-title">
+    <span class="hero-line1">B.Tech.(CSE)-AIR 2024</span>
+    <span class="hero-line2">PPT Submission Portal</span>
+  </h1>
+
+  <p class="hero-sub">
+    <span>Section 5A • Presentation & Topic Directory</span> &nbsp;/&nbsp; Academic Year 2025–26
+  </p>
+
+  <div class="notice-card">
+    <div class="notice-label">
+      ⚠ &nbsp;Important Notice & Presentation Guidelines
+    </div>
+    Please ensure your presentation file name is formatted strictly as <code>[SubjectCode]_[StudentCode]_[FullName].pptx</code>.
+    <br><strong>Strictly adhere to the last submission deadline for all 5 core subjects. • Use your university credentials to verify your upload receipt.</strong>
+  </div>
+
+  <div class="cta-group">
+    <button class="btn-primary" id="ctaBtn" onclick="nav('subjects')" aria-label="Go to subject list to submit your presentation">
+      <span class="btn-label">Submit Your PPT</span>
+      <span class="btn-icon">→</span>
+    </button>
+    <button class="btn-secondary" id="topicBtn" aria-label="Know your presentation topic">
+      <span class="btn-label">PPT Topics</span>
+      <span class="btn-icon">↗</span>
+    </button>
+    <button class="btn-secondary" id="deadlineBtn" style="border-color: rgba(244, 63, 94, 0.4);" aria-label="Check the last submission date">
+      <span class="btn-label">PPT Deadlines</span>
+      <span class="btn-icon">📅</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- =========================================================================
+     PAGE 2: SUBJECTS LISTING PAGE
+========================================================================= -->
+<div class="page" id="subjects">
+  <button class="back-btn" id="backBtn">← Back</button>
+
+  <div class="section-header">
+    <div class="section-eyebrow">Semester 5 Subjects</div>
+    <h2 class="section-title">Select <em>The Subject</em></h2>
+    <p class="section-desc">Tap a subject to view assigned presentation topics, guidelines, and submit your presentation slides</p>
+  </div>
+
+  <div class="cards-grid" role="list">
+
+    <!-- Subject 01 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 01</div>
+      <div>
+        <div class="card-name">Robotics and Artificial Intelligence</div>
+        <div class="card-code">BTR50112</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 14, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('rai-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50112')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('rai-detail')">↗</div>
+    </div>
+
+    <!-- Subject 02 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 02</div>
+      <div>
+        <div class="card-name">Robot Safety and Maintenance</div>
+        <div class="card-code">BTR50113</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 16, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('rsm-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50113')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('rsm-detail')">↗</div>
+    </div>
+
+    <!-- Subject 03 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 03</div>
+      <div>
+        <div class="card-name">Theory of Machine & Machine Design</div>
+        <div class="card-code">BTR50114</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 18, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('tmmd-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50114')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('tmmd-detail')">↗</div>
+    </div>
+
+    <!-- Subject 04 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 04</div>
+      <div>
+        <div class="card-name">Professional Ethics</div>
+        <div class="card-code">BTR50115</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 20, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('pe-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50115')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('pe-detail')">↗</div>
+    </div>
+
+    <!-- Subject 05 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 05</div>
+      <div>
+        <div class="card-name">Robotic Algorithms</div>
+        <div class="card-code">BTR50116</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 22, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('ra-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50116')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('ra-detail')">↗</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 3: MASTER TOPICS DIRECTORY
+========================================================================= -->
+<div class="page" id="topics">
+  <button class="back-btn" id="backBtn2">← Back</button>
+
+  <div class="section-header">
+    <div class="section-eyebrow">Find Your Topic</div>
+    <h2 class="section-title">Your <em>Presentation Topics</em></h2>
+    <p class="section-desc">Locate your Student Code or Name across all 5 subjects, or filter by specific subject</p>
+  </div>
+
+  <!-- Subject Quick Launch Grid -->
+  <div class="cards-grid" role="list">
+    <div class="topic-card clickable" id="raiCard" role="listitem" tabindex="0" aria-label="View Robotics & AI topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 01</div>
+      <div>
+        <div class="card-name">Robotics and Artificial Intelligence</div>
+        <div class="card-code">BTR50112</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="rsmCard" role="listitem" tabindex="0" aria-label="View Robot Safety topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 02</div>
+      <div>
+        <div class="card-name">Robot Safety and Maintenance</div>
+        <div class="card-code">BTR50113</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="tmmdCard" role="listitem" tabindex="0" aria-label="View Theory of Machine topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 03</div>
+      <div>
+        <div class="card-name">Theory of Machine & Machine Design</div>
+        <div class="card-code">BTR50114</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="peCard" role="listitem" tabindex="0" aria-label="View Professional Ethics topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 04</div>
+      <div>
+        <div class="card-name">Professional Ethics</div>
+        <div class="card-code">BTR50115</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="raCard" role="listitem" tabindex="0" aria-label="View Robotic Algorithms topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 05</div>
+      <div>
+        <div class="card-name">Robotic Algorithms</div>
+        <div class="card-code">BTR50116</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- Master Universal Search & Filter Section -->
+  <div class="search-section-box">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="masterSearch" type="search" placeholder="Search across all subjects by student code, name, or topic…" autocomplete="off" spellcheck="false">
+    </div>
+
+    <div class="filter-pills" id="masterFilterPills">
+      <button class="filter-btn active" data-filter="all">All Subjects (280)</button>
+      <button class="filter-btn" data-filter="rai">Robotics & AI</button>
+      <button class="filter-btn" data-filter="rsm">Robot Safety</button>
+      <button class="filter-btn" data-filter="tmmd">Machine Design</button>
+      <button class="filter-btn" data-filter="pe">Prof. Ethics</button>
+      <button class="filter-btn" data-filter="ra">Robotic Algorithms</button>
+    </div>
+
+    <div class="search-count" id="masterCount">Showing all <strong>280</strong> topic allocations</div>
+
+    <div class="table-wrap">
+      <table class="data-table" id="masterTable">
+        <thead>
+          <tr>
+            <th>Sl.</th>
+            <th>Subject</th>
+            <th>Student Code</th>
+            <th>Name</th>
+            <th>Presentation Topic</th>
+            <th>Presentation Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="masterTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 4: SUBMISSION DEADLINES
+========================================================================= -->
+<div class="page" id="deadlines">
+  <button class="back-btn" id="backBtn6">← Back</button>
+  
+  <div class="detail-header">
+    <div class="section-eyebrow">Submission Calendar</div>
+    <h2>Submission <em>Deadlines</em></h2>
+    <p>Final dates for PPT submission & presentation schedule — Semester 5 (AIR 5A)</p>
+  </div>
+  
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Subject Name</th>
+          <th>Subject Code</th>
+          <th>Soft Copy Deadline</th>
+          <th>Presentation Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-sl">01</td>
+          <td class="td-name">Robotics and Artificial Intelligence</td>
+          <td class="td-code">BTR50112</td>
+          <td class="td-date">April 14, 2026</td>
+          <td class="td-date">April 21, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50112')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">02</td>
+          <td class="td-name">Robot Safety and Maintenance</td>
+          <td class="td-code">BTR50113</td>
+          <td class="td-date">April 16, 2026</td>
+          <td class="td-date">April 23, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50113')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">03</td>
+          <td class="td-name">Theory of Machine & Machine Design</td>
+          <td class="td-code">BTR50114</td>
+          <td class="td-date">April 18, 2026</td>
+          <td class="td-date">April 25, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50114')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">04</td>
+          <td class="td-name">Professional Ethics</td>
+          <td class="td-code">BTR50115</td>
+          <td class="td-date">April 20, 2026</td>
+          <td class="td-date">April 28, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50115')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">05</td>
+          <td class="td-name">Robotic Algorithms</td>
+          <td class="td-code">BTR50116</td>
+          <td class="td-date">April 22, 2026</td>
+          <td class="td-date">April 30, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50116')">Submit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="evaluation-rules-box">
+    <h3>Evaluation Rubric & Guidelines</h3>
+    <div class="rubric-grid">
+      <div class="rubric-item">
+        <span class="rubric-percent">40%</span>
+        <div class="rubric-label">Technical Depth & Methodology</div>
+      </div>
+      <div class="rubric-item">
+        <span class="rubric-percent">20%</span>
+        <div class="rubric-label">Slide Design & Structure</div>
+      </div>
+      <div class="rubric-item">
+        <span class="rubric-percent">20%</span>
+        <div class="rubric-label">Presentation & Articulation</div>
+      </div>
+      <div class="rubric-item">
+        <span class="rubric-percent">20%</span>
+        <div class="rubric-label">Viva & Faculty Q&A</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 5: SUBJECT DETAIL - ROBOTICS AND AI (BTR50112)
+========================================================================= -->
+<div class="page" id="rai-detail">
+  <button class="back-btn" id="backBtn3">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Robotics and <em>Artificial Intelligence</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50112</span>
+    <span class="meta-pill slate">4 Credits • Dept. of CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="raiSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="raiCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="raiTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="raiTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50112')">Submit PPT for Robotics & AI →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 6: SUBJECT DETAIL - ROBOT SAFETY & MAINTENANCE (BTR50113)
+========================================================================= -->
+<div class="page" id="rsm-detail">
+  <button class="back-btn" id="backBtn4">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Robot Safety and <em>Maintenance</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50113</span>
+    <span class="meta-pill slate">3 Credits • Dept. of CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="rsmSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="rsmCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="rsmTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="rsmTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50113')">Submit PPT for Robot Safety →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 7: SUBJECT DETAIL - THEORY OF MACHINE & MACHINE DESIGN (BTR50114)
+========================================================================= -->
+<div class="page" id="tmmd-detail">
+  <button class="back-btn" id="backBtn5">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Theory of Machine & <em>Machine Design</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50114</span>
+    <span class="meta-pill slate">4 Credits • Dept. of Mechanical & CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="tmmdSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="tmmdCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="tmmdTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tmmdTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50114')">Submit PPT for Machine Design →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 8: SUBJECT DETAIL - PROFESSIONAL ETHICS (BTR50115)
+========================================================================= -->
+<div class="page" id="pe-detail">
+  <button class="back-btn" id="backBtn7">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Professional <em>Ethics</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50115</span>
+    <span class="meta-pill slate">2 Credits • Humanities & Social Sciences</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="peSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="peCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="peTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="peTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50115')">Submit PPT for Professional Ethics →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 9: SUBJECT DETAIL - ROBOTIC ALGORITHMS (BTR50116)
+========================================================================= -->
+<div class="page" id="ra-detail">
+  <button class="back-btn" id="backBtn8">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Robotic <em>Algorithms</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50116</span>
+    <span class="meta-pill slate">4 Credits • Dept. of CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="raSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="raCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="raTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="raTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50116')">Submit PPT for Robotic Algorithms →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     INTERACTIVE PPT SUBMISSION MODAL
+========================================================================= -->
+<div class="modal-backdrop" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-badge">Direct Upload</div>
+      <h3 id="modalTitle">Submit Your Presentation</h3>
+      <button class="modal-close" onclick="closeSubmitModal()" aria-label="Close dialog">×</button>
+    </div>
+
+    <!-- Form View -->
+    <div id="modalFormView">
+      <form id="pptUploadForm" onsubmit="handleFormSubmit(event)">
+        
+        <div class="form-group">
+          <label for="modalSubject">Select Subject</label>
+          <select id="modalSubject" required onchange="onModalSubjectChange()">
+            <option value="">-- Choose Subject --</option>
+            <option value="BTR50112">Robotics and Artificial Intelligence (BTR50112)</option>
+            <option value="BTR50113">Robot Safety and Maintenance (BTR50113)</option>
+            <option value="BTR50114">Theory of Machine & Machine Design (BTR50114)</option>
+            <option value="BTR50115">Professional Ethics (BTR50115)</option>
+            <option value="BTR50116">Robotic Algorithms (BTR50116)</option>
+          </select>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="modalRoll">Student Code / Roll</label>
+            <input type="text" id="modalRoll" placeholder="e.g. BWU/BAR/24/001" required autocomplete="off" oninput="onModalRollInput()">
+          </div>
+          <div class="form-group">
+            <label for="modalName">Full Name</label>
+            <input type="text" id="modalName" placeholder="Full Student Name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modalTopic">Assigned Presentation Topic</label>
+          <input type="text" id="modalTopic" placeholder="Topic will auto-fill from roster..." required>
+        </div>
+
+        <div class="form-group">
+          <label>Attach Presentation File (.pptx, .ppt, .pdf)</label>
+          <div class="drop-zone" id="modalDropZone">
+            <div class="drop-icon">📁</div>
+            <div class="drop-text">Drag & drop your presentation file here, or <span>Browse</span></div>
+            <div class="drop-sub">Accepted formats: .pptx, .ppt, .pdf (Max size: 50MB)</div>
+            <input type="file" id="modalFileInput" accept=".pptx,.ppt,.pdf" style="display:none" onchange="onFileSelected(this)">
+          </div>
+          <div class="selected-file-badge" id="selectedFileBadge" style="display:none">
+            <span class="file-icon">📄</span>
+            <span class="file-name" id="selectedFileName"></span>
+            <button type="button" class="file-remove" onclick="removeSelectedFile()">×</button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeSubmitModal()">Cancel</button>
+          <button type="submit" class="btn-primary" id="modalSubmitBtn">
+            <span class="btn-label">Submit Presentation</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success / Receipt View -->
+    <div id="modalSuccessView" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="success-title">Presentation Submitted!</h3>
+      <p class="success-sub">Your presentation has been verified and registered in the departmental evaluation log.</p>
+      
+      <div class="receipt-card">
+        <div class="receipt-row">
+          <span class="receipt-label">Receipt Code:</span>
+          <span class="receipt-val code" id="receiptId">AIR5A-BTR50112-001-9921</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Student:</span>
+          <span class="receipt-val" id="receiptStudent">SOUMEN BHANDARI (BWU/BAR/24/001)</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Subject:</span>
+          <span class="receipt-val" id="receiptSubject">Robotics and Artificial Intelligence</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Topic:</span>
+          <span class="receipt-val" id="receiptTopic">Forward and Inverse Kinematics in Articulated Arms</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Timestamp:</span>
+          <span class="receipt-val" id="receiptTime"></span>
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top:20px;">
+        <button class="btn-secondary" onclick="copyReceiptCode()">Copy Receipt ID</button>
+        <button class="btn-primary" onclick="closeSubmitModal()">Done</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast" class="toast-popup"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

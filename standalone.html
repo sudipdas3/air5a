@@ -1,0 +1,5144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#03060d">
+<meta name="description" content="B.Tech.(CSE)-AIR 2024 • Sem 5 — PPT Submission Portal">
+<title>B.Tech.(CSE)-AIR 2024 · Sem 5 — PPT Submission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   B.Tech.(CSE)-AIR 2024 · Sem 5 / AIR 5A — DEEP SPACE PORTAL STYLES
+   Brainware University • Department of CSE-AI
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #03060d;
+  --bg2:       #060d1a;
+  --bg3:       #0a1628;
+  --surface:   rgba(8, 18, 36, 0.85);
+  --surface2:  rgba(12, 24, 48, 0.7);
+
+  --cyan:      #00d4ff;
+  --violet:    #8b5cf6;
+  --amber:     #f59e0b;
+  --green:     #10b981;
+  --rose:      #f43f5e;
+
+  --txt:       #e2eaf5;
+  --txt2:      #8ba3c4;
+  --txt3:      #4a6080;
+
+  --border:    rgba(0, 212, 255, 0.12);
+  --border2:   rgba(139, 92, 246, 0.15);
+
+  --r:         14px;
+  --r2:        10px;
+  --pill:      999px;
+
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body:    'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'Fira Code', 'Consolas', monospace;
+}
+
+html { 
+  scroll-behavior: smooth; 
+  -webkit-text-size-adjust: 100%; 
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--txt);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BACKGROUND SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.bg-layer {
+  position: fixed; inset: 0; pointer-events: none;
+}
+
+/* Gradient mesh */
+.bg-mesh {
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0, 212, 255, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 80% 80%, rgba(139, 92, 246, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 70%),
+    #03060d;
+}
+
+/* Fine grid */
+.bg-grid {
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 80%);
+}
+
+/* Noise texture */
+.bg-noise {
+  z-index: 2;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* Floating ambient orbs */
+.orb {
+  position: fixed; border-radius: 50%; pointer-events: none; filter: blur(70px); z-index: 1;
+}
+.orb-1 {
+  width: 55vw; height: 40vw;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+  top: -15%; left: -10%;
+  animation: orbDrift1 22s ease-in-out infinite alternate;
+}
+.orb-2 {
+  width: 45vw; height: 50vw;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  bottom: -15%; right: -10%;
+  animation: orbDrift2 28s ease-in-out infinite alternate;
+}
+.orb-3 {
+  width: 30vw; height: 30vw;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+  top: 40%; left: 40%;
+  animation: orbDrift3 18s ease-in-out infinite alternate;
+}
+@keyframes orbDrift1 { 0%{transform:translate(0,0)} 100%{transform:translate(6vw,8vh)} }
+@keyframes orbDrift2 { 0%{transform:translate(0,0)} 100%{transform:translate(-8vw,-6vh)} }
+@keyframes orbDrift3 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-4vw,5vh) scale(1.2)} }
+
+/* Canvas constellation */
+#constellation {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: 0.35;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FLOATING TOP NAVIGATION BAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.site-nav-wrap {
+  position: fixed;
+  top: 14px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 90;
+  padding: 0 16px;
+  pointer-events: none;
+}
+.site-nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.8vw, 22px);
+  background: rgba(8, 18, 36, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: var(--pill);
+  padding: 6px 10px 6px 18px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 212, 255, 0.08);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.nav-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: pulse 2s infinite ease-in-out;
+}
+.nav-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.nav-sub {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--cyan);
+  opacity: 0.85;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  background: transparent;
+  border: none;
+  color: var(--txt2);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 6px 13px;
+  border-radius: var(--pill);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: var(--txt);
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-link.active {
+  color: #03060d;
+  background: var(--cyan);
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.4);
+}
+.nav-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.18), rgba(139, 92, 246, 0.22));
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  color: var(--cyan);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 6px 15px;
+  border-radius: var(--pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.nav-btn-submit:hover {
+  background: var(--cyan);
+  color: #03060d;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.55);
+  transform: translateY(-1px);
+}
+.btn-arrow {
+  font-size: 0.9em;
+  transition: transform 0.2s ease;
+}
+.nav-btn-submit:hover .btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PAGE SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.page {
+  position: relative; z-index: 10;
+  min-height: 100dvh;
+  display: none; flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  padding: clamp(92px, 12vw, 120px) clamp(16px, 4vw, 48px) clamp(50px, 8vw, 90px);
+  width: 100%;
+  box-sizing: border-box;
+}
+.page.active { display: flex; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HOME PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#home { 
+  gap: 0; 
+  justify-content: flex-start;
+  padding-top: clamp(92px, 12vw, 120px);
+}
+
+.uni-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: var(--pill);
+  padding: 7px 20px;
+  font-size: clamp(9px, 1.6vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: clamp(20px, 3.5vw, 36px);
+  animation: fadeUp 0.7s ease both;
+  text-align: center;
+}
+.uni-badge-pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan), 0 0 20px rgba(0,212,255,0.5);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.6)} }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.05;
+  margin-bottom: clamp(12px, 2vw, 20px);
+  animation: fadeUp 0.7s ease 0.08s both;
+}
+.hero-line1 {
+  display: block;
+  font-size: clamp(2.2rem, 7.5vw, 5.2rem);
+  background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 50%, var(--violet) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -0.02em;
+}
+.hero-line2 {
+  display: block;
+  font-size: clamp(1.3rem, 4.2vw, 3.2rem);
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  margin-top: 8px;
+}
+
+.hero-sub {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.8vw, 14px);
+  color: var(--txt2);
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-bottom: clamp(24px, 4.5vw, 44px);
+  animation: fadeUp 0.7s ease 0.14s both;
+}
+.hero-sub span { color: var(--cyan); }
+
+.notice-card {
+  width: min(720px, 95vw);
+  background: var(--surface);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--r);
+  padding: clamp(16px, 3vw, 22px) clamp(18px, 3.5vw, 28px);
+  margin-bottom: clamp(24px, 4.5vw, 40px);
+  font-size: clamp(12px, 1.8vw, 13.5px);
+  line-height: 1.75;
+  color: var(--txt2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: fadeUp 0.7s ease 0.2s both;
+  position: relative;
+  overflow: hidden;
+}
+.notice-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent);
+}
+.notice-label {
+  font-size: clamp(9px, 1.4vw, 10.5px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.notice-card strong { color: #fcd34d; font-weight: 600; }
+.notice-card code {
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cta-group {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: clamp(12px, 2vw, 18px);
+  animation: fadeUp 0.7s ease 0.28s both;
+}
+
+.btn-primary {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 10px;
+  padding: clamp(14px, 2.2vw, 17px) clamp(28px, 4.5vw, 44px);
+  font-family: var(--font-display);
+  font-size: clamp(13px, 2vw, 15.5px);
+  font-weight: 700;
+  color: #03060d;
+  background: linear-gradient(135deg, var(--cyan), #006eff);
+  border: none;
+  border-radius: var(--pill);
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 0 35px rgba(0, 212, 255, 0.35), 0 4px 18px rgba(0, 0, 0, 0.4);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  letter-spacing: 0.01em;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  animation: shimmer 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shimmer { 0%{left:-120%} 60%,100%{left:140%} }
+.btn-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 50px rgba(0,212,255,0.5), 0 8px 24px rgba(0,0,0,0.5); }
+.btn-primary:active { transform: translateY(0) scale(0.98); }
+
+.btn-secondary {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 10px;
+  padding: clamp(13px, 2vw, 16px) clamp(24px, 4vw, 38px);
+  font-family: var(--font-display);
+  font-size: clamp(13px, 2vw, 15.5px);
+  font-weight: 700;
+  color: var(--txt);
+  background: rgba(8, 18, 36, 0.6);
+  border: 1.5px solid rgba(139, 92, 246, 0.45);
+  border-radius: var(--pill);
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+  backdrop-filter: blur(10px);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  letter-spacing: 0.01em;
+}
+.btn-secondary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(139,92,246,0.14), rgba(0,212,255,0.06));
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.btn-secondary:hover { border-color: rgba(139,92,246,0.85); box-shadow: 0 0 28px rgba(139,92,246,0.25); transform: translateY(-2px); }
+.btn-secondary:hover::before { opacity: 1; }
+.btn-secondary:active { transform: translateY(0) scale(0.98); }
+
+.btn-icon { font-size: 1.1em; transition: transform 0.18s ease; position: relative; z-index: 1; }
+.btn-primary:hover .btn-icon, .btn-secondary:hover .btn-icon { transform: translateX(3px); }
+.btn-label { position: relative; z-index: 1; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   STATS ROW & QUICK SUBJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1.8vw, 18px);
+  width: min(840px, 95vw);
+  margin-top: clamp(28px, 4vw, 42px);
+  animation: fadeUp 0.7s ease 0.32s both;
+}
+.stat-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 12px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.stat-box:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  transform: translateY(-2px);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #fff, var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.stat-lbl {
+  font-family: var(--font-mono);
+  font-size: clamp(9px, 1.3vw, 10.5px);
+  color: var(--txt2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.quick-subjects-wrap {
+  width: min(840px, 95vw);
+  margin-top: clamp(24px, 3.5vw, 36px);
+  text-align: center;
+  animation: fadeUp 0.7s ease 0.36s both;
+}
+.quick-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--txt3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.subject-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.sub-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--txt2);
+  padding: 7px 16px;
+  border-radius: var(--pill);
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sub-pill:hover {
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--cyan);
+  border-color: rgba(0, 212, 255, 0.35);
+  transform: translateY(-1px);
+}
+.pill-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 18px);
+  width: min(840px, 95vw);
+  margin-top: clamp(26px, 4vw, 40px);
+  animation: fadeUp 0.7s ease 0.4s both;
+}
+.guide-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 18px;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease;
+}
+.guide-card:hover { border-color: rgba(0, 212, 255, 0.3); }
+.guide-icon {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.guide-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.guide-text {
+  font-size: 0.84rem;
+  color: var(--txt2);
+  line-height: 1.6;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BACK BUTTON
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(8, 18, 36, 0.88);
+  border: 1px solid var(--border);
+  border-radius: var(--pill);
+  padding: 8px 18px;
+  color: var(--txt2);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 1.8vw, 13px);
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 20;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-self: flex-start;
+  margin-bottom: clamp(14px, 2.5vw, 22px);
+}
+.back-btn:hover { background: rgba(0, 212, 255, 0.12); color: var(--cyan); border-color: rgba(0, 212, 255, 0.4); }
+.back-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SECTION HEADERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(24px, 4.5vw, 44px);
+  width: 100%;
+  animation: fadeUp 0.5s ease both;
+}
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(9px, 1.4vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.section-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.section-desc {
+  color: var(--txt2);
+  font-size: clamp(12px, 1.9vw, 14px);
+  margin-top: 8px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SUBJECTS & TOPICS PAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#subjects, #topics {
+  justify-content: flex-start;
+  padding-top: clamp(86px, 13vw, 115px);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 20px);
+  width: min(1080px, 96vw);
+}
+
+.subject-card, .topic-card {
+  position: relative;
+  display: flex; flex-direction: column;
+  gap: clamp(10px, 1.5vw, 14px);
+  padding: clamp(20px, 3vw, 26px) clamp(18px, 2.5vw, 24px) clamp(22px, 3.5vw, 30px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-align: left;
+  color: var(--txt);
+  font-family: var(--font-body);
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: cardIn 0.45s ease forwards;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(16px);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.subject-card:nth-child(1), .topic-card:nth-child(1){animation-delay:0.04s}
+.subject-card:nth-child(2), .topic-card:nth-child(2){animation-delay:0.08s}
+.subject-card:nth-child(3), .topic-card:nth-child(3){animation-delay:0.12s}
+.subject-card:nth-child(4), .topic-card:nth-child(4){animation-delay:0.16s}
+.subject-card:nth-child(5), .topic-card:nth-child(5){animation-delay:0.20s}
+@keyframes cardIn { to { opacity:1; transform:translateY(0); } }
+
+.clickable { cursor: pointer; user-select: none; }
+
+.subject-card::before, .topic-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(139, 92, 246, 0.06));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+}
+.subject-card::after, .topic-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.subject-card:hover::before, .topic-card:hover::before { opacity: 1; }
+.subject-card:hover::after, .topic-card:hover::after { opacity: 1; }
+.subject-card:hover, .topic-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(0, 212, 255, 0.1);
+  outline: none;
+}
+.subject-card:active, .topic-card:active { transform: translateY(-1px) scale(0.99); }
+
+.card-num {
+  font-family: var(--font-mono);
+  font-size: clamp(8px, 1.3vw, 10px);
+  font-weight: 500;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  padding: 3px 10px;
+  border-radius: var(--pill);
+  width: fit-content;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative; z-index: 1;
+}
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: clamp(13px, 1.8vw, 16px);
+  font-weight: 700;
+  color: var(--txt);
+  line-height: 1.3;
+  position: relative; z-index: 1;
+}
+
+.card-code {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 1.3vw, 12px);
+  color: var(--txt3);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  position: relative; z-index: 1;
+}
+
+.card-deadline {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: clamp(10px, 1.4vw, 12px);
+  font-weight: 600;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: relative; z-index: 1;
+  white-space: nowrap;
+}
+
+.card-status-ready {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: clamp(10px, 1.4vw, 11px);
+  font-weight: 600;
+  color: var(--green);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: relative; z-index: 1;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+}
+.card-action-btn {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border-radius: var(--r2);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+.card-action-btn.primary {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: var(--cyan);
+}
+.card-action-btn.primary:hover {
+  background: var(--cyan);
+  color: #03060d;
+}
+.card-action-btn.secondary {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
+}
+.card-action-btn.secondary:hover {
+  background: var(--violet);
+  color: #fff;
+}
+
+.card-arrow {
+  position: absolute;
+  right: clamp(12px, 2vw, 18px);
+  top: clamp(12px, 2vw, 18px);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  color: var(--cyan);
+  opacity: 0.6;
+  transition: all 0.18s ease;
+  z-index: 2;
+}
+.subject-card:hover .card-arrow, .topic-card:hover .card-arrow { 
+  opacity: 1; 
+  background: var(--cyan);
+  color: #03060d;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MASTER SEARCH & FILTER PILLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.search-section-box {
+  width: min(960px, 97vw);
+  margin-top: clamp(24px, 4vw, 36px);
+}
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: clamp(12px, 2vw, 18px) 0;
+}
+.filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--txt2);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover {
+  color: var(--txt);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+.filter-btn.active {
+  background: rgba(0, 212, 255, 0.14);
+  color: var(--cyan);
+  border-color: var(--cyan);
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.2);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DETAIL PAGES & TABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#deadlines, #rai-detail, #rsm-detail, #tmmd-detail, #pe-detail, #ra-detail {
+  justify-content: flex-start;
+  padding-top: clamp(86px, 13vw, 115px);
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: clamp(16px, 3vw, 24px);
+  width: 100%;
+  animation: fadeUp 0.5s ease both;
+}
+.detail-header h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.detail-header h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.detail-header p {
+  color: var(--txt2);
+  font-size: clamp(11px, 1.8vw, 13px);
+  margin-top: 6px;
+  font-family: var(--font-mono);
+}
+
+.detail-meta {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: clamp(18px, 3vw, 28px);
+  animation: fadeUp 0.5s ease 0.06s both;
+}
+.meta-pill {
+  font-family: var(--font-mono);
+  font-size: clamp(9px, 1.5vw, 11px);
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: var(--pill);
+  border: 1px solid;
+  letter-spacing: 0.06em;
+}
+.meta-pill.cyan  { color: var(--cyan); background: rgba(0,212,255,0.08); border-color: rgba(0,212,255,0.25); }
+.meta-pill.slate { color: #94a3b8;    background: rgba(148,163,184,0.06); border-color: rgba(148,163,184,0.18); }
+.meta-pill.amber { color: #fbbf24;   background: rgba(251,191,36,0.08);  border-color: rgba(251,191,36,0.22); }
+.meta-pill.green { color: var(--green); background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.25); }
+
+/* Search Inputs */
+.search-wrap {
+  width: min(720px, 96vw);
+  margin: 0 auto clamp(14px, 2.5vw, 20px);
+  position: relative;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+.search-icon {
+  position: absolute;
+  left: 18px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--txt3);
+  font-size: 15px;
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: clamp(11px, 2vw, 14px) clamp(16px, 2.5vw, 22px) clamp(11px, 2vw, 14px) 48px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--pill);
+  color: var(--txt);
+  font-family: var(--font-body);
+  font-size: max(16px, clamp(12px, 1.9vw, 14px));
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  backdrop-filter: blur(12px);
+  -webkit-appearance: none;
+}
+.search-input::placeholder { color: var(--txt3); }
+.search-input:focus {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.search-count {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 1.6vw, 11px);
+  color: var(--txt3);
+  margin-bottom: clamp(12px, 2vw, 18px);
+  letter-spacing: 0.06em;
+  animation: fadeUp 0.4s ease both;
+}
+.search-count strong { color: var(--cyan); }
+
+/* Tables */
+.table-wrap {
+  width: min(960px, 97vw);
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 62vh;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: fadeUp 0.5s ease 0.12s both;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+.table-wrap::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.table-wrap::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+.table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.25);
+  border-radius: 4px;
+}
+.table-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.45);
+}
+.data-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: clamp(11px, 1.55vw, 13px);
+}
+.data-table thead tr {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.08), rgba(139, 92, 246, 0.07));
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.data-table th {
+  padding: clamp(12px, 2vw, 15px) clamp(10px, 1.8vw, 16px);
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: clamp(8px, 1.2vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+.data-table td {
+  padding: clamp(11px, 1.8vw, 14px) clamp(10px, 1.8vw, 16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr { transition: background 0.12s ease; }
+.data-table tbody tr:hover { background: rgba(0, 212, 255, 0.04); }
+
+.td-sl    { color: var(--txt3); font-weight: 600; white-space: nowrap; font-family: var(--font-mono); font-size: 0.9em; }
+.td-code  { white-space: nowrap; }
+.td-name  { color: var(--txt); font-weight: 600; }
+.td-sub   { white-space: nowrap; font-family: var(--font-mono); font-size: 0.88em; color: var(--txt2); }
+.td-date  {
+  white-space: nowrap; font-weight: 600;
+  color: #fbbf24;
+  font-family: var(--font-mono); font-size: 0.88em;
+}
+.td-topic { color: #cbd5e1; max-width: 320px; line-height: 1.45; }
+.td-empty {
+  text-align: center;
+  padding: 36px 16px !important;
+  color: var(--txt3);
+  font-style: italic;
+}
+
+/* Badges & Pills inside Table */
+.code-pill {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--cyan);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sub-tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+.sub-tag.rai  { color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.25); }
+.sub-tag.rsm  { color: #f59e0b; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.25); }
+.sub-tag.tmmd { color: #a78bfa; background: rgba(167, 139, 250, 0.12); border: 1px solid rgba(167, 139, 250, 0.25); }
+.sub-tag.pe   { color: #10b981; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); }
+.sub-tag.ra   { color: #ec4899; background: rgba(236, 72, 153, 0.12); border: 1px solid rgba(236, 72, 153, 0.25); }
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--pill);
+}
+.status-badge.live {
+  color: var(--green);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.table-btn-submit {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.14), rgba(139, 92, 246, 0.18));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--cyan);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--pill);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.table-btn-submit:hover {
+  background: var(--cyan);
+  color: #03060d;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+}
+
+/* Detail Bottom CTA */
+.detail-footer-action {
+  margin-top: clamp(14px, 2.5vw, 24px);
+  display: flex;
+  justify-content: center;
+}
+
+/* Evaluation Rubric */
+.evaluation-rules-box {
+  width: min(960px, 97vw);
+  margin-top: clamp(20px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: clamp(18px, 3vw, 24px);
+  backdrop-filter: blur(16px);
+}
+.evaluation-rules-box h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.rubric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.rubric-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 12px 10px;
+  text-align: center;
+}
+.rubric-percent {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.rubric-label {
+  font-size: 0.78rem;
+  color: var(--txt2);
+  line-height: 1.3;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   INTERACTIVE SUBMISSION MODAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 6, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  background: var(--surface);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: var(--r);
+  padding: clamp(22px, 4vw, 32px) clamp(18px, 3.5vw, 28px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 50px rgba(0, 212, 255, 0.12);
+  max-height: 92vh;
+  overflow-y: auto;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.25s ease;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.modal-backdrop.open .modal-box {
+  transform: translateY(0) scale(1);
+}
+.modal-header {
+  margin-bottom: 18px;
+  position: relative;
+}
+.modal-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: var(--pill);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+#modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+.modal-close {
+  position: absolute;
+  top: 0; right: 0;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--txt2);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.modal-close:hover {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--rose);
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+/* Form inputs */
+.form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--txt2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--r2);
+  background: rgba(0, 212, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--txt);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+.form-group select option {
+  background: var(--bg2);
+  color: var(--txt);
+}
+.form-row.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Dropzone */
+.drop-zone {
+  border: 2px dashed rgba(0, 212, 255, 0.25);
+  border-radius: var(--r2);
+  padding: 20px 16px;
+  text-align: center;
+  background: rgba(0, 212, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: var(--cyan);
+  background: rgba(0, 212, 255, 0.06);
+}
+.drop-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+.drop-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--txt);
+  margin-bottom: 4px;
+}
+.drop-text span {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+.drop-sub {
+  font-size: 0.74rem;
+  color: var(--txt3);
+  font-family: var(--font-mono);
+}
+
+/* Selected File */
+.selected-file-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: var(--r2);
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.file-icon { font-size: 1.2rem; }
+.file-name {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--txt);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-remove {
+  background: transparent;
+  border: none;
+  color: var(--rose);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+/* Actions */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Success Receipt */
+.success-icon {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-size: 26px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px auto;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.3);
+}
+.success-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.success-sub {
+  font-size: 0.84rem;
+  color: var(--txt2);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.receipt-card {
+  background: rgba(0, 212, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 15px 16px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.84rem;
+}
+.receipt-label {
+  color: var(--txt3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.receipt-val {
+  font-weight: 600;
+  color: var(--txt);
+  text-align: right;
+}
+.receipt-val.code {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TOAST NOTIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.toast-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(8, 18, 36, 0.94);
+  border: 1px solid var(--cyan);
+  border-radius: var(--r2);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 0.86rem;
+  font-family: var(--font-body);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 212, 255, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 2000;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+.toast-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   KEYFRAMES & RESPONSIVE DESIGN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); width: min(860px, 96vw); }
+  .table-wrap { max-height: 58vh; }
+  .rubric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-line1 { font-size: clamp(2rem, 7.5vw, 3.8rem); }
+  .hero-line2 { font-size: clamp(1.2rem, 4.5vw, 2.2rem); }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .guidelines-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .site-nav {
+    padding: 5px 8px 5px 14px;
+    gap: 10px;
+  }
+  .nav-sub { display: none; }
+  .nav-link { padding: 5px 9px; font-size: 0.78rem; }
+  .nav-btn-submit { padding: 5px 11px; font-size: 0.78rem; }
+
+  .page { padding: clamp(80px, 14vw, 100px) clamp(12px, 3.5vw, 32px) clamp(32px, 6vw, 60px); }
+  #home { padding-top: clamp(86px, 15vw, 110px); }
+  #subjects, #topics, #deadlines, #rai-detail, #rsm-detail, #tmmd-detail, #pe-detail, #ra-detail {
+    padding-top: clamp(86px, 15vw, 110px);
+  }
+  .section-title { font-size: clamp(1.4rem, 4.5vw, 2.4rem); }
+  .detail-header h2 { font-size: clamp(1.3rem, 4vw, 2rem); }
+  .back-btn { padding: 8px 14px; font-size: 11px; }
+  .table-wrap { width: min(860px, 97vw); max-height: 54vh; }
+  .toast-popup { bottom: 16px; right: 16px; left: 16px; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    width: 96vw;
+    justify-content: space-between;
+  }
+  .cards-grid { grid-template-columns: 1fr; width: min(480px, 96vw); gap: 12px; }
+  .form-row.two-col { grid-template-columns: 1fr; gap: 10px; }
+  .btn-primary, .btn-secondary { width: 100%; white-space: normal; text-align: center; }
+  .table-wrap { max-height: 50vh; }
+  .td-topic { max-width: 200px; }
+  .search-wrap { width: 96vw; }
+  .rubric-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .modal-actions { flex-direction: column-reverse; }
+  .modal-actions button { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .hero-line1 { font-size: clamp(1.8rem, 8.5vw, 2.8rem); }
+  .hero-line2 { font-size: clamp(1.1rem, 5vw, 1.7rem); }
+  .notice-card { width: 96vw; padding: 14px 16px; }
+  .stat-num { font-size: 1.6rem; }
+  .stat-lbl { font-size: 9px; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- FIXED BACKGROUND SYSTEM -->
+<div class="bg-layer bg-mesh"></div>
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer bg-noise"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<canvas id="constellation"></canvas>
+
+<!-- FLOATING TOP NAVIGATION PILL -->
+<header class="site-nav-wrap">
+  <div class="site-nav">
+    <div class="nav-brand" onclick="nav('home')">
+      <span class="nav-dot"></span>
+      <span class="nav-title">AIR 5A</span>
+    </div>
+    <nav class="nav-links">
+      <button class="nav-link active" onclick="nav('home')" data-nav="home">Home</button>
+      <button class="nav-link" onclick="nav('subjects')" data-nav="subjects">Subjects</button>
+      <button class="nav-link" onclick="nav('topics')" data-nav="topics">Topics</button>
+      <button class="nav-link" onclick="nav('deadlines')" data-nav="deadlines">Deadlines</button>
+    </nav>
+    <button class="nav-btn-submit" onclick="nav('subjects')">
+      <span>Submit PPT</span>
+      <span class="btn-arrow">↗</span>
+    </button>
+  </div>
+</header>
+
+<!-- =========================================================================
+     PAGE 1: HOME LANDING PAGE
+========================================================================= -->
+<div class="page active" id="home">
+
+  <div class="uni-badge">
+    <span class="uni-badge-pulse"></span>
+    Brainware University &nbsp;•&nbsp; Department of CSE-AI
+  </div>
+
+  <h1 class="hero-title">
+    <span class="hero-line1">B.Tech.(CSE)-AIR 2024</span>
+    <span class="hero-line2">PPT Submission Portal</span>
+  </h1>
+
+  <p class="hero-sub">
+    <span>Section 5A • Presentation & Topic Directory</span> &nbsp;/&nbsp; Academic Year 2025–26
+  </p>
+
+  <div class="notice-card">
+    <div class="notice-label">
+      ⚠ &nbsp;Important Notice & Presentation Guidelines
+    </div>
+    Please ensure your presentation file name is formatted strictly as <code>[SubjectCode]_[StudentCode]_[FullName].pptx</code>.
+    <br><strong>Strictly adhere to the last submission deadline for all 5 core subjects. • Use your university credentials to verify your upload receipt.</strong>
+  </div>
+
+  <div class="cta-group">
+    <button class="btn-primary" id="ctaBtn" onclick="nav('subjects')" aria-label="Go to subject list to submit your presentation">
+      <span class="btn-label">Submit Your PPT</span>
+      <span class="btn-icon">→</span>
+    </button>
+    <button class="btn-secondary" id="topicBtn" aria-label="Know your presentation topic">
+      <span class="btn-label">PPT Topics</span>
+      <span class="btn-icon">↗</span>
+    </button>
+    <button class="btn-secondary" id="deadlineBtn" style="border-color: rgba(244, 63, 94, 0.4);" aria-label="Check the last submission date">
+      <span class="btn-label">PPT Deadlines</span>
+      <span class="btn-icon">📅</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- =========================================================================
+     PAGE 2: SUBJECTS LISTING PAGE
+========================================================================= -->
+<div class="page" id="subjects">
+  <button class="back-btn" id="backBtn">← Back</button>
+
+  <div class="section-header">
+    <div class="section-eyebrow">Semester 5 Subjects</div>
+    <h2 class="section-title">Select <em>The Subject</em></h2>
+    <p class="section-desc">Tap a subject to view assigned presentation topics, guidelines, and submit your presentation slides</p>
+  </div>
+
+  <div class="cards-grid" role="list">
+
+    <!-- Subject 01 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 01</div>
+      <div>
+        <div class="card-name">Robotics and Artificial Intelligence</div>
+        <div class="card-code">BTR50112</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 14, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('rai-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50112')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('rai-detail')">↗</div>
+    </div>
+
+    <!-- Subject 02 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 02</div>
+      <div>
+        <div class="card-name">Robot Safety and Maintenance</div>
+        <div class="card-code">BTR50113</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 16, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('rsm-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50113')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('rsm-detail')">↗</div>
+    </div>
+
+    <!-- Subject 03 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 03</div>
+      <div>
+        <div class="card-name">Theory of Machine & Machine Design</div>
+        <div class="card-code">BTR50114</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 18, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('tmmd-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50114')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('tmmd-detail')">↗</div>
+    </div>
+
+    <!-- Subject 04 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 04</div>
+      <div>
+        <div class="card-name">Professional Ethics</div>
+        <div class="card-code">BTR50115</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 20, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('pe-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50115')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('pe-detail')">↗</div>
+    </div>
+
+    <!-- Subject 05 -->
+    <div class="subject-card" role="listitem">
+      <div class="card-num">Subject 05</div>
+      <div>
+        <div class="card-name">Robotic Algorithms</div>
+        <div class="card-code">BTR50116</div>
+      </div>
+      <div class="card-deadline">📅 Last Submission Date: April 22, 2026</div>
+      <div class="card-actions">
+        <button class="card-action-btn primary" onclick="nav('ra-detail')">View Topics & Schedule ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50116')">Submit PPT ↗</button>
+      </div>
+      <div class="card-arrow" onclick="nav('ra-detail')">↗</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 3: MASTER TOPICS DIRECTORY
+========================================================================= -->
+<div class="page" id="topics">
+  <button class="back-btn" id="backBtn2">← Back</button>
+
+  <div class="section-header">
+    <div class="section-eyebrow">Find Your Topic</div>
+    <h2 class="section-title">Your <em>Presentation Topics</em></h2>
+    <p class="section-desc">Locate your Student Code or Name across all 5 subjects, or filter by specific subject</p>
+  </div>
+
+  <!-- Subject Quick Launch Grid -->
+  <div class="cards-grid" role="list">
+    <div class="topic-card clickable" id="raiCard" role="listitem" tabindex="0" aria-label="View Robotics & AI topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 01</div>
+      <div>
+        <div class="card-name">Robotics and Artificial Intelligence</div>
+        <div class="card-code">BTR50112</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="rsmCard" role="listitem" tabindex="0" aria-label="View Robot Safety topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 02</div>
+      <div>
+        <div class="card-name">Robot Safety and Maintenance</div>
+        <div class="card-code">BTR50113</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="tmmdCard" role="listitem" tabindex="0" aria-label="View Theory of Machine topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 03</div>
+      <div>
+        <div class="card-name">Theory of Machine & Machine Design</div>
+        <div class="card-code">BTR50114</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="peCard" role="listitem" tabindex="0" aria-label="View Professional Ethics topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 04</div>
+      <div>
+        <div class="card-name">Professional Ethics</div>
+        <div class="card-code">BTR50115</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+
+    <div class="topic-card clickable" id="raCard" role="listitem" tabindex="0" aria-label="View Robotic Algorithms topics">
+      <div class="card-num" style="color:var(--cyan);background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.22);">Subject 05</div>
+      <div>
+        <div class="card-name">Robotic Algorithms</div>
+        <div class="card-code">BTR50116</div>
+      </div>
+      <div class="card-status-ready">✓ &nbsp;56 Topics available — click to view</div>
+      <div class="card-arrow">↗</div>
+    </div>
+  </div>
+
+  <!-- Master Universal Search & Filter Section -->
+  <div class="search-section-box">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="masterSearch" type="search" placeholder="Search across all subjects by student code, name, or topic…" autocomplete="off" spellcheck="false">
+    </div>
+
+    <div class="filter-pills" id="masterFilterPills">
+      <button class="filter-btn active" data-filter="all">All Subjects (280)</button>
+      <button class="filter-btn" data-filter="rai">Robotics & AI</button>
+      <button class="filter-btn" data-filter="rsm">Robot Safety</button>
+      <button class="filter-btn" data-filter="tmmd">Machine Design</button>
+      <button class="filter-btn" data-filter="pe">Prof. Ethics</button>
+      <button class="filter-btn" data-filter="ra">Robotic Algorithms</button>
+    </div>
+
+    <div class="search-count" id="masterCount">Showing all <strong>280</strong> topic allocations</div>
+
+    <div class="table-wrap">
+      <table class="data-table" id="masterTable">
+        <thead>
+          <tr>
+            <th>Sl.</th>
+            <th>Subject</th>
+            <th>Student Code</th>
+            <th>Name</th>
+            <th>Presentation Topic</th>
+            <th>Presentation Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="masterTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 4: SUBMISSION DEADLINES
+========================================================================= -->
+<div class="page" id="deadlines">
+  <button class="back-btn" id="backBtn6">← Back</button>
+  
+  <div class="detail-header">
+    <div class="section-eyebrow">Submission Calendar</div>
+    <h2>Submission <em>Deadlines</em></h2>
+    <p>Final dates for PPT submission & presentation schedule — Semester 5 (AIR 5A)</p>
+  </div>
+  
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Subject Name</th>
+          <th>Subject Code</th>
+          <th>Soft Copy Deadline</th>
+          <th>Presentation Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-sl">01</td>
+          <td class="td-name">Robotics and Artificial Intelligence</td>
+          <td class="td-code">BTR50112</td>
+          <td class="td-date">April 14, 2026</td>
+          <td class="td-date">April 21, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50112')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">02</td>
+          <td class="td-name">Robot Safety and Maintenance</td>
+          <td class="td-code">BTR50113</td>
+          <td class="td-date">April 16, 2026</td>
+          <td class="td-date">April 23, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50113')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">03</td>
+          <td class="td-name">Theory of Machine & Machine Design</td>
+          <td class="td-code">BTR50114</td>
+          <td class="td-date">April 18, 2026</td>
+          <td class="td-date">April 25, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50114')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">04</td>
+          <td class="td-name">Professional Ethics</td>
+          <td class="td-code">BTR50115</td>
+          <td class="td-date">April 20, 2026</td>
+          <td class="td-date">April 28, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50115')">Submit</button></td>
+        </tr>
+        <tr>
+          <td class="td-sl">05</td>
+          <td class="td-name">Robotic Algorithms</td>
+          <td class="td-code">BTR50116</td>
+          <td class="td-date">April 22, 2026</td>
+          <td class="td-date">April 30, 2026</td>
+          <td><span class="status-badge live">ACTIVE</span></td>
+          <td><button class="table-btn-submit" onclick="openSubmitModal('BTR50116')">Submit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="evaluation-rules-box">
+    <h3>Evaluation Rubric & Guidelines</h3>
+    <div class="rubric-grid">
+      <div class="rubric-item">
+        <span class="rubric-percent">40%</span>
+        <div class="rubric-label">Technical Depth & Methodology</div>
+      </div>
+      <div class="rubric-item">
+        <span class="rubric-percent">20%</span>
+        <div class="rubric-label">Slide Design & Structure</div>
+      </div>
+      <div class="rubric-item">
+        <span class="rubric-percent">20%</span>
+        <div class="rubric-label">Presentation & Articulation</div>
+      </div>
+      <div class="rubric-item">
+        <span class="rubric-percent">20%</span>
+        <div class="rubric-label">Viva & Faculty Q&A</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 5: SUBJECT DETAIL - ROBOTICS AND AI (BTR50112)
+========================================================================= -->
+<div class="page" id="rai-detail">
+  <button class="back-btn" id="backBtn3">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Robotics and <em>Artificial Intelligence</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50112</span>
+    <span class="meta-pill slate">4 Credits • Dept. of CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="raiSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="raiCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="raiTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="raiTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50112')">Submit PPT for Robotics & AI →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 6: SUBJECT DETAIL - ROBOT SAFETY & MAINTENANCE (BTR50113)
+========================================================================= -->
+<div class="page" id="rsm-detail">
+  <button class="back-btn" id="backBtn4">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Robot Safety and <em>Maintenance</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50113</span>
+    <span class="meta-pill slate">3 Credits • Dept. of CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="rsmSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="rsmCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="rsmTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="rsmTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50113')">Submit PPT for Robot Safety →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 7: SUBJECT DETAIL - THEORY OF MACHINE & MACHINE DESIGN (BTR50114)
+========================================================================= -->
+<div class="page" id="tmmd-detail">
+  <button class="back-btn" id="backBtn5">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Theory of Machine & <em>Machine Design</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50114</span>
+    <span class="meta-pill slate">4 Credits • Dept. of Mechanical & CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="tmmdSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="tmmdCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="tmmdTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tmmdTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50114')">Submit PPT for Machine Design →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 8: SUBJECT DETAIL - PROFESSIONAL ETHICS (BTR50115)
+========================================================================= -->
+<div class="page" id="pe-detail">
+  <button class="back-btn" id="backBtn7">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Professional <em>Ethics</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50115</span>
+    <span class="meta-pill slate">2 Credits • Humanities & Social Sciences</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="peSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="peCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="peTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="peTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50115')">Submit PPT for Professional Ethics →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     PAGE 9: SUBJECT DETAIL - ROBOTIC ALGORITHMS (BTR50116)
+========================================================================= -->
+<div class="page" id="ra-detail">
+  <button class="back-btn" id="backBtn8">← Back to Subjects</button>
+  <div class="detail-header">
+    <h2>Robotic <em>Algorithms</em></h2>
+    <p>B.Tech.(CSE) – AIR 2024 &nbsp;·&nbsp; Year 3 • Semester 5 (Section 5A)</p>
+  </div>
+  <div class="detail-meta">
+    <span class="meta-pill cyan">BTR50116</span>
+    <span class="meta-pill slate">4 Credits • Dept. of CSE</span>
+    <span class="meta-pill slate">Date Format: dd/mm/yyyy</span>
+    <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">SUBMISSION OPEN</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="raSearch" type="search" placeholder="Search by student code, name or topic…" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="search-count" id="raCount">Showing all <strong>56</strong> students</div>
+  <div class="table-wrap">
+    <table class="data-table" id="raTable">
+      <thead>
+        <tr>
+          <th>Sl.</th>
+          <th>Student Code</th>
+          <th>Name</th>
+          <th>Soft Copy Date</th>
+          <th>Presentation Topic</th>
+          <th>Presentation Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="raTbody"></tbody>
+    </table>
+  </div>
+  <div class="detail-footer-action">
+    <button class="btn-primary" onclick="openSubmitModal('BTR50116')">Submit PPT for Robotic Algorithms →</button>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     INTERACTIVE PPT SUBMISSION MODAL
+========================================================================= -->
+<div class="modal-backdrop" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-badge">Direct Upload</div>
+      <h3 id="modalTitle">Submit Your Presentation</h3>
+      <button class="modal-close" onclick="closeSubmitModal()" aria-label="Close dialog">×</button>
+    </div>
+
+    <!-- Form View -->
+    <div id="modalFormView">
+      <form id="pptUploadForm" onsubmit="handleFormSubmit(event)">
+        
+        <div class="form-group">
+          <label for="modalSubject">Select Subject</label>
+          <select id="modalSubject" required onchange="onModalSubjectChange()">
+            <option value="">-- Choose Subject --</option>
+            <option value="BTR50112">Robotics and Artificial Intelligence (BTR50112)</option>
+            <option value="BTR50113">Robot Safety and Maintenance (BTR50113)</option>
+            <option value="BTR50114">Theory of Machine & Machine Design (BTR50114)</option>
+            <option value="BTR50115">Professional Ethics (BTR50115)</option>
+            <option value="BTR50116">Robotic Algorithms (BTR50116)</option>
+          </select>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="modalRoll">Student Code / Roll</label>
+            <input type="text" id="modalRoll" placeholder="e.g. BWU/BAR/24/001" required autocomplete="off" oninput="onModalRollInput()">
+          </div>
+          <div class="form-group">
+            <label for="modalName">Full Name</label>
+            <input type="text" id="modalName" placeholder="Full Student Name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modalTopic">Assigned Presentation Topic</label>
+          <input type="text" id="modalTopic" placeholder="Topic will auto-fill from roster..." required>
+        </div>
+
+        <div class="form-group">
+          <label>Attach Presentation File (.pptx, .ppt, .pdf)</label>
+          <div class="drop-zone" id="modalDropZone">
+            <div class="drop-icon">📁</div>
+            <div class="drop-text">Drag & drop your presentation file here, or <span>Browse</span></div>
+            <div class="drop-sub">Accepted formats: .pptx, .ppt, .pdf (Max size: 50MB)</div>
+            <input type="file" id="modalFileInput" accept=".pptx,.ppt,.pdf" style="display:none" onchange="onFileSelected(this)">
+          </div>
+          <div class="selected-file-badge" id="selectedFileBadge" style="display:none">
+            <span class="file-icon">📄</span>
+            <span class="file-name" id="selectedFileName"></span>
+            <button type="button" class="file-remove" onclick="removeSelectedFile()">×</button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" onclick="closeSubmitModal()">Cancel</button>
+          <button type="submit" class="btn-primary" id="modalSubmitBtn">
+            <span class="btn-label">Submit Presentation</span>
+            <span class="btn-icon">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success / Receipt View -->
+    <div id="modalSuccessView" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="success-title">Presentation Submitted!</h3>
+      <p class="success-sub">Your presentation has been verified and registered in the departmental evaluation log.</p>
+      
+      <div class="receipt-card">
+        <div class="receipt-row">
+          <span class="receipt-label">Receipt Code:</span>
+          <span class="receipt-val code" id="receiptId">AIR5A-BTR50112-001-9921</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Student:</span>
+          <span class="receipt-val" id="receiptStudent">SOUMEN BHANDARI (BWU/BAR/24/001)</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Subject:</span>
+          <span class="receipt-val" id="receiptSubject">Robotics and Artificial Intelligence</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Topic:</span>
+          <span class="receipt-val" id="receiptTopic">Forward and Inverse Kinematics in Articulated Arms</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Timestamp:</span>
+          <span class="receipt-val" id="receiptTime"></span>
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top:20px;">
+        <button class="btn-secondary" onclick="copyReceiptCode()">Copy Receipt ID</button>
+        <button class="btn-primary" onclick="closeSubmitModal()">Done</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast" class="toast-popup"></div>
+
+<script>
+/**
+ * B.Tech.(CSE)-AIR 2024 · Semester 5 (Section 5A)
+ * PPT Submission Portal & Presentation Allocation Manager
+ * Brainware University - Department of CSE-AI
+ */
+
+/* ══════════════════════════════════════════
+   1. CONSTELLATION CANVAS ENGINE
+══════════════════════════════════════════ */
+(function initConstellation(){
+  const canvas = document.getElementById('constellation');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  let W = 0, H = 0, dots = [];
+  const N = window.innerWidth < 600 ? 28 : 55;
+  const MAX_DIST = window.innerWidth < 600 ? 95 : 135;
+
+  function resize(){ 
+    W = canvas.width = window.innerWidth || document.documentElement.clientWidth || 1200; 
+    H = canvas.height = window.innerHeight || document.documentElement.clientHeight || 800; 
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  for(let i = 0; i < N; i++){
+    dots.push({
+      x: Math.random() * (W || 1200), 
+      y: Math.random() * (H || 800),
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 1.6 + 0.6,
+      c: i % 4 === 0 ? '#00d4ff' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#f59e0b' : '#10b981'
+    });
+  }
+
+  function draw(){
+    if (!ctx) return;
+    ctx.clearRect(0, 0, W, H);
+    dots.forEach(d => {
+      d.x += d.vx; 
+      d.y += d.vy;
+      if(d.x < 0 || d.x > W) d.vx *= -1;
+      if(d.y < 0 || d.y > H) d.vy *= -1;
+    });
+
+    for(let i = 0; i < dots.length; i++){
+      for(let j = i + 1; j < dots.length; j++){
+        const dx = dots[i].x - dots[j].x;
+        const dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if(dist < MAX_DIST){
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / MAX_DIST) * 0.16})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    dots.forEach(d => {
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = d.c + '99';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ══════════════════════════════════════════
+   2. DATASET DEFINITIONS (SEM 5 - 5 SUBJECTS)
+══════════════════════════════════════════ */
+const SUBJECTS_META = [
+  {
+    "id": "rai",
+    "code": "BTR50112",
+    "name": "Robotics and Artificial Intelligence",
+    "short": "Robotics & AI",
+    "softDeadline": "14/04/2026",
+    "presDate": "21/04/2026",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "rsm",
+    "code": "BTR50113",
+    "name": "Robot Safety and Maintenance",
+    "short": "Robot Safety",
+    "softDeadline": "16/04/2026",
+    "presDate": "23/04/2026",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "tmmd",
+    "code": "BTR50114",
+    "name": "Theory of Machine & Machine Design",
+    "short": "Machine Design",
+    "softDeadline": "18/04/2026",
+    "presDate": "25/04/2026",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "pe",
+    "code": "BTR50115",
+    "name": "Professional Ethics",
+    "short": "Prof. Ethics",
+    "softDeadline": "20/04/2026",
+    "presDate": "28/04/2026",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "ra",
+    "code": "BTR50116",
+    "name": "Robotic Algorithms",
+    "short": "Robotic Algorithms",
+    "softDeadline": "22/04/2026",
+    "presDate": "30/04/2026",
+    "status": "ACTIVE"
+  }
+];
+
+const raiData = [
+  {
+    "sl": 1,
+    "code": "BWU/BAR/24/001",
+    "name": "SOUMEN BHANDARI",
+    "sub": "14/04/2026",
+    "topic": "Forward and Inverse Kinematics in Articulated Robotic Arms",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 2,
+    "code": "BWU/BAR/24/002",
+    "name": "DHRUBAJOTI KAR",
+    "sub": "14/04/2026",
+    "topic": "Denavit-Hartenberg (D-H) Parameter Representation for Manipulators",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 3,
+    "code": "BWU/BAR/24/003",
+    "name": "NIMESH SAMANTA",
+    "sub": "14/04/2026",
+    "topic": "Computer Vision & Deep Learning in Robotic Object Manipulation",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 4,
+    "code": "BWU/BAR/24/004",
+    "name": "SUBHAJIT BHAKTA",
+    "sub": "14/04/2026",
+    "topic": "Deep Reinforcement Learning for Autonomous Mobile Navigation",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 5,
+    "code": "BWU/BAR/24/007",
+    "name": "ATANU BISWAS",
+    "sub": "14/04/2026",
+    "topic": "Simultaneous Localization and Mapping (SLAM) Algorithms in ROS",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 6,
+    "code": "BWU/BAR/24/008",
+    "name": "JOGA JYOTHENDRAVEERAVENKATAS ATYASURYAKANTH",
+    "sub": "14/04/2026",
+    "topic": "Swarm Robotics: Decentralized Coordination & Flocking",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 7,
+    "code": "BWU/BAR/24/009",
+    "name": "SANIA AKTAR",
+    "sub": "14/04/2026",
+    "topic": "Heuristic Path Planning using A* and Dynamic RRT* Algorithms",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 8,
+    "code": "BWU/BAR/24/010",
+    "name": "DIPSIKHA PAYRA",
+    "sub": "14/04/2026",
+    "topic": "Real-Time Object Detection using YOLO for Pick-and-Place Robots",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 9,
+    "code": "BWU/BAR/24/011",
+    "name": "SUPARNA GHORA",
+    "sub": "14/04/2026",
+    "topic": "End-Effector Trajectory Generation with Smooth Polynomial Splines",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 10,
+    "code": "BWU/BAR/24/012",
+    "name": "DIPIKA MAITY",
+    "sub": "14/04/2026",
+    "topic": "Human-Robot Interaction (HRI) & Collaborative Robotics (Cobots)",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 11,
+    "code": "BWU/BAR/24/013",
+    "name": "AKASH BAIRAGI",
+    "sub": "14/04/2026",
+    "topic": "Transformer-Based Foundation Models in Vision-Language-Action Robotics",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 12,
+    "code": "BWU/BAR/24/014",
+    "name": "ANKAN DUTTA",
+    "sub": "14/04/2026",
+    "topic": "Sensor Fusion with Extended Kalman Filter (EKF) for Mobile Robots",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 13,
+    "code": "BWU/BAR/24/015",
+    "name": "ARNAB SAHANA",
+    "sub": "14/04/2026",
+    "topic": "LiDAR vs Depth Camera 3D Perception in Unstructured Environments",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 14,
+    "code": "BWU/BAR/24/016",
+    "name": "SUPRAJIT DE",
+    "sub": "14/04/2026",
+    "topic": "Embedded Edge AI Hardware Acceleration for Autonomous Drones",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 15,
+    "code": "BWU/BAR/24/019",
+    "name": "SHILPI BHOWMICK",
+    "sub": "14/04/2026",
+    "topic": "Generative AI & LLM Integration for High-Level Robot Task Planning",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 16,
+    "code": "BWU/BAR/24/020",
+    "name": "MAHUYA BHOWMICK",
+    "sub": "14/04/2026",
+    "topic": "Force and Torque Feedback Control in Precision Robotic Surgery",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 17,
+    "code": "BWU/BAR/24/021",
+    "name": "SAIKAT HAZRA",
+    "sub": "14/04/2026",
+    "topic": "Autonomous Mobile Robots (AMRs) in Smart Warehouse Logistics",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 18,
+    "code": "BWU/BAR/24/023",
+    "name": "SK SAHIL UDDIN",
+    "sub": "14/04/2026",
+    "topic": "Semantic Scene Segmentation for Autonomous Ground Vehicles",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 19,
+    "code": "BWU/BAR/24/027",
+    "name": "SHANE ALI",
+    "sub": "14/04/2026",
+    "topic": "Reinforcement Learning for Bipedal and Quadrupedal Locomotion",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 20,
+    "code": "BWU/BAR/24/028",
+    "name": "PRERANA BANERJEE",
+    "sub": "14/04/2026",
+    "topic": "Soft Robotics: Pneumatic Actuators and Biomimetic Grippers",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 21,
+    "code": "BWU/BAR/24/029",
+    "name": "ARNAB KUMAR JANA",
+    "sub": "14/04/2026",
+    "topic": "Visual Odometry and Pose Estimation in GPS-Denied Environments",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 22,
+    "code": "BWU/BAR/24/030",
+    "name": "ARIJIT SAIN",
+    "sub": "14/04/2026",
+    "topic": "Kinematic Singularity Avoidance and Manipulability Ellipsoids",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 23,
+    "code": "BWU/BAR/24/031",
+    "name": "UJJAL DOLUI",
+    "sub": "14/04/2026",
+    "topic": "Imitation Learning & Behavioral Cloning from Human Demonstrations",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 24,
+    "code": "BWU/BAR/24/033",
+    "name": "ABHISHEK MONDAL",
+    "sub": "14/04/2026",
+    "topic": "Micro-Aerial Vehicle (MAV) Flight Dynamics and Stabilization",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 25,
+    "code": "BWU/BAR/24/034",
+    "name": "SANDIP PARAMANIK",
+    "sub": "14/04/2026",
+    "topic": "Underwater Autonomous Vehicles (AUVs): Perception and Control",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 26,
+    "code": "BWU/BAR/24/035",
+    "name": "ARITRA MALIK",
+    "sub": "14/04/2026",
+    "topic": "Agricultural Field Robotics: Autonomous Harvesting and Weed Control",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 27,
+    "code": "BWU/BAR/24/036",
+    "name": "ANIRBAN SARKAR",
+    "sub": "14/04/2026",
+    "topic": "Brain-Computer Interfaces (BCI) for Prosthetic Robotic Limbs",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 28,
+    "code": "BWU/BAR/24/037",
+    "name": "ANUBRATA BHATTACHARYA",
+    "sub": "14/04/2026",
+    "topic": "Model Predictive Control (MPC) for High-Speed Autonomous Driving",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 29,
+    "code": "BWU/BAR/24/038",
+    "name": "MOULENDU SINHA",
+    "sub": "14/04/2026",
+    "topic": "Bio-Inspired Robotics: Gecko-Like Adhesive Climbing Mechanisms",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 30,
+    "code": "BWU/BAR/24/039",
+    "name": "MALAIKA FIRDOUS AMIR",
+    "sub": "14/04/2026",
+    "topic": "Tactile Sensing Arrays and Electronic Skin for Robotic Grippers",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 31,
+    "code": "BWU/BAR/24/040",
+    "name": "PRIYAM JANA",
+    "sub": "14/04/2026",
+    "topic": "Robotic Exoskeletons for Rehabilitation and Industrial Ergonomics",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 32,
+    "code": "BWU/BAR/24/042",
+    "name": "SOUMIK PAL",
+    "sub": "14/04/2026",
+    "topic": "Space Robotics: Autonomous Manipulation on Orbital Platforms",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 33,
+    "code": "BWU/BAR/24/044",
+    "name": "HIRAK GANGULY",
+    "sub": "14/04/2026",
+    "topic": "3D Point Cloud Processing with PointNet for Robotic Perception",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 34,
+    "code": "BWU/BAR/24/045",
+    "name": "SIBKATULLA AL ISLAM",
+    "sub": "14/04/2026",
+    "topic": "Stereo Vision vs Monocular Depth Estimation in Robotics",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 35,
+    "code": "BWU/BAR/24/046",
+    "name": "TURNA BERA",
+    "sub": "14/04/2026",
+    "topic": "Dynamic Obstacle Tracking and Collision Avoidance with Velocity Obstacles",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 36,
+    "code": "BWU/BAR/24/047",
+    "name": "KUNTAL MANDAL",
+    "sub": "14/04/2026",
+    "topic": "Multi-Robot Task Allocation (MRTA) and Fleet Management",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 37,
+    "code": "BWU/BAR/24/048",
+    "name": "SUDIP DAS",
+    "sub": "14/04/2026",
+    "topic": "Domain Randomization for Sim-to-Real Transfer in Robotic Learning",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 38,
+    "code": "BWU/BAR/24/049",
+    "name": "RAJARSHEE BERA",
+    "sub": "14/04/2026",
+    "topic": "Compliant Joint Mechanisms and Variable Impedance Actuation",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 39,
+    "code": "BWU/BAR/24/050",
+    "name": "KAZI WASIM AKRAM",
+    "sub": "14/04/2026",
+    "topic": "Autonomous Search and Rescue Robotics in Disaster Scenarios",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 40,
+    "code": "BWU/BAR/24/052",
+    "name": "GAUSUL AZAM SK",
+    "sub": "14/04/2026",
+    "topic": "Thermal Imaging and Hyperspectral Vision in Inspection Robots",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 41,
+    "code": "BWU/BAR/24/053",
+    "name": "MASUDUL ALAM",
+    "sub": "14/04/2026",
+    "topic": "Self-Reconfigurable Modular Robots: Mechanics and Algorithms",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 42,
+    "code": "BWU/BAR/24/054",
+    "name": "SUBHAM KUMBHAKAR",
+    "sub": "14/04/2026",
+    "topic": "Teleoperation with Haptic Feedback and Low-Latency Networks",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 43,
+    "code": "BWU/BAR/24/055",
+    "name": "ARITRIK DEV",
+    "sub": "14/04/2026",
+    "topic": "Active Perception and Next-Best-View Exploration in Unknown Spaces",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 44,
+    "code": "BWU/BAR/24/056",
+    "name": "KRISH BISHWAKARMA",
+    "sub": "14/04/2026",
+    "topic": "Energy-Efficient Trajectory Optimization for Battery-Powered AMRs",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 45,
+    "code": "BWU/BAR/24/057",
+    "name": "BARNALI MANDAL",
+    "sub": "14/04/2026",
+    "topic": "Acoustic and Ultrasonic Sensing for Robotic Non-Destructive Testing",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 46,
+    "code": "BWU/BAR/24/058",
+    "name": "ROHAN KAR",
+    "sub": "14/04/2026",
+    "topic": "Zero-Shot Robot Manipulation using Open-Vocabulary Foundation Models",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 47,
+    "code": "BWU/BAR/24/059",
+    "name": "ROHON DAS",
+    "sub": "14/04/2026",
+    "topic": "Wearable Sensors for Human Motion Capture and Robotic Teleoperation",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 48,
+    "code": "BWU/BAR/24/062",
+    "name": "DEBABRATA DEY",
+    "sub": "14/04/2026",
+    "topic": "Digital Twins for Real-Time Robot Telemetry and Predictive Analytics",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 49,
+    "code": "BWU/BAR/24/063",
+    "name": "PRAGYANSHU SAGAR GIRI",
+    "sub": "14/04/2026",
+    "topic": "High-Precision Micro-Robotics for Biomedical Drug Delivery",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 50,
+    "code": "BWU/BAR/24/065",
+    "name": "MAHAPRASHAD KARMAKAR",
+    "sub": "14/04/2026",
+    "topic": "Field Inspection Drones: Autonomous Pipeline and Wind Turbine Survey",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 51,
+    "code": "BWU/BAR/24/066",
+    "name": "Mohit Kumar",
+    "sub": "14/04/2026",
+    "topic": "Vision-Guided Autonomous Docking and Wireless Recharging Systems",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 52,
+    "code": "BWU/BAR/24/069",
+    "name": "Biswajit Chakraborty",
+    "sub": "14/04/2026",
+    "topic": "Safety-Critical Control Barriers (CBFs) in Autonomous Robotics",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 53,
+    "code": "BWU/BAR/24/070",
+    "name": "Disha Mandal",
+    "sub": "14/04/2026",
+    "topic": "Robotic Bartending and Food Preparation: Food-Grade Automation",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 54,
+    "code": "BWU/BAR/24/071",
+    "name": "Dipan Paul",
+    "sub": "14/04/2026",
+    "topic": "Autonomous Lawn Care and Janitorial Robots: Coverage Path Planning",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 55,
+    "code": "BWU/BAR/24/072",
+    "name": "Sagar Sk",
+    "sub": "14/04/2026",
+    "topic": "Neuromorphic Event-Based Cameras for High-Speed Robotic Vision",
+    "pres": "21/04/2026"
+  },
+  {
+    "sl": 56,
+    "code": "BWU/BAR/24/073",
+    "name": "Sayan Basak",
+    "sub": "14/04/2026",
+    "topic": "Future Horizons of Artificial General Intelligence in Embodied Robotics",
+    "pres": "21/04/2026"
+  }
+];
+const rsmData = [
+  {
+    "sl": 1,
+    "code": "BWU/BAR/24/001",
+    "name": "SOUMEN BHANDARI",
+    "sub": "16/04/2026",
+    "topic": "ISO 10218-1 & ISO 10218-2 Industrial Robot Safety Compliance Standards",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 2,
+    "code": "BWU/BAR/24/002",
+    "name": "DHRUBAJOTI KAR",
+    "sub": "16/04/2026",
+    "topic": "ISO/TS 15066 Technical Specifications for Collaborative Industrial Robots",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 3,
+    "code": "BWU/BAR/24/003",
+    "name": "NIMESH SAMANTA",
+    "sub": "16/04/2026",
+    "topic": "Hazard Identification & Risk Assessment (HIRA) in Automated Cells",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 4,
+    "code": "BWU/BAR/24/004",
+    "name": "SUBHAJIT BHAKTA",
+    "sub": "16/04/2026",
+    "topic": "Safety Integrity Levels (SIL) and Safety Instrumented Systems (SIS)",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 5,
+    "code": "BWU/BAR/24/007",
+    "name": "ATANU BISWAS",
+    "sub": "16/04/2026",
+    "topic": "Category 4 Safety Circuits and Hardwired Emergency Stop Architecture",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 6,
+    "code": "BWU/BAR/24/008",
+    "name": "JOGA JYOTHENDRAVEERAVENKATAS ATYASURYAKANTH",
+    "sub": "16/04/2026",
+    "topic": "Optical Safety Devices: Safety Light Curtains and Area Laser Scanners",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 7,
+    "code": "BWU/BAR/24/009",
+    "name": "SANIA AKTAR",
+    "sub": "16/04/2026",
+    "topic": "Predictive vs Preventive Maintenance in Heavy Industrial Automation",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 8,
+    "code": "BWU/BAR/24/010",
+    "name": "DIPSIKHA PAYRA",
+    "sub": "16/04/2026",
+    "topic": "Vibration Analysis & Spectral FFT for Robot Joint Bearing Health",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 9,
+    "code": "BWU/BAR/24/011",
+    "name": "SUPARNA GHORA",
+    "sub": "16/04/2026",
+    "topic": "Infrared Thermography for Early Servo Motor Winding Failure Detection",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 10,
+    "code": "BWU/BAR/24/012",
+    "name": "DIPIKA MAITY",
+    "sub": "16/04/2026",
+    "topic": "Harmonic Drive & Cycloidal Gearbox Wear Diagnostics and Tribology",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 11,
+    "code": "BWU/BAR/24/013",
+    "name": "AKASH BAIRAGI",
+    "sub": "16/04/2026",
+    "topic": "Flex-Cable Harness Fatigue Monitoring in Multi-Axis Articulated Arms",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 12,
+    "code": "BWU/BAR/24/014",
+    "name": "ANKAN DUTTA",
+    "sub": "16/04/2026",
+    "topic": "Mean Time Between Failures (MTBF) and MTTR Modeling in Robotics",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 13,
+    "code": "BWU/BAR/24/015",
+    "name": "ARNAB SAHANA",
+    "sub": "16/04/2026",
+    "topic": "Failure Modes, Effects, and Criticality Analysis (FMECA) for Automation",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 14,
+    "code": "BWU/BAR/24/016",
+    "name": "SUPRAJIT DE",
+    "sub": "16/04/2026",
+    "topic": "Industrial IoT (IIoT) Protocols for Remote Robot Tele-Diagnostics",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 15,
+    "code": "BWU/BAR/24/019",
+    "name": "SHILPI BHOWMICK",
+    "sub": "16/04/2026",
+    "topic": "Digital Twins for Predictive Maintenance and Asset Lifecycle Optimization",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 16,
+    "code": "BWU/BAR/24/020",
+    "name": "MAHUYA BHOWMICK",
+    "sub": "16/04/2026",
+    "topic": "ATEX & Explosion-Proof Safety Standards for Painting and Chemical Robots",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 17,
+    "code": "BWU/BAR/24/021",
+    "name": "SAIKAT HAZRA",
+    "sub": "16/04/2026",
+    "topic": "Battery Health Management and Thermal Runaway Prevention in AGVs/AMRs",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 18,
+    "code": "BWU/BAR/24/023",
+    "name": "SK SAHIL UDDIN",
+    "sub": "16/04/2026",
+    "topic": "Electrical Safety, Grounding, and ESD Protection in Robotic Workcells",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 19,
+    "code": "BWU/BAR/24/027",
+    "name": "SHANE ALI",
+    "sub": "16/04/2026",
+    "topic": "Power and Force Limiting (PFL) in Collaborative Human-Robot Workstations",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 20,
+    "code": "BWU/BAR/24/028",
+    "name": "PRERANA BANERJEE",
+    "sub": "16/04/2026",
+    "topic": "Dynamic Speed and Separation Monitoring (SSM) using Time-of-Flight Sensors",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 21,
+    "code": "BWU/BAR/24/029",
+    "name": "ARNAB KUMAR JANA",
+    "sub": "16/04/2026",
+    "topic": "Autonomous Collision Detection via Joint Motor Current Ripple Analysis",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 22,
+    "code": "BWU/BAR/24/030",
+    "name": "ARIJIT SAIN",
+    "sub": "16/04/2026",
+    "topic": "Lockout/Tagout (LOTO) Procedures for Safe Maintenance Intervention",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 23,
+    "code": "BWU/BAR/24/031",
+    "name": "UJJAL DOLUI",
+    "sub": "16/04/2026",
+    "topic": "Pneumatic and Hydraulic Gripper Pressure Relief and Leak Detection",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 24,
+    "code": "BWU/BAR/24/033",
+    "name": "ABHISHEK MONDAL",
+    "sub": "16/04/2026",
+    "topic": "Brake Slip Detection and Holding Torque Verification in Vertical Axes",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 25,
+    "code": "BWU/BAR/24/034",
+    "name": "SANDIP PARAMANIK",
+    "sub": "16/04/2026",
+    "topic": "Corrosion Prevention and Ingress Protection (IP Ratings) in Washdown Robots",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 26,
+    "code": "BWU/BAR/24/035",
+    "name": "ARITRA MALIK",
+    "sub": "16/04/2026",
+    "topic": "Software Safety: Watchdog Timers and Redundant Microcontroller Units",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 27,
+    "code": "BWU/BAR/24/036",
+    "name": "ANIRBAN SARKAR",
+    "sub": "16/04/2026",
+    "topic": "Cybersecurity Vulnerabilities in Industrial Robot Controllers and Fieldbuses",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 28,
+    "code": "BWU/BAR/24/037",
+    "name": "ANUBRATA BHATTACHARYA",
+    "sub": "16/04/2026",
+    "topic": "Safety Interlocks: Trapped Key and RFID Non-Contact Guard Switches",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 29,
+    "code": "BWU/BAR/24/038",
+    "name": "MOULENDU SINHA",
+    "sub": "16/04/2026",
+    "topic": "Acoustic Emission Analysis for Bearing Fatigue and Micro-Crack Detection",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 30,
+    "code": "BWU/BAR/24/039",
+    "name": "MALAIKA FIRDOUS AMIR",
+    "sub": "16/04/2026",
+    "topic": "Robotic Workcell Enclosure Ergonomics and Safe Clearance Envelopes",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 31,
+    "code": "BWU/BAR/24/040",
+    "name": "PRIYAM JANA",
+    "sub": "16/04/2026",
+    "topic": "Automated Calibration Routines for Compensating Mechanical Link Wear",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 32,
+    "code": "BWU/BAR/24/042",
+    "name": "SOUMIK PAL",
+    "sub": "16/04/2026",
+    "topic": "Failure Diagnostics in Brushless DC (BLDC) Motor Encoders and Resolvers",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 33,
+    "code": "BWU/BAR/24/044",
+    "name": "HIRAK GANGULY",
+    "sub": "16/04/2026",
+    "topic": "Cooling Fan Performance and Heat Sink Fouling in Robot Power Cabinets",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 34,
+    "code": "BWU/BAR/24/045",
+    "name": "SIBKATULLA AL ISLAM",
+    "sub": "16/04/2026",
+    "topic": "Safety Considerations in Autonomous Mobile Robot High-Traffic Intersections",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 35,
+    "code": "BWU/BAR/24/046",
+    "name": "TURNA BERA",
+    "sub": "16/04/2026",
+    "topic": "Environmental Testing: Shock, Vibration, and Thermal Chamber Validation",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 36,
+    "code": "BWU/BAR/24/047",
+    "name": "KUNTAL MANDAL",
+    "sub": "16/04/2026",
+    "topic": "Lubrication Regimes: Synthetic Greases and Automated Lubricator Systems",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 37,
+    "code": "BWU/BAR/24/048",
+    "name": "SUDIP DAS",
+    "sub": "16/04/2026",
+    "topic": "Safe Teach Pendant Ergonomics and Deadman Switch Engineering",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 38,
+    "code": "BWU/BAR/24/049",
+    "name": "RAJARSHEE BERA",
+    "sub": "16/04/2026",
+    "topic": "Laser Processing Safety: Class 4 Laser Robotic Enclosures and Interlocks",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 39,
+    "code": "BWU/BAR/24/050",
+    "name": "KAZI WASIM AKRAM",
+    "sub": "16/04/2026",
+    "topic": "Autonomous Recovery and Safe Home Positioning after Fault Tripping",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 40,
+    "code": "BWU/BAR/24/052",
+    "name": "GAUSUL AZAM SK",
+    "sub": "16/04/2026",
+    "topic": "Root Cause Analysis (RCA) Methodologies for Catastrophic Robot Failures",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 41,
+    "code": "BWU/BAR/24/053",
+    "name": "MASUDUL ALAM",
+    "sub": "16/04/2026",
+    "topic": "Machine Safety Directives (2006/42/EC) and Global Compliance Harmonization",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 42,
+    "code": "BWU/BAR/24/054",
+    "name": "SUBHAM KUMBHAKAR",
+    "sub": "16/04/2026",
+    "topic": "Overhead Gantry Robot Cable Carrier Track Wear and Chain Guide Maintenance",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 43,
+    "code": "BWU/BAR/24/055",
+    "name": "ARITRIK DEV",
+    "sub": "16/04/2026",
+    "topic": "Functional Safety Lifecycle Management according to IEC 61508",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 44,
+    "code": "BWU/BAR/24/056",
+    "name": "KRISH BISHWAKARMA",
+    "sub": "16/04/2026",
+    "topic": "Sensor Redundancy and Cross-Checking in Safety-Critical Robot Controllers",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 45,
+    "code": "BWU/BAR/24/057",
+    "name": "BARNALI MANDAL",
+    "sub": "16/04/2026",
+    "topic": "Cleanroom Robot Certification (ISO 14644) and Particulate Emission Control",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 46,
+    "code": "BWU/BAR/24/058",
+    "name": "ROHAN KAR",
+    "sub": "16/04/2026",
+    "topic": "Maintenance Planning using Computerized Maintenance Management Systems (CMMS)",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 47,
+    "code": "BWU/BAR/24/059",
+    "name": "ROHON DAS",
+    "sub": "16/04/2026",
+    "topic": "Thermal Imaging Diagnostics of Power Distribution and Contactor Welds",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 48,
+    "code": "BWU/BAR/24/062",
+    "name": "DEBABRATA DEY",
+    "sub": "16/04/2026",
+    "topic": "Safe Payload Capacity Verification and Center-of-Gravity Deviation Limits",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 49,
+    "code": "BWU/BAR/24/063",
+    "name": "PRAGYANSHU SAGAR GIRI",
+    "sub": "16/04/2026",
+    "topic": "Inspection of Harmonic Drive Flexible Splines for Micro-Fractures",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 50,
+    "code": "BWU/BAR/24/065",
+    "name": "MAHAPRASHAD KARMAKAR",
+    "sub": "16/04/2026",
+    "topic": "Personnel Protective Equipment (PPE) Guidelines for Robot Cell Programmers",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 51,
+    "code": "BWU/BAR/24/066",
+    "name": "Mohit Kumar",
+    "sub": "16/04/2026",
+    "topic": "High-Voltage Battery Disconnect Units (BDU) Safety in Electric AGV Fleets",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 52,
+    "code": "BWU/BAR/24/069",
+    "name": "Biswajit Chakraborty",
+    "sub": "16/04/2026",
+    "topic": "Voice of Customer (VoC) and Field Feedback Integration in Robot Redesign",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 53,
+    "code": "BWU/BAR/24/070",
+    "name": "Disha Mandal",
+    "sub": "16/04/2026",
+    "topic": "Safety Interlock Overrides: Risks, Audit Trails, and Regulatory Penalties",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 54,
+    "code": "BWU/BAR/24/071",
+    "name": "Dipan Paul",
+    "sub": "16/04/2026",
+    "topic": "Spare Parts Inventory Optimization using AI Demand Forecasting",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 55,
+    "code": "BWU/BAR/24/072",
+    "name": "Sagar Sk",
+    "sub": "16/04/2026",
+    "topic": "Emergency Escape Route Engineering and Visual Floor Warning Markings",
+    "pres": "23/04/2026"
+  },
+  {
+    "sl": 56,
+    "code": "BWU/BAR/24/073",
+    "name": "Sayan Basak",
+    "sub": "16/04/2026",
+    "topic": "Future Trends in Self-Healing Materials and Self-Diagnostic Robotic Modules",
+    "pres": "23/04/2026"
+  }
+];
+const tmmdData = [
+  {
+    "sl": 1,
+    "code": "BWU/BAR/24/001",
+    "name": "SOUMEN BHANDARI",
+    "sub": "18/04/2026",
+    "topic": "Degrees of Freedom (DoF) and Kutzbach-Gruebler Criterion in Mechanisms",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 2,
+    "code": "BWU/BAR/24/002",
+    "name": "DHRUBAJOTI KAR",
+    "sub": "18/04/2026",
+    "topic": "Kinematic Inversions of Four-Bar Mechanisms and Practical Applications",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 3,
+    "code": "BWU/BAR/24/003",
+    "name": "NIMESH SAMANTA",
+    "sub": "18/04/2026",
+    "topic": "Slider-Crank Mechanism Kinematics and Piston Acceleration Analysis",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 4,
+    "code": "BWU/BAR/24/004",
+    "name": "SUBHAJIT BHAKTA",
+    "sub": "18/04/2026",
+    "topic": "Cams and Followers: Displacement, Velocity, and Jerk Curve Profiles",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 5,
+    "code": "BWU/BAR/24/007",
+    "name": "ATANU BISWAS",
+    "sub": "18/04/2026",
+    "topic": "Involute vs Cycloidal Gear Tooth Profiles and Interference Elimination",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 6,
+    "code": "BWU/BAR/24/008",
+    "name": "JOGA JYOTHENDRAVEERAVENKATAS ATYASURYAKANTH",
+    "sub": "18/04/2026",
+    "topic": "Epicyclic Gear Trains: Velocity Ratio and Torque Distribution Calculations",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 7,
+    "code": "BWU/BAR/24/009",
+    "name": "SANIA AKTAR",
+    "sub": "18/04/2026",
+    "topic": "Harmonic Drive Gearing Principles: Wave Generator and Flexspline Mechanics",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 8,
+    "code": "BWU/BAR/24/010",
+    "name": "DIPSIKHA PAYRA",
+    "sub": "18/04/2026",
+    "topic": "Static and Dynamic Balancing of Reciprocating and Rotating Masses",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 9,
+    "code": "BWU/BAR/24/011",
+    "name": "SUPARNA GHORA",
+    "sub": "18/04/2026",
+    "topic": "Flywheels in Machinery: Fluctuation of Speed and Coefficient of Fluctuation",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 10,
+    "code": "BWU/BAR/24/012",
+    "name": "DIPIKA MAITY",
+    "sub": "18/04/2026",
+    "topic": "Gyroscopic Couples and Precessional Motion in High-Speed Robot Rotors",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 11,
+    "code": "BWU/BAR/24/013",
+    "name": "AKASH BAIRAGI",
+    "sub": "18/04/2026",
+    "topic": "Fatigue Failure Theories: Gerber, Goodman, and Soderberg Criteria",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 12,
+    "code": "BWU/BAR/24/014",
+    "name": "ANKAN DUTTA",
+    "sub": "18/04/2026",
+    "topic": "Design of Transmission Shafts Subjected to Combined Bending and Torsion",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 13,
+    "code": "BWU/BAR/24/015",
+    "name": "ARNAB SAHANA",
+    "sub": "18/04/2026",
+    "topic": "Power Transmission via V-Belts, Flat Belts, and Timing Belts Analysis",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 14,
+    "code": "BWU/BAR/24/016",
+    "name": "SUPRAJIT DE",
+    "sub": "18/04/2026",
+    "topic": "Hydrodynamic Lubrication and Petroff's Equation in Journal Bearings",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 15,
+    "code": "BWU/BAR/24/019",
+    "name": "SHILPI BHOWMICK",
+    "sub": "18/04/2026",
+    "topic": "Deep Groove vs Angular Contact Ball Bearings: Dynamic Load Rating and L10 Life",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 16,
+    "code": "BWU/BAR/24/020",
+    "name": "MAHUYA BHOWMICK",
+    "sub": "18/04/2026",
+    "topic": "Friction Clutches: Uniform Pressure vs Uniform Wear Design Principles",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 17,
+    "code": "BWU/BAR/24/021",
+    "name": "SAIKAT HAZRA",
+    "sub": "18/04/2026",
+    "topic": "Shoe and Disc Brakes: Energy Absorption and Thermal Dissipation Design",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 18,
+    "code": "BWU/BAR/24/023",
+    "name": "SK SAHIL UDDIN",
+    "sub": "18/04/2026",
+    "topic": "Lead Screws and Recirculating Ball Screws: Efficiency and Backlash Modeling",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 19,
+    "code": "BWU/BAR/24/027",
+    "name": "SHANE ALI",
+    "sub": "18/04/2026",
+    "topic": "Helical Springs: Stresses, Deflection, and Surge Frequency Prevention",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 20,
+    "code": "BWU/BAR/24/028",
+    "name": "PRERANA BANERJEE",
+    "sub": "18/04/2026",
+    "topic": "Leaf Springs Design and Semi-Elliptic Suspensions in Transport Vehicles",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 21,
+    "code": "BWU/BAR/24/029",
+    "name": "ARNAB KUMAR JANA",
+    "sub": "18/04/2026",
+    "topic": "Bolted Joint Mechanics: Bolt Preload, Gasket Stiffness, and Clamping Force",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 22,
+    "code": "BWU/BAR/24/030",
+    "name": "ARIJIT SAIN",
+    "sub": "18/04/2026",
+    "topic": "Welded Joint Design under Static and Cyclic Fatigue Shear Loading",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 23,
+    "code": "BWU/BAR/24/031",
+    "name": "UJJAL DOLUI",
+    "sub": "18/04/2026",
+    "topic": "Shaft Keys and Splines: Shear and Crushing Stress Analysis",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 24,
+    "code": "BWU/BAR/24/033",
+    "name": "ABHISHEK MONDAL",
+    "sub": "18/04/2026",
+    "topic": "Finite Element Modeling (FEM) for Stress Concentration Analysis in Fillets",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 25,
+    "code": "BWU/BAR/24/034",
+    "name": "SANDIP PARAMANIK",
+    "sub": "18/04/2026",
+    "topic": "Geneva Mechanism and Star Wheels for Intermittent Motion Indexing",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 26,
+    "code": "BWU/BAR/24/035",
+    "name": "ARITRA MALIK",
+    "sub": "18/04/2026",
+    "topic": "Hooke’s Universal Joints and Constant Velocity (CV) Joints Kinematics",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 27,
+    "code": "BWU/BAR/24/036",
+    "name": "ANIRBAN SARKAR",
+    "sub": "18/04/2026",
+    "topic": "Pantograph and Straight-Line Motion Generating Linkages (Peaucellier-Lipkin)",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 28,
+    "code": "BWU/BAR/24/037",
+    "name": "ANUBRATA BHATTACHARYA",
+    "sub": "18/04/2026",
+    "topic": "Governor Mechanisms: Centrifugal vs Inertia Governors Speed Regulation",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 29,
+    "code": "BWU/BAR/24/038",
+    "name": "MOULENDU SINHA",
+    "sub": "18/04/2026",
+    "topic": "Critical Speeds and Whirling of Rotating Shafts with Center Discs",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 30,
+    "code": "BWU/BAR/24/039",
+    "name": "MALAIKA FIRDOUS AMIR",
+    "sub": "18/04/2026",
+    "topic": "Torsional Vibration in Multi-Rotor Drive Trains and Holzer Method",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 31,
+    "code": "BWU/BAR/24/040",
+    "name": "PRIYAM JANA",
+    "sub": "18/04/2026",
+    "topic": "Vibration Isolation: Transmissibility and Damping in Sensitive Robot Bases",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 32,
+    "code": "BWU/BAR/24/042",
+    "name": "SOUMIK PAL",
+    "sub": "18/04/2026",
+    "topic": "Spur Gear Tooth Bending Strength: Lewis Equation and AGMA Standard Factors",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 33,
+    "code": "BWU/BAR/24/044",
+    "name": "HIRAK GANGULY",
+    "sub": "18/04/2026",
+    "topic": "Surface Durability and Contact Pitting Stress in Helical Gear Meshing",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 34,
+    "code": "BWU/BAR/24/045",
+    "name": "SIBKATULLA AL ISLAM",
+    "sub": "18/04/2026",
+    "topic": "Bevel Gear Geometry and Pitch Cone Angles in Right-Angle Power Drives",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 35,
+    "code": "BWU/BAR/24/046",
+    "name": "TURNA BERA",
+    "sub": "18/04/2026",
+    "topic": "Worm and Worm Gear Drives: Self-Locking Conditions and Heat Dissipation",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 36,
+    "code": "BWU/BAR/24/047",
+    "name": "KUNTAL MANDAL",
+    "sub": "18/04/2026",
+    "topic": "Mechanical Press Mechanisms: Toggle Joint Kinematics and Mechanical Advantage",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 37,
+    "code": "BWU/BAR/24/048",
+    "name": "SUDIP DAS",
+    "sub": "18/04/2026",
+    "topic": "Scotch Yoke Mechanism vs Simple Harmonic Motion in Pump Actuators",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 38,
+    "code": "BWU/BAR/24/049",
+    "name": "RAJARSHEE BERA",
+    "sub": "18/04/2026",
+    "topic": "Dynamic Force Analysis of 6-DoF Industrial Manipulator Kinematic Chains",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 39,
+    "code": "BWU/BAR/24/050",
+    "name": "KAZI WASIM AKRAM",
+    "sub": "18/04/2026",
+    "topic": "Elastic Deformation and Deflection Limits in Long Robot Cantilever Booms",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 40,
+    "code": "BWU/BAR/24/052",
+    "name": "GAUSUL AZAM SK",
+    "sub": "18/04/2026",
+    "topic": "Tribological Mechanisms: Adhesive, Abrasive, and Fretting Wear Reduction",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 41,
+    "code": "BWU/BAR/24/053",
+    "name": "MASUDUL ALAM",
+    "sub": "18/04/2026",
+    "topic": "Thermal Expansion Compensation in High-Precision Machine Tool Spindles",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 42,
+    "code": "BWU/BAR/24/054",
+    "name": "SUBHAM KUMBHAKAR",
+    "sub": "18/04/2026",
+    "topic": "Selection of Engineering Materials: Strength-to-Weight Ratio in Robotics",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 43,
+    "code": "BWU/BAR/24/055",
+    "name": "ARITRIK DEV",
+    "sub": "18/04/2026",
+    "topic": "Design of Hollow vs Solid Shafts: Weight Optimization and Torque Capacity",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 44,
+    "code": "BWU/BAR/24/056",
+    "name": "KRISH BISHWAKARMA",
+    "sub": "18/04/2026",
+    "topic": "Design of Thick Cylinders under High Internal Pressure (Lame's Equations)",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 45,
+    "code": "BWU/BAR/24/057",
+    "name": "BARNALI MANDAL",
+    "sub": "18/04/2026",
+    "topic": "Pre-stressed Belleville Disc Spring Stacks for Heavy Clamping Devices",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 46,
+    "code": "BWU/BAR/24/058",
+    "name": "ROHAN KAR",
+    "sub": "18/04/2026",
+    "topic": "Kinematics of Planetary Roller Screws for High-Force Linear Actuation",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 47,
+    "code": "BWU/BAR/24/059",
+    "name": "ROHON DAS",
+    "sub": "18/04/2026",
+    "topic": "Quick-Return Motion Mechanisms: Whitworth and Crank-Shaper Design",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 48,
+    "code": "BWU/BAR/24/062",
+    "name": "DEBABRATA DEY",
+    "sub": "18/04/2026",
+    "topic": "Contact Stresses (Hertzian Stress) in Rolling Element Point and Line Contacts",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 49,
+    "code": "BWU/BAR/24/063",
+    "name": "PRAGYANSHU SAGAR GIRI",
+    "sub": "18/04/2026",
+    "topic": "Dynamic Balancing Machines: Two-Plane Field Balancing using Stroboscopic Tech",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 50,
+    "code": "BWU/BAR/24/065",
+    "name": "MAHAPRASHAD KARMAKAR",
+    "sub": "18/04/2026",
+    "topic": "Design for Manufacturing and Assembly (DFMA) Principles in Machine Elements",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 51,
+    "code": "BWU/BAR/24/066",
+    "name": "Mohit Kumar",
+    "sub": "18/04/2026",
+    "topic": "Failure Investigation of Cracked Shafts due to Rotational Bending Fatigue",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 52,
+    "code": "BWU/BAR/24/069",
+    "name": "Biswajit Chakraborty",
+    "sub": "18/04/2026",
+    "topic": "Hydraulic Actuator Cylinder Sizing, Seal Selection, and Buckling Resistance",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 53,
+    "code": "BWU/BAR/24/070",
+    "name": "Disha Mandal",
+    "sub": "18/04/2026",
+    "topic": "Backlash Compensation Mechanisms using Dual-Pinion Anti-Backlash Drives",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 54,
+    "code": "BWU/BAR/24/071",
+    "name": "Dipan Paul",
+    "sub": "18/04/2026",
+    "topic": "Design of Robot Gripper Linkages: Parallel Jaw vs Angular Opening Mechanics",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 55,
+    "code": "BWU/BAR/24/072",
+    "name": "Sagar Sk",
+    "sub": "18/04/2026",
+    "topic": "Kinematic Analysis of Cable-Driven Parallel Robots (CDPR)",
+    "pres": "25/04/2026"
+  },
+  {
+    "sl": 56,
+    "code": "BWU/BAR/24/073",
+    "name": "Sayan Basak",
+    "sub": "18/04/2026",
+    "topic": "Additive Manufacturing Considerations in Complex Topology-Optimized Brackets",
+    "pres": "25/04/2026"
+  }
+];
+const peData = [
+  {
+    "sl": 1,
+    "code": "BWU/BAR/24/001",
+    "name": "SOUMEN BHANDARI",
+    "sub": "20/04/2026",
+    "topic": "Foundations of Professional Ethics: Codes of Conduct (IEEE, ACM, ASME)",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 2,
+    "code": "BWU/BAR/24/002",
+    "name": "DHRUBAJOTI KAR",
+    "sub": "20/04/2026",
+    "topic": "Moral Responsibility and Accountability in Autonomous Weapon Systems",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 3,
+    "code": "BWU/BAR/24/003",
+    "name": "NIMESH SAMANTA",
+    "sub": "20/04/2026",
+    "topic": "Algorithmic Bias and Discrimination in AI Recruitment and Lending Systems",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 4,
+    "code": "BWU/BAR/24/004",
+    "name": "SUBHAJIT BHAKTA",
+    "sub": "20/04/2026",
+    "topic": "Legal and Ethical Liability in Autonomous Vehicle Fatalities",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 5,
+    "code": "BWU/BAR/24/007",
+    "name": "ATANU BISWAS",
+    "sub": "20/04/2026",
+    "topic": "Intellectual Property Rights (IPR), Software Patents, and Open Source Ethics",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 6,
+    "code": "BWU/BAR/24/008",
+    "name": "JOGA JYOTHENDRAVEERAVENKATAS ATYASURYAKANTH",
+    "sub": "20/04/2026",
+    "topic": "Workplace Automation: Socio-Economic Disruption and Just Transition",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 7,
+    "code": "BWU/BAR/24/009",
+    "name": "SANIA AKTAR",
+    "sub": "20/04/2026",
+    "topic": "Privacy in the Era of Pervasive Surveillance and Smart Home Companions",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 8,
+    "code": "BWU/BAR/24/010",
+    "name": "DIPSIKHA PAYRA",
+    "sub": "20/04/2026",
+    "topic": "Environmental Ethics: Carbon Footprint and E-Waste in the Tech Industry",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 9,
+    "code": "BWU/BAR/24/011",
+    "name": "SUPARNA GHORA",
+    "sub": "20/04/2026",
+    "topic": "Whistleblowing in High-Tech Corporations: Legal Protections and Moral Duty",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 10,
+    "code": "BWU/BAR/24/012",
+    "name": "DIPIKA MAITY",
+    "sub": "20/04/2026",
+    "topic": "Engineering Disaster Case Study: The Space Shuttle Challenger Tragedy",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 11,
+    "code": "BWU/BAR/24/013",
+    "name": "AKASH BAIRAGI",
+    "sub": "20/04/2026",
+    "topic": "Software Catastrophes: Radiation Overdose Case Study of the Therac-25",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 12,
+    "code": "BWU/BAR/24/014",
+    "name": "ANKAN DUTTA",
+    "sub": "20/04/2026",
+    "topic": "Deepfakes, Synthetic Media, and the Erosion of Truth in Digital Society",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 13,
+    "code": "BWU/BAR/24/015",
+    "name": "ARNAB SAHANA",
+    "sub": "20/04/2026",
+    "topic": "Global AI Governance: EU AI Act and International Regulatory Frameworks",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 14,
+    "code": "BWU/BAR/24/016",
+    "name": "SUPRAJIT DE",
+    "sub": "20/04/2026",
+    "topic": "Human Dignity and Ethical Boundaries in Elderly-Care Robotic Companions",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 15,
+    "code": "BWU/BAR/24/019",
+    "name": "SHILPI BHOWMICK",
+    "sub": "20/04/2026",
+    "topic": "Cyber Warfare, Offensive Cyber Weapons, and Geneva Convention Ethics",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 16,
+    "code": "BWU/BAR/24/020",
+    "name": "MAHUYA BHOWMICK",
+    "sub": "20/04/2026",
+    "topic": "Corporate Social Responsibility (CSR) and Greenwashing in Tech Giants",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 17,
+    "code": "BWU/BAR/24/021",
+    "name": "SAIKAT HAZRA",
+    "sub": "20/04/2026",
+    "topic": "Explainability and the Right to Explanation in Black-Box Deep Neural Networks",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 18,
+    "code": "BWU/BAR/24/023",
+    "name": "SK SAHIL UDDIN",
+    "sub": "20/04/2026",
+    "topic": "Biometric Surveillance, Facial Recognition, and Civil Liberties Infringements",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 19,
+    "code": "BWU/BAR/24/027",
+    "name": "SHANE ALI",
+    "sub": "20/04/2026",
+    "topic": "Cultural Relativism vs Universal Human Rights in Global Technology Export",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 20,
+    "code": "BWU/BAR/24/028",
+    "name": "PRERANA BANERJEE",
+    "sub": "20/04/2026",
+    "topic": "Gig Economy Ethics: Algorithm-Driven Labor and Worker Exploitation",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 21,
+    "code": "BWU/BAR/24/029",
+    "name": "ARNAB KUMAR JANA",
+    "sub": "20/04/2026",
+    "topic": "Academic Integrity, Plagiarism, and Authorship Ethics with LLM Tools",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 22,
+    "code": "BWU/BAR/24/030",
+    "name": "ARIJIT SAIN",
+    "sub": "20/04/2026",
+    "topic": "The Trolley Problem Revisited: Ethical Decision Algorithms in Self-Driving Cars",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 23,
+    "code": "BWU/BAR/24/031",
+    "name": "UJJAL DOLUI",
+    "sub": "20/04/2026",
+    "topic": "Neuroethics and Cognitive Privacy: Brain-Computer Interface Commercialization",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 24,
+    "code": "BWU/BAR/24/033",
+    "name": "ABHISHEK MONDAL",
+    "sub": "20/04/2026",
+    "topic": "Conflict of Interest in Tech Consulting, Peer Review, and Advisory Boards",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 25,
+    "code": "BWU/BAR/24/034",
+    "name": "SANDIP PARAMANIK",
+    "sub": "20/04/2026",
+    "topic": "Genetic Engineering, CRISPR Ethics, and Artificial Intelligence Synergy",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 26,
+    "code": "BWU/BAR/24/035",
+    "name": "ARITRA MALIK",
+    "sub": "20/04/2026",
+    "topic": "Digital Divide: Equity of Access to Advanced Artificial Intelligence Tools",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 27,
+    "code": "BWU/BAR/24/036",
+    "name": "ANIRBAN SARKAR",
+    "sub": "20/04/2026",
+    "topic": "Addictive System Design: Dark Patterns and Dopamine Loops in Social Tech",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 28,
+    "code": "BWU/BAR/24/037",
+    "name": "ANUBRATA BHATTACHARYA",
+    "sub": "20/04/2026",
+    "topic": "Protection of Sensitive Whistleblower Data and Secure Investigative Channels",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 29,
+    "code": "BWU/BAR/24/038",
+    "name": "MOULENDU SINHA",
+    "sub": "20/04/2026",
+    "topic": "Ethical Issues in Deep-Sea and Space Resource Exploitation Technologies",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 30,
+    "code": "BWU/BAR/24/039",
+    "name": "MALAIKA FIRDOUS AMIR",
+    "sub": "20/04/2026",
+    "topic": "Data Scraping, Copyright Law, and Fair Use in Generative AI Training",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 31,
+    "code": "BWU/BAR/24/040",
+    "name": "PRIYAM JANA",
+    "sub": "20/04/2026",
+    "topic": "Child Safety Online: Algorithmic Content Recommendation Ethics",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 32,
+    "code": "BWU/BAR/24/042",
+    "name": "SOUMIK PAL",
+    "sub": "20/04/2026",
+    "topic": "Truthfulness in Marketing Emerging Technologies: Mitigating Hype Cycles",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 33,
+    "code": "BWU/BAR/24/044",
+    "name": "HIRAK GANGULY",
+    "sub": "20/04/2026",
+    "topic": "Engineering Malpractice and Negligence: Historical Forensic Case Studies",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 34,
+    "code": "BWU/BAR/24/045",
+    "name": "SIBKATULLA AL ISLAM",
+    "sub": "20/04/2026",
+    "topic": "Responsible Disclosure Policies for Zero-Day Cybersecurity Vulnerabilities",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 35,
+    "code": "BWU/BAR/24/046",
+    "name": "TURNA BERA",
+    "sub": "20/04/2026",
+    "topic": "The Ethics of Human Augmentation and Transhumanist Technologies",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 36,
+    "code": "BWU/BAR/24/047",
+    "name": "KUNTAL MANDAL",
+    "sub": "20/04/2026",
+    "topic": "Surveillance Capitalism and the Commodification of Human Personal Data",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 37,
+    "code": "BWU/BAR/24/048",
+    "name": "SUDIP DAS",
+    "sub": "20/04/2026",
+    "topic": "Autonomous Drones in Law Enforcement: Public Trust and Proportionality",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 38,
+    "code": "BWU/BAR/24/049",
+    "name": "RAJARSHEE BERA",
+    "sub": "20/04/2026",
+    "topic": "Professionalism in Distributed Remote Engineering Teams: Trust and Metrics",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 39,
+    "code": "BWU/BAR/24/050",
+    "name": "KAZI WASIM AKRAM",
+    "sub": "20/04/2026",
+    "topic": "Informed Consent in Large-Scale Web-Based Psychometric Experimentation",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 40,
+    "code": "BWU/BAR/24/052",
+    "name": "GAUSUL AZAM SK",
+    "sub": "20/04/2026",
+    "topic": "Environmental Justice: Toxic Mineral Extraction for Lithium Batteries",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 41,
+    "code": "BWU/BAR/24/053",
+    "name": "MASUDUL ALAM",
+    "sub": "20/04/2026",
+    "topic": "Ethical Challenges in Medical AI Diagnosis and Doctor-Patient Trust",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 42,
+    "code": "BWU/BAR/24/054",
+    "name": "SUBHAM KUMBHAKAR",
+    "sub": "20/04/2026",
+    "topic": "Freedom of Speech, Censorship, and Moderation Algorithms on Platforms",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 43,
+    "code": "BWU/BAR/24/055",
+    "name": "ARITRIK DEV",
+    "sub": "20/04/2026",
+    "topic": "The Precautionary Principle in Deploying Unbounded Frontier AI Models",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 44,
+    "code": "BWU/BAR/24/056",
+    "name": "KRISH BISHWAKARMA",
+    "sub": "20/04/2026",
+    "topic": "Cross-Border Data Flows, Sovereignty, and Extraterritorial Jurisdiction",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 45,
+    "code": "BWU/BAR/24/057",
+    "name": "BARNALI MANDAL",
+    "sub": "20/04/2026",
+    "topic": "Ethics in Forensic Engineering: Unbiased Expert Witness Testimony",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 46,
+    "code": "BWU/BAR/24/058",
+    "name": "ROHAN KAR",
+    "sub": "20/04/2026",
+    "topic": "Autonomous Financial Trading Bots and Market Manipulation Ethics",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 47,
+    "code": "BWU/BAR/24/059",
+    "name": "ROHON DAS",
+    "sub": "20/04/2026",
+    "topic": "Robotic Rights: Philosophical Inquiries into Sentient Artificial Agents",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 48,
+    "code": "BWU/BAR/24/062",
+    "name": "DEBABRATA DEY",
+    "sub": "20/04/2026",
+    "topic": "Energy Consumption in Proof-of-Work Blockchain vs Sustainable Alternatives",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 49,
+    "code": "BWU/BAR/24/063",
+    "name": "PRAGYANSHU SAGAR GIRI",
+    "sub": "20/04/2026",
+    "topic": "Fairness Metrics in Machine Learning: Equal Opportunity vs Demographic Parity",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 50,
+    "code": "BWU/BAR/24/065",
+    "name": "MAHAPRASHAD KARMAKAR",
+    "sub": "20/04/2026",
+    "topic": "Professional Codes for Nuclear and Aerospace Autonomous Defense Engineers",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 51,
+    "code": "BWU/BAR/24/066",
+    "name": "Mohit Kumar",
+    "sub": "20/04/2026",
+    "topic": "Ethical Considerations in Digital Legacy and Post-Mortem Digital Avatars",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 52,
+    "code": "BWU/BAR/24/069",
+    "name": "Biswajit Chakraborty",
+    "sub": "20/04/2026",
+    "topic": "Safety-First Culture vs Schedule Pressure in Fast-Paced Software Releases",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 53,
+    "code": "BWU/BAR/24/070",
+    "name": "Disha Mandal",
+    "sub": "20/04/2026",
+    "topic": "Bribery, Corruption, and Anti-FCPA Compliance in Global Engineering Tenders",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 54,
+    "code": "BWU/BAR/24/071",
+    "name": "Dipan Paul",
+    "sub": "20/04/2026",
+    "topic": "Impact of Virtual Reality & Metaverse Environments on Mental Health",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 55,
+    "code": "BWU/BAR/24/072",
+    "name": "Sagar Sk",
+    "sub": "20/04/2026",
+    "topic": "Veterinary and Agricultural AI: Ethical Standards in Livestock Management",
+    "pres": "28/04/2026"
+  },
+  {
+    "sl": 56,
+    "code": "BWU/BAR/24/073",
+    "name": "Sayan Basak",
+    "sub": "20/04/2026",
+    "topic": "The Engineer’s Oath: Synthesizing Technological Progress with Human Welfare",
+    "pres": "28/04/2026"
+  }
+];
+const raData = [
+  {
+    "sl": 1,
+    "code": "BWU/BAR/24/001",
+    "name": "SOUMEN BHANDARI",
+    "sub": "22/04/2026",
+    "topic": "Classical Graph Search: Breadth-First, Depth-First, and Dijkstra's Algorithm",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 2,
+    "code": "BWU/BAR/24/002",
+    "name": "DHRUBAJOTI KAR",
+    "sub": "22/04/2026",
+    "topic": "A* Heuristic Search and Weighted Variants for Fast Robot Navigation",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 3,
+    "code": "BWU/BAR/24/003",
+    "name": "NIMESH SAMANTA",
+    "sub": "22/04/2026",
+    "topic": "Lifelong Planning A* (LPA*) and D* Lite for Dynamic Replanning",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 4,
+    "code": "BWU/BAR/24/004",
+    "name": "SUBHAJIT BHAKTA",
+    "sub": "22/04/2026",
+    "topic": "Rapidly-exploring Random Trees (RRT) and Bidirectional RRT Algorithms",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 5,
+    "code": "BWU/BAR/24/007",
+    "name": "ATANU BISWAS",
+    "sub": "22/04/2026",
+    "topic": "RRT* and Informed RRT* for Asymptotically Optimal Motion Planning",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 6,
+    "code": "BWU/BAR/24/008",
+    "name": "JOGA JYOTHENDRAVEERAVENKATAS ATYASURYAKANTH",
+    "sub": "22/04/2026",
+    "topic": "Potential Field Methods and Artificial Force Fields for Obstacle Avoidance",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 7,
+    "code": "BWU/BAR/24/009",
+    "name": "SANIA AKTAR",
+    "sub": "22/04/2026",
+    "topic": "Bug 1 and Bug 2 Algorithms for Sensor-Limited Reactive Navigation",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 8,
+    "code": "BWU/BAR/24/010",
+    "name": "DIPSIKHA PAYRA",
+    "sub": "22/04/2026",
+    "topic": "Probabilistic Roadmap Method (PRM) for High-Degree-of-Freedom Manipulators",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 9,
+    "code": "BWU/BAR/24/011",
+    "name": "SUPARNA GHORA",
+    "sub": "22/04/2026",
+    "topic": "Monte Carlo Localization (MCL) using Particle Filters and Resampling",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 10,
+    "code": "BWU/BAR/24/012",
+    "name": "DIPIKA MAITY",
+    "sub": "22/04/2026",
+    "topic": "Extended Kalman Filter (EKF) for Wheeled Robot Odometry and Sensor Fusion",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 11,
+    "code": "BWU/BAR/24/013",
+    "name": "AKASH BAIRAGI",
+    "sub": "22/04/2026",
+    "topic": "Unscented Kalman Filter (UKF) for Highly Nonlinear Robot Dynamics",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 12,
+    "code": "BWU/BAR/24/014",
+    "name": "ANKAN DUTTA",
+    "sub": "22/04/2026",
+    "topic": "Graph-Based SLAM: Pose Graph Optimization using Ceres and g2o Solvers",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 13,
+    "code": "BWU/BAR/24/015",
+    "name": "ARNAB SAHANA",
+    "sub": "22/04/2026",
+    "topic": "Iterative Closest Point (ICP) and Generalized ICP for 3D Scan Matching",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 14,
+    "code": "BWU/BAR/24/016",
+    "name": "SUPRAJIT DE",
+    "sub": "22/04/2026",
+    "topic": "Visual-Inertial Odometry (VIO) using Tight-Coupled Optimization (VINS-Mono)",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 15,
+    "code": "BWU/BAR/24/019",
+    "name": "SHILPI BHOWMICK",
+    "sub": "22/04/2026",
+    "topic": "Model Predictive Control (MPC) Formulation for Trajectory Tracking",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 16,
+    "code": "BWU/BAR/24/020",
+    "name": "MAHUYA BHOWMICK",
+    "sub": "22/04/2026",
+    "topic": "Proportional-Integral-Derivative (PID) vs Computed Torque Robot Control",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 17,
+    "code": "BWU/BAR/24/021",
+    "name": "SAIKAT HAZRA",
+    "sub": "22/04/2026",
+    "topic": "Deep Q-Networks (DQN) for Discrete Robotic Control Decision Policies",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 18,
+    "code": "BWU/BAR/24/023",
+    "name": "SK SAHIL UDDIN",
+    "sub": "22/04/2026",
+    "topic": "Proximal Policy Optimization (PPO) for Continuous Motor Control Learning",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 19,
+    "code": "BWU/BAR/24/027",
+    "name": "SHANE ALI",
+    "sub": "22/04/2026",
+    "topic": "Inverse Kinematics: Jacobian Pseudoinverse and Damped Least Squares (DLS)",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 20,
+    "code": "BWU/BAR/24/028",
+    "name": "PRERANA BANERJEE",
+    "sub": "22/04/2026",
+    "topic": "Trajectory Generation: Quintic Polynomials and Trajectory Smoothing Splines",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 21,
+    "code": "BWU/BAR/24/029",
+    "name": "ARNAB KUMAR JANA",
+    "sub": "22/04/2026",
+    "topic": "Multi-Agent Flocking Algorithms: Reynolds Boids and Swarm Cohesion",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 22,
+    "code": "BWU/BAR/24/030",
+    "name": "ARIJIT SAIN",
+    "sub": "22/04/2026",
+    "topic": "3D Volumetric Mapping using Octree Hierarchical Structures (OctoMap)",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 23,
+    "code": "BWU/BAR/24/031",
+    "name": "UJJAL DOLUI",
+    "sub": "22/04/2026",
+    "topic": "Frontier-Based Exploration Algorithms for Autonomous Environment Mapping",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 24,
+    "code": "BWU/BAR/24/033",
+    "name": "ABHISHEK MONDAL",
+    "sub": "22/04/2026",
+    "topic": "Genetic Algorithms for Kinematic Parameter and Gear Ratio Optimization",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 25,
+    "code": "BWU/BAR/24/034",
+    "name": "SANDIP PARAMANIK",
+    "sub": "22/04/2026",
+    "topic": "Generalized Voronoi Diagrams (GVD) for Maximum Clearance Navigation",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 26,
+    "code": "BWU/BAR/24/035",
+    "name": "ARITRA MALIK",
+    "sub": "22/04/2026",
+    "topic": "Occupancy Grid Mapping with Inverse Sensor Models and Log-Odds Updates",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 27,
+    "code": "BWU/BAR/24/036",
+    "name": "ANIRBAN SARKAR",
+    "sub": "22/04/2026",
+    "topic": "Dynamic Window Approach (DWA) for Real-Time Local Obstacle Avoidance",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 28,
+    "code": "BWU/BAR/24/037",
+    "name": "ANUBRATA BHATTACHARYA",
+    "sub": "22/04/2026",
+    "topic": "Timed Elastic Band (TEB) Local Planner for Non-Holonomic Vehicles",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 29,
+    "code": "BWU/BAR/24/038",
+    "name": "MOULENDU SINHA",
+    "sub": "22/04/2026",
+    "topic": "Cholesky Factorization and Sparse Matrix Methods in Large-Scale SLAM",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 30,
+    "code": "BWU/BAR/24/039",
+    "name": "MALAIKA FIRDOUS AMIR",
+    "sub": "22/04/2026",
+    "topic": "Minimum Snap Trajectory Generation for Quadrotor Aggressive Flight",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 31,
+    "code": "BWU/BAR/24/040",
+    "name": "PRIYAM JANA",
+    "sub": "22/04/2026",
+    "topic": "RANSAC Algorithm for Robust Plane and Geometric Feature Extraction",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 32,
+    "code": "BWU/BAR/24/042",
+    "name": "SOUMIK PAL",
+    "sub": "22/04/2026",
+    "topic": "Particle Swarm Optimization (PSO) for Multi-Robot Target Search",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 33,
+    "code": "BWU/BAR/24/044",
+    "name": "HIRAK GANGULY",
+    "sub": "22/04/2026",
+    "topic": "Direct Collocation and Trajectory Optimization for Underactuated Systems",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 34,
+    "code": "BWU/BAR/24/045",
+    "name": "SIBKATULLA AL ISLAM",
+    "sub": "22/04/2026",
+    "topic": "Lie Groups and Lie Algebras (SE(3) and SO(3)) in Spatial Kinematics",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 35,
+    "code": "BWU/BAR/24/046",
+    "name": "TURNA BERA",
+    "sub": "22/04/2026",
+    "topic": "Kinodynamic RRT Planning under Velocity and Acceleration Constraints",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 36,
+    "code": "BWU/BAR/24/047",
+    "name": "KUNTAL MANDAL",
+    "sub": "22/04/2026",
+    "topic": "Semantic SLAM: Integrating Mask R-CNN Object Boundaries into Point Maps",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 37,
+    "code": "BWU/BAR/24/048",
+    "name": "SUDIP DAS",
+    "sub": "22/04/2026",
+    "topic": "Simulated Annealing for Travelling Salesperson Inspection Route Sizing",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 38,
+    "code": "BWU/BAR/24/049",
+    "name": "RAJARSHEE BERA",
+    "sub": "22/04/2026",
+    "topic": "Reciprocal Velocity Obstacles (RVO) for Decentralized Collision Avoidance",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 39,
+    "code": "BWU/BAR/24/050",
+    "name": "KAZI WASIM AKRAM",
+    "sub": "22/04/2026",
+    "topic": "Dubins Car and Reeds-Shepp Paths for Forward and Reverse Car Navigation",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 40,
+    "code": "BWU/BAR/24/052",
+    "name": "GAUSUL AZAM SK",
+    "sub": "22/04/2026",
+    "topic": "Linear Quadratic Regulator (LQR) for Inverted Pendulum Balancing Robots",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 41,
+    "code": "BWU/BAR/24/053",
+    "name": "MASUDUL ALAM",
+    "sub": "22/04/2026",
+    "topic": "Sliding Mode Control (SMC) for Robust Disturbance Rejection in Robots",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 42,
+    "code": "BWU/BAR/24/054",
+    "name": "SUBHAM KUMBHAKAR",
+    "sub": "22/04/2026",
+    "topic": "Convex Hull Algorithms (Graham Scan, Quickhull) for Robot Footstep Planning",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 43,
+    "code": "BWU/BAR/24/055",
+    "name": "ARITRIK DEV",
+    "sub": "22/04/2026",
+    "topic": "Kalman Consensus Filters for Distributed Sensor Networks on Drone Fleets",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 44,
+    "code": "BWU/BAR/24/056",
+    "name": "KRISH BISHWAKARMA",
+    "sub": "22/04/2026",
+    "topic": "Deep Deterministic Policy Gradient (DDPG) for Robotic Manipulation Tasks",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 45,
+    "code": "BWU/BAR/24/057",
+    "name": "BARNALI MANDAL",
+    "sub": "22/04/2026",
+    "topic": "FastSLAM Algorithm: Factored Particle Representations for Landmark Maps",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 46,
+    "code": "BWU/BAR/24/058",
+    "name": "ROHAN KAR",
+    "sub": "22/04/2026",
+    "topic": "Nonlinear Least Squares using Levenberg-Marquardt Optimization",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 47,
+    "code": "BWU/BAR/24/059",
+    "name": "ROHON DAS",
+    "sub": "22/04/2026",
+    "topic": "Coverage Path Planning (CPP): Boustrophedon Cellular Decomposition",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 48,
+    "code": "BWU/BAR/24/062",
+    "name": "DEBABRATA DEY",
+    "sub": "22/04/2026",
+    "topic": "Homotopy Class Planning for Multi-Route Exploration in Dense Obstacles",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 49,
+    "code": "BWU/BAR/24/063",
+    "name": "PRAGYANSHU SAGAR GIRI",
+    "sub": "22/04/2026",
+    "topic": "Differential Dynamic Programming (DDP) for Complex Multi-Contact Locomotion",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 50,
+    "code": "BWU/BAR/24/065",
+    "name": "MAHAPRASHAD KARMAKAR",
+    "sub": "22/04/2026",
+    "topic": "Visual Servoing: Image-Based (IBVS) vs Position-Based (PBVS) Control",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 51,
+    "code": "BWU/BAR/24/066",
+    "name": "Mohit Kumar",
+    "sub": "22/04/2026",
+    "topic": "H-Infinity Robust Control Synthesis for Uncertain Robotic Actuation",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 52,
+    "code": "BWU/BAR/24/069",
+    "name": "Biswajit Chakraborty",
+    "sub": "22/04/2026",
+    "topic": "Octree Ray-Casting using Bresenham's 3D Algorithm for Voxel Clearing",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 53,
+    "code": "BWU/BAR/24/070",
+    "name": "Disha Mandal",
+    "sub": "22/04/2026",
+    "topic": "Multi-Sensor Fusion: LiDAR-Inertial-Camera Odometry (LVI-SAM)",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 54,
+    "code": "BWU/BAR/24/071",
+    "name": "Dipan Paul",
+    "sub": "22/04/2026",
+    "topic": "Actor-Critic Soft Actor-Critic (SAC) for Energy-Aware Quadruped Gaiting",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 55,
+    "code": "BWU/BAR/24/072",
+    "name": "Sagar Sk",
+    "sub": "22/04/2026",
+    "topic": "Topological Map Building and Place Recognition using NetVLAD Embeddings",
+    "pres": "30/04/2026"
+  },
+  {
+    "sl": 56,
+    "code": "BWU/BAR/24/073",
+    "name": "Sayan Basak",
+    "sub": "22/04/2026",
+    "topic": "Future Directions in Differentiable Physics Engines for Robotic Optimization",
+    "pres": "30/04/2026"
+  }
+];
+
+// Master Combined Data for Universal Search
+const masterData = [];
+raiData.forEach(r => masterData.push({ ...r, subjectKey: 'rai', subjectCode: 'BTR50112', subjectName: 'Robotics & AI' }));
+rsmData.forEach(r => masterData.push({ ...r, subjectKey: 'rsm', subjectCode: 'BTR50113', subjectName: 'Robot Safety' }));
+tmmdData.forEach(r => masterData.push({ ...r, subjectKey: 'tmmd', subjectCode: 'BTR50114', subjectName: 'Machine Design' }));
+peData.forEach(r => masterData.push({ ...r, subjectKey: 'pe', subjectCode: 'BTR50115', subjectName: 'Prof. Ethics' }));
+raData.forEach(r => masterData.push({ ...r, subjectKey: 'ra', subjectCode: 'BTR50116', subjectName: 'Robotic Algorithms' }));
+
+/* ══════════════════════════════════════════
+   3. TABLE RENDERING FUNCTIONS
+══════════════════════════════════════════ */
+function renderTableRows(tbodyId, countId, data, subjectCode, countSingular = 'student', countPlural = 'students') {
+  const tbody = document.getElementById(tbodyId);
+  const countEl = document.getElementById(countId);
+  if (!tbody) return;
+
+  if (countEl) {
+    countEl.innerHTML = `Showing <strong>${data.length}</strong> ${data.length === 1 ? countSingular : countPlural}`;
+  }
+
+  if (data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" class="td-empty">No matching records found. Try modifying your search keywords.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = data.map(r => `
+    <tr>
+      <td class="td-sl">${String(r.sl).padStart(2, '0')}</td>
+      <td class="td-code"><span class="code-pill">${r.code}</span></td>
+      <td class="td-name">${r.name}</td>
+      <td class="td-sub">${r.sub}</td>
+      <td class="td-topic">${r.topic}</td>
+      <td class="td-date">${r.pres}</td>
+      <td>
+        <button class="table-btn-submit" onclick="openSubmitModal('${subjectCode}', '${r.code}')">Submit</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function renderRaiTable(data)  { renderTableRows('raiTbody', 'raiCount', data, 'BTR50112'); }
+function renderRsmTable(data)  { renderTableRows('rsmTbody', 'rsmCount', data, 'BTR50113'); }
+function renderTmmdTable(data) { renderTableRows('tmmdTbody', 'tmmdCount', data, 'BTR50114'); }
+function renderPeTable(data)   { renderTableRows('peTbody', 'peCount', data, 'BTR50115'); }
+function renderRaTable(data)   { renderTableRows('raTbody', 'raCount', data, 'BTR50116'); }
+
+function renderMasterTable(data) {
+  const tbody = document.getElementById('masterTbody');
+  const countEl = document.getElementById('masterCount');
+  if (!tbody) return;
+
+  if (countEl) {
+    countEl.innerHTML = `Showing <strong>${data.length}</strong> of 280 topic allocations`;
+  }
+
+  if (data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" class="td-empty">No matching topics found across all subjects.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = data.map(r => `
+    <tr>
+      <td class="td-sl">${String(r.sl).padStart(2, '0')}</td>
+      <td class="td-sub-badge"><span class="sub-tag ${r.subjectKey}">${r.subjectName}</span></td>
+      <td class="td-code"><span class="code-pill">${r.code}</span></td>
+      <td class="td-name">${r.name}</td>
+      <td class="td-topic">${r.topic}</td>
+      <td class="td-date">${r.pres}</td>
+      <td>
+        <button class="table-btn-submit" onclick="openSubmitModal('${r.subjectCode}', '${r.code}')">Submit</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+/* ══════════════════════════════════════════
+   4. SEARCH AND FILTER LISTENERS
+══════════════════════════════════════════ */
+function setupSearch(inputId, dataList, renderFn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  input.addEventListener('input', function(){
+    const q = this.value.trim().toLowerCase();
+    if (!q) {
+      renderFn(dataList);
+      return;
+    }
+    const filtered = dataList.filter(r => 
+      r.code.toLowerCase().includes(q) || 
+      r.name.toLowerCase().includes(q) ||
+      (r.topic && r.topic.toLowerCase().includes(q))
+    );
+    renderFn(filtered);
+  });
+}
+
+setupSearch('raiSearch', raiData, renderRaiTable);
+setupSearch('rsmSearch', rsmData, renderRsmTable);
+setupSearch('tmmdSearch', tmmdData, renderTmmdTable);
+setupSearch('peSearch', peData, renderPeTable);
+setupSearch('raSearch', raData, renderRaTable);
+
+// Master Search & Subject Filters
+let currentMasterFilter = 'all';
+function applyMasterFilters() {
+  const q = (document.getElementById('masterSearch')?.value || '').trim().toLowerCase();
+  let list = masterData;
+  if (currentMasterFilter !== 'all') {
+    list = list.filter(r => r.subjectKey === currentMasterFilter);
+  }
+  if (q) {
+    list = list.filter(r => 
+      r.code.toLowerCase().includes(q) || 
+      r.name.toLowerCase().includes(q) || 
+      r.topic.toLowerCase().includes(q) ||
+      r.subjectName.toLowerCase().includes(q) ||
+      r.subjectCode.toLowerCase().includes(q)
+    );
+  }
+  renderMasterTable(list);
+}
+
+const masterSearchEl = document.getElementById('masterSearch');
+if (masterSearchEl) {
+  masterSearchEl.addEventListener('input', applyMasterFilters);
+}
+
+document.querySelectorAll('#masterFilterPills .filter-btn').forEach(btn => {
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#masterFilterPills .filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    currentMasterFilter = this.getAttribute('data-filter') || 'all';
+    applyMasterFilters();
+  });
+});
+
+/* ══════════════════════════════════════════
+   5. SPA ROUTER & NAVIGATION ENGINE
+══════════════════════════════════════════ */
+const pages = {
+  home: document.getElementById('home'),
+  subjects: document.getElementById('subjects'),
+  topics: document.getElementById('topics'),
+  deadlines: document.getElementById('deadlines'),
+  'rai-detail': document.getElementById('rai-detail'),
+  'rsm-detail': document.getElementById('rsm-detail'),
+  'tmmd-detail': document.getElementById('tmmd-detail'),
+  'pe-detail': document.getElementById('pe-detail'),
+  'ra-detail': document.getElementById('ra-detail'),
+};
+
+let currentPage = 'home';
+
+function hideAllPages(){
+  Object.values(pages).forEach(p => {
+    if (p) p.classList.remove('active');
+  });
+}
+
+function showPage(name){
+  hideAllPages();
+  const target = pages[name] || pages['home'];
+  if (target) {
+    target.classList.add('active');
+  }
+  currentPage = name;
+  if (typeof window !== 'undefined' && typeof window.scrollTo === 'function') {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  // Update active state in top navbar
+  document.querySelectorAll('.site-nav .nav-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('data-nav') === name);
+  });
+
+  // Reset search and refresh tables
+  if (name === 'rai-detail')  { const el = document.getElementById('raiSearch');  if(el) el.value = ''; renderRaiTable(raiData); }
+  if (name === 'rsm-detail')  { const el = document.getElementById('rsmSearch');  if(el) el.value = ''; renderRsmTable(rsmData); }
+  if (name === 'tmmd-detail') { const el = document.getElementById('tmmdSearch'); if(el) el.value = ''; renderTmmdTable(tmmdData); }
+  if (name === 'pe-detail')   { const el = document.getElementById('peSearch');   if(el) el.value = ''; renderPeTable(peData); }
+  if (name === 'ra-detail')   { const el = document.getElementById('raSearch');   if(el) el.value = ''; renderRaTable(raData); }
+  if (name === 'topics')      { applyMasterFilters(); }
+
+  if (target && typeof target.querySelectorAll === 'function') {
+    const cards = target.querySelectorAll('.subject-card, .topic-card');
+    cards.forEach(c => { c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; });
+  }
+}
+
+// Safe history API wrappers (prevent SecurityError on file:// protocol or sandbox iframes)
+function safeHistory(action, state, title, url) {
+  try {
+    if (window.history && typeof window.history[action] === 'function') {
+      window.history[action](state, title, url);
+    }
+  } catch (e) {
+    // Protocol doesn't allow history states (e.g. file:// in some browsers)
+  }
+}
+
+function nav(name){
+  safeHistory('pushState', { page: name }, '', location.href);
+  showPage(name);
+}
+window.nav = nav;
+
+function goBack() {
+  try {
+    if (window.history && window.history.length > 1 && currentPage !== 'home') {
+      window.history.back();
+    } else {
+      nav('home');
+    }
+  } catch (e) {
+    nav('home');
+  }
+}
+window.goBack = goBack;
+
+// In-page Back button listeners
+['backBtn', 'backBtn2', 'backBtn3', 'backBtn4', 'backBtn5', 'backBtn6', 'backBtn7', 'backBtn8'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      goBack();
+    });
+  }
+});
+
+// Primary CTA buttons on Home
+const ctaBtn = document.getElementById('ctaBtn');
+if (ctaBtn) ctaBtn.addEventListener('click', () => nav('subjects'));
+
+const ctaBtn2 = document.getElementById('ctaBtn2');
+if (ctaBtn2) ctaBtn2.addEventListener('click', () => nav('subjects'));
+
+const topicBtn = document.getElementById('topicBtn');
+if (topicBtn) topicBtn.addEventListener('click', () => nav('topics'));
+
+const deadlineBtn = document.getElementById('deadlineBtn');
+if (deadlineBtn) deadlineBtn.addEventListener('click', () => nav('deadlines'));
+
+// Topic Cards on Topics Page
+const topicCardMap = {
+  raiCard: 'rai-detail',
+  rsmCard: 'rsm-detail',
+  tmmdCard: 'tmmd-detail',
+  peCard: 'pe-detail',
+  raCard: 'ra-detail',
+};
+
+Object.keys(topicCardMap).forEach(id => {
+  const card = document.getElementById(id);
+  if (card) {
+    card.addEventListener('click', () => nav(topicCardMap[id]));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        nav(topicCardMap[id]);
+      }
+    });
+  }
+});
+
+// Hardware / Browser Back button handling
+window.addEventListener('popstate', e => {
+  const page = (e.state && e.state.page) ? e.state.page : 'home';
+  showPage(page);
+});
+
+// Visibility change history sync
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && history.state && history.state.page !== currentPage) {
+    safeHistory('replaceState', { page: currentPage }, '', location.href);
+  }
+});
+
+// Touch swipe-back gesture for iOS/Android
+(function setupSwipeBack(){
+  let touchStartX = 0;
+  let touchStartY = 0;
+  document.addEventListener('touchstart', e => {
+    if (e.touches && e.touches.length > 0) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    if (!e.changedTouches || e.changedTouches.length === 0) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    if (touchStartX < 40 && dx > 60 && dy < 80 && currentPage !== 'home') {
+      goBack();
+    }
+  }, { passive: true });
+})();
+
+/* ══════════════════════════════════════════
+   6. PPT SUBMISSION MODAL & LOGIC
+══════════════════════════════════════════ */
+let selectedFile = null;
+
+function openSubmitModal(subjectCode, rollCode) {
+  const modal = document.getElementById('submitModal');
+  const formView = document.getElementById('modalFormView');
+  const successView = document.getElementById('modalSuccessView');
+  if (!modal) return;
+
+  if (formView) formView.style.display = 'block';
+  if (successView) successView.style.display = 'none';
+
+  const form = document.getElementById('pptUploadForm');
+  if (form) form.reset();
+  removeSelectedFile();
+
+  if (subjectCode) {
+    const subjSelect = document.getElementById('modalSubject');
+    if (subjSelect) subjSelect.value = subjectCode;
+  }
+
+  if (rollCode) {
+    const rollInput = document.getElementById('modalRoll');
+    if (rollInput) {
+      rollInput.value = rollCode;
+      onModalRollInput();
+    }
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+window.openSubmitModal = openSubmitModal;
+
+function closeSubmitModal() {
+  const modal = document.getElementById('submitModal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.closeSubmitModal = closeSubmitModal;
+
+// Close on backdrop click & ESC key
+const submitModalEl = document.getElementById('submitModal');
+if (submitModalEl) {
+  submitModalEl.addEventListener('click', function(e){
+    if (e.target === submitModalEl) {
+      closeSubmitModal();
+    }
+  });
+}
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeSubmitModal();
+});
+
+// Auto-populate Name and Topic when Roll or Subject is selected
+function onModalSubjectChange() {
+  onModalRollInput();
+}
+window.onModalSubjectChange = onModalSubjectChange;
+
+function onModalRollInput() {
+  const rollInput = document.getElementById('modalRoll');
+  const nameInput = document.getElementById('modalName');
+  const topicInput = document.getElementById('modalTopic');
+  const subjSelect = document.getElementById('modalSubject');
+
+  if (!rollInput || !nameInput || !topicInput) return;
+  const rollVal = rollInput.value.trim().toUpperCase();
+  const subjVal = subjSelect ? subjSelect.value : '';
+
+  // Look up student across data
+  const student = masterData.find(s => s.code.toUpperCase() === rollVal);
+  if (student) {
+    nameInput.value = student.name;
+    if (subjVal) {
+      const matchTopic = masterData.find(s => s.code.toUpperCase() === rollVal && s.subjectCode === subjVal);
+      if (matchTopic) {
+        topicInput.value = matchTopic.topic;
+      }
+    }
+  }
+}
+window.onModalRollInput = onModalRollInput;
+
+// Drag and drop file handling
+const dropZone = document.getElementById('modalDropZone');
+const fileInput = document.getElementById('modalFileInput');
+
+if (dropZone && fileInput) {
+  dropZone.addEventListener('click', () => fileInput.click());
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, e => {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, e => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+    });
+  });
+
+  dropZone.addEventListener('drop', e => {
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      fileInput.files = e.dataTransfer.files;
+      onFileSelected(fileInput);
+    }
+  });
+}
+
+function onFileSelected(input) {
+  if (input.files && input.files[0]) {
+    selectedFile = input.files[0];
+    const badge = document.getElementById('selectedFileBadge');
+    const nameEl = document.getElementById('selectedFileName');
+    if (badge && nameEl) {
+      nameEl.textContent = selectedFile.name + ' (' + (selectedFile.size / (1024 * 1024)).toFixed(2) + ' MB)';
+      badge.style.display = 'inline-flex';
+    }
+    if (dropZone) dropZone.style.display = 'none';
+  }
+}
+window.onFileSelected = onFileSelected;
+
+function removeSelectedFile() {
+  selectedFile = null;
+  const fileInput = document.getElementById('modalFileInput');
+  if (fileInput) fileInput.value = '';
+  const badge = document.getElementById('selectedFileBadge');
+  if (badge) badge.style.display = 'none';
+  if (dropZone) dropZone.style.display = 'block';
+}
+window.removeSelectedFile = removeSelectedFile;
+
+// Form Submission & Receipt Generator
+function handleFormSubmit(e) {
+  e.preventDefault();
+
+  const subjSelect = document.getElementById('modalSubject');
+  const rollInput = document.getElementById('modalRoll');
+  const nameInput = document.getElementById('modalName');
+  const topicInput = document.getElementById('modalTopic');
+  const submitBtn = document.getElementById('modalSubmitBtn');
+
+  const subjectCode = subjSelect.value;
+  const studentCode = rollInput.value.trim().toUpperCase();
+  const studentName = nameInput.value.trim();
+  const topicName = topicInput.value.trim();
+
+  if (!selectedFile) {
+    showToast('Please attach your presentation file (.pptx, .ppt, or .pdf)');
+    return;
+  }
+
+  // Visual submission feedback
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="btn-label">Uploading & Verifying...</span>';
+  }
+
+  setTimeout(() => {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span class="btn-label">Submit Presentation</span><span class="btn-icon">→</span>';
+    }
+
+    // Generate verified receipt
+    const cleanRoll = studentCode.replace(/[^0-9]/g, '').slice(-3) || '001';
+    const randSuffix = Math.floor(1000 + Math.random() * 9000);
+    const receiptCode = `AIR5A-${subjectCode}-${cleanRoll}-${randSuffix}`;
+
+    const formView = document.getElementById('modalFormView');
+    const successView = document.getElementById('modalSuccessView');
+    if (formView && successView) {
+      formView.style.display = 'none';
+      successView.style.display = 'block';
+    }
+
+    const receiptIdEl = document.getElementById('receiptId');
+    if (receiptIdEl) receiptIdEl.textContent = receiptCode;
+
+    const receiptStudentEl = document.getElementById('receiptStudent');
+    if (receiptStudentEl) receiptStudentEl.textContent = `${studentName} (${studentCode})`;
+
+    const subjObj = SUBJECTS_META.find(s => s.code === subjectCode);
+    const receiptSubjEl = document.getElementById('receiptSubject');
+    if (receiptSubjEl) receiptSubjEl.textContent = subjObj ? subjObj.name : subjectCode;
+
+    const receiptTopicEl = document.getElementById('receiptTopic');
+    if (receiptTopicEl) receiptTopicEl.textContent = topicName;
+
+    const receiptTimeEl = document.getElementById('receiptTime');
+    if (receiptTimeEl) receiptTimeEl.textContent = new Date().toLocaleString();
+
+    showToast('✓ Presentation submitted successfully!');
+  }, 800);
+}
+window.handleFormSubmit = handleFormSubmit;
+
+function copyReceiptCode() {
+  const code = document.getElementById('receiptId')?.textContent;
+  if (code) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(() => {
+        showToast('Receipt ID copied to clipboard!');
+      }).catch(() => {
+        showToast('Receipt ID: ' + code);
+      });
+    } else {
+      showToast('Receipt ID: ' + code);
+    }
+  }
+}
+window.copyReceiptCode = copyReceiptCode;
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3200);
+}
+window.showToast = showToast;
+
+/* ══════════════════════════════════════════
+   7. INITIALIZATION ON SCRIPT LOAD
+══════════════════════════════════════════ */
+// Pre-render all tables so no view is ever blank
+renderRaiTable(raiData);
+renderRsmTable(rsmData);
+renderTmmdTable(tmmdData);
+renderPeTable(peData);
+renderRaTable(raData);
+applyMasterFilters();
+
+// Initialize initial page view
+safeHistory('replaceState', { page: 'home' }, '', location.href);
+
+// Check if a specific page hash was requested in the URL (e.g. #subjects or #topics)
+let initHash = '';
+try {
+  if (typeof window !== 'undefined' && window.location && window.location.hash) {
+    initHash = window.location.hash.replace('#', '');
+  }
+} catch (e) {}
+
+if (initHash && pages[initHash]) {
+  showPage(initHash);
+} else {
+  showPage('home');
+}
+
+  </script>
+</body>
+</html>

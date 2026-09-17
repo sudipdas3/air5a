@@ -2614,6 +2614,15 @@ function showPage(name){
     const cards = target.querySelectorAll('.subject-card, .topic-card');
     cards.forEach(c => { c.style.animation = 'none'; void c.offsetWidth; c.style.animation = ''; });
   }
+
+  if (name === 'home') {
+    const heroLogo = document.getElementById('heroLogoShowcase');
+    if (heroLogo) {
+      heroLogo.style.animation = 'none';
+      void heroLogo.offsetWidth;
+      heroLogo.style.animation = '';
+    }
+  }
 }
 
 // Safe history API wrappers (prevent SecurityError on file:// protocol or sandbox iframes)

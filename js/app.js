@@ -30,8 +30,8 @@
       vx: (Math.random() - 0.5) * 0.28,
       vy: (Math.random() - 0.5) * 0.28,
       r: Math.random() * 1.6 + 0.6,
-      c: i % 4 === 0 ? '#00d4ff' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#f59e0b' : '#10b981',
-      cLight: i % 4 === 0 ? '#0284c7' : i % 4 === 1 ? '#7c3aed' : i % 4 === 2 ? '#d97706' : '#059669'
+      c: i % 4 === 0 ? '#42c3fe' : i % 4 === 1 ? '#086bcc' : i % 4 === 2 ? '#38bdf8' : '#22d3ee',
+      cLight: i % 4 === 0 ? '#086bcc' : i % 4 === 1 ? '#0284c7' : i % 4 === 2 ? '#0369a1' : '#38bdf8'
     });
   }
 
@@ -59,7 +59,7 @@
           ctx.lineTo(dots[j].x, dots[j].y);
           ctx.strokeStyle = isLight
             ? `rgba(2, 132, 199, ${(1 - dist / MAX_DIST) * 0.12})`
-            : `rgba(0, 212, 255, ${(1 - dist / MAX_DIST) * 0.16})`;
+            : `rgba(66, 195, 254, ${(1 - dist / MAX_DIST) * 0.2})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }

@@ -30,13 +30,17 @@
       vx: (Math.random() - 0.5) * 0.28,
       vy: (Math.random() - 0.5) * 0.28,
       r: Math.random() * 1.6 + 0.6,
-      c: i % 4 === 0 ? '#00d4ff' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#f59e0b' : '#10b981'
+      c: i % 4 === 0 ? '#00d4ff' : i % 4 === 1 ? '#8b5cf6' : i % 4 === 2 ? '#f59e0b' : '#10b981',
+      cLight: i % 4 === 0 ? '#0284c7' : i % 4 === 1 ? '#7c3aed' : i % 4 === 2 ? '#d97706' : '#059669'
     });
   }
 
   function draw(){
     if (!ctx) return;
     ctx.clearRect(0, 0, W, H);
+    const isLight = (document.documentElement && typeof document.documentElement.getAttribute === 'function')
+      ? document.documentElement.getAttribute('data-theme') === 'light'
+      : false;
     dots.forEach(d => {
       d.x += d.vx; 
       d.y += d.vy;
@@ -53,7 +57,9 @@
           ctx.beginPath();
           ctx.moveTo(dots[i].x, dots[i].y);
           ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / MAX_DIST) * 0.16})`;
+          ctx.strokeStyle = isLight
+            ? `rgba(2, 132, 199, ${(1 - dist / MAX_DIST) * 0.12})`
+            : `rgba(0, 212, 255, ${(1 - dist / MAX_DIST) * 0.16})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -63,13 +69,60 @@
     dots.forEach(d => {
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-      ctx.fillStyle = d.c + '99';
+      ctx.fillStyle = isLight ? (d.cLight + '99') : (d.c + '99');
       ctx.fill();
     });
 
     requestAnimationFrame(draw);
   }
   draw();
+})();
+
+/* ══════════════════════════════════════════
+   THEME MANAGER (DARK / LIGHT MODE)
+══════════════════════════════════════════ */
+(function initThemeManager(){
+  const THEME_KEY = 'air5a_theme';
+  const html = document.documentElement;
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+  function applyTheme(theme) {
+    if (html && typeof html.setAttribute === 'function') {
+      html.setAttribute('data-theme', theme);
+    }
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch(e){}
+    const metaTheme = typeof document.querySelector === 'function' ? document.querySelector('meta[name="theme-color"]') : null;
+    if (metaTheme && typeof metaTheme.setAttribute === 'function') {
+      metaTheme.setAttribute('content', theme === 'light' ? '#f8fafc' : '#03060d');
+    }
+    if (themeToggleBtn && typeof themeToggleBtn.setAttribute === 'function') {
+      const label = theme === 'light' ? 'Switch to Dark Theme' : 'Switch to Light Theme';
+      themeToggleBtn.setAttribute('aria-label', label);
+      themeToggleBtn.setAttribute('title', label);
+    }
+  }
+
+  try {
+    const savedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem(THEME_KEY) : null;
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      applyTheme(savedTheme);
+    } else {
+      const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(prefersDark ? 'dark' : 'light');
+    }
+  } catch(e) {
+    applyTheme('dark');
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = (html && typeof html.getAttribute === 'function') ? (html.getAttribute('data-theme') || 'dark') : 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
 })();
 
 /* ══════════════════════════════════════════

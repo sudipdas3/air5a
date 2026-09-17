@@ -1089,82 +1089,57 @@ body {
 .clickable { cursor: pointer; user-select: none; }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   5 DISTINCT SUBJECT COLOR PALETTES (CYBER SHAPED CARDS FROM PHOTO)
+   2-COLOR DUAL CYBER PALETTE (EXACT TWO COLORS FROM UPLOADED PHOTO)
+   Color 1: Electric Sky Cyan (#42c3fe) - Matching Workshop 1
+   Color 2: Deep Royal Blue   (#086bcc) - Matching Workshop 2
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* Subject 01: Robotics and Artificial Intelligence (BTR50112) - Electric Ice Cyan */
+/* Color 1: Electric Sky Cyan (Subject 01, 03, 05) */
 .subject-card[data-code="BTR50112"],
 .topic-card[data-code="BTR50112"],
 #raiCard,
 #subjects .cards-grid > .subject-card:nth-of-type(1),
 #topics .cards-grid > .topic-card:nth-of-type(1),
-.subjects-grid > .subject-card:nth-of-type(1) {
-  --card-accent: #38bdf8;
-  --card-accent-dark: #0284c7;
-  --card-glow: rgba(56, 189, 248, 0.45);
-  --card-bg-tint: rgba(56, 189, 248, 0.08);
-  --card-badge-bg: #38bdf8;
-  --card-badge-text: #000000;
-}
-
-/* Subject 02: Robot Safety and Maintenance (BTR50113) - Safety Amber Gold */
-.subject-card[data-code="BTR50113"],
-.topic-card[data-code="BTR50113"],
-#rsmCard,
-#subjects .cards-grid > .subject-card:nth-of-type(2),
-#topics .cards-grid > .topic-card:nth-of-type(2),
-.subjects-grid > .subject-card:nth-of-type(2) {
-  --card-accent: #fbbf24;
-  --card-accent-dark: #d97706;
-  --card-glow: rgba(251, 191, 36, 0.45);
-  --card-bg-tint: rgba(251, 191, 36, 0.08);
-  --card-badge-bg: #fbbf24;
-  --card-badge-text: #000000;
-}
-
-/* Subject 03: Theory of Machine & Machine Design (BTR50114) - Electric Violet Purple */
+.subjects-grid > .subject-card:nth-of-type(1),
 .subject-card[data-code="BTR50114"],
 .topic-card[data-code="BTR50114"],
 #tmmdCard,
 #subjects .cards-grid > .subject-card:nth-of-type(3),
 #topics .cards-grid > .topic-card:nth-of-type(3),
-.subjects-grid > .subject-card:nth-of-type(3) {
-  --card-accent: #c084fc;
-  --card-accent-dark: #9333ea;
-  --card-glow: rgba(192, 132, 252, 0.45);
-  --card-bg-tint: rgba(192, 132, 252, 0.08);
-  --card-badge-bg: #c084fc;
-  --card-badge-text: #000000;
-}
-
-/* Subject 04: Professional Ethics (BTR50115) - Emerald Mint / Cyber Green */
-.subject-card[data-code="BTR50115"],
-.topic-card[data-code="BTR50115"],
-#peCard,
-#subjects .cards-grid > .subject-card:nth-of-type(4),
-#topics .cards-grid > .topic-card:nth-of-type(4),
-.subjects-grid > .subject-card:nth-of-type(4) {
-  --card-accent: #34d399;
-  --card-accent-dark: #059669;
-  --card-glow: rgba(52, 211, 153, 0.45);
-  --card-bg-tint: rgba(52, 211, 153, 0.08);
-  --card-badge-bg: #34d399;
-  --card-badge-text: #000000;
-}
-
-/* Subject 05: Robotic Algorithms (BTR50116) - Neon Rose / Coral Pink */
+.subjects-grid > .subject-card:nth-of-type(3),
 .subject-card[data-code="BTR50116"],
 .topic-card[data-code="BTR50116"],
 #raCard,
 #subjects .cards-grid > .subject-card:nth-of-type(5),
 #topics .cards-grid > .topic-card:nth-of-type(5),
 .subjects-grid > .subject-card:nth-of-type(5) {
-  --card-accent: #fb7185;
-  --card-accent-dark: #e11d48;
-  --card-glow: rgba(251, 113, 133, 0.45);
-  --card-bg-tint: rgba(251, 113, 133, 0.08);
-  --card-badge-bg: #fb7185;
+  --card-accent: #42c3fe;
+  --card-accent-dark: #086bcc;
+  --card-glow: rgba(66, 195, 254, 0.45);
+  --card-bg-tint: rgba(66, 195, 254, 0.08);
+  --card-badge-bg: #42c3fe;
   --card-badge-text: #000000;
+}
+
+/* Color 2: Deep Royal Blue (Subject 02, 04) */
+.subject-card[data-code="BTR50113"],
+.topic-card[data-code="BTR50113"],
+#rsmCard,
+#subjects .cards-grid > .subject-card:nth-of-type(2),
+#topics .cards-grid > .topic-card:nth-of-type(2),
+.subjects-grid > .subject-card:nth-of-type(2),
+.subject-card[data-code="BTR50115"],
+.topic-card[data-code="BTR50115"],
+#peCard,
+#subjects .cards-grid > .subject-card:nth-of-type(4),
+#topics .cards-grid > .topic-card:nth-of-type(4),
+.subjects-grid > .subject-card:nth-of-type(4) {
+  --card-accent: #086bcc;
+  --card-accent-dark: #42c3fe;
+  --card-glow: rgba(8, 107, 204, 0.5);
+  --card-bg-tint: rgba(8, 107, 204, 0.12);
+  --card-badge-bg: #086bcc;
+  --card-badge-text: #ffffff;
 }
 
 /* Top-Left Chamfered Cyber Bracket (Exact Match to Uploaded Photo) */
@@ -1415,30 +1390,18 @@ body {
   font-weight: 700;
   box-shadow: 0 0 16px rgba(66, 195, 254, 0.4);
 }
-.filter-btn[data-filter="rai"].active {
-  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
-  color: #000000;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
-}
-.filter-btn[data-filter="rsm"].active {
-  background: linear-gradient(90deg, #fbbf24 0%, #d97706 100%);
-  color: #000000;
-  box-shadow: 0 0 16px rgba(251, 191, 36, 0.45);
-}
-.filter-btn[data-filter="tmmd"].active {
-  background: linear-gradient(90deg, #c084fc 0%, #9333ea 100%);
-  color: #000000;
-  box-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
-}
-.filter-btn[data-filter="pe"].active {
-  background: linear-gradient(90deg, #34d399 0%, #059669 100%);
-  color: #000000;
-  box-shadow: 0 0 16px rgba(52, 211, 153, 0.45);
-}
+.filter-btn[data-filter="rai"].active,
+.filter-btn[data-filter="tmmd"].active,
 .filter-btn[data-filter="ra"].active {
-  background: linear-gradient(90deg, #fb7185 0%, #e11d48 100%);
+  background: linear-gradient(90deg, #42c3fe 0%, #086bcc 100%);
   color: #000000;
-  box-shadow: 0 0 16px rgba(251, 113, 133, 0.45);
+  box-shadow: 0 0 16px rgba(66, 195, 254, 0.45);
+}
+.filter-btn[data-filter="rsm"].active,
+.filter-btn[data-filter="pe"].active {
+  background: linear-gradient(90deg, #086bcc 0%, #0284c7 100%);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(8, 107, 204, 0.45);
 }
 [data-theme="light"] .filter-btn.active {
   color: #ffffff;
@@ -2352,13 +2315,25 @@ body {
   color: #ffffff !important;
 }
 
-/* Light Theme: 5 Distinct Subject Color Adjustments */
+/* Light Theme: 2 Photo Colors (Sky Blue & Deep Royal Blue) */
 [data-theme="light"] .subject-card[data-code="BTR50112"],
 [data-theme="light"] .topic-card[data-code="BTR50112"],
 [data-theme="light"] #raiCard,
 [data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(1),
 [data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(1),
-[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(1) {
+.subjects-grid > .subject-card:nth-of-type(1),
+[data-theme="light"] .subject-card[data-code="BTR50114"],
+[data-theme="light"] .topic-card[data-code="BTR50114"],
+[data-theme="light"] #tmmdCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(3),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(3),
+.subjects-grid > .subject-card:nth-of-type(3),
+[data-theme="light"] .subject-card[data-code="BTR50116"],
+[data-theme="light"] .topic-card[data-code="BTR50116"],
+[data-theme="light"] #raCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(5),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(5),
+.subjects-grid > .subject-card:nth-of-type(5) {
   --card-accent: #0284c7;
   --card-accent-dark: #0369a1;
   --card-glow: rgba(2, 132, 199, 0.25);
@@ -2372,54 +2347,18 @@ body {
 [data-theme="light"] #rsmCard,
 [data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(2),
 [data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(2),
-[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(2) {
-  --card-accent: #d97706;
-  --card-accent-dark: #b45309;
-  --card-glow: rgba(217, 119, 6, 0.25);
-  --card-bg-tint: rgba(217, 119, 6, 0.08);
-  --card-badge-bg: #d97706;
-  --card-badge-text: #ffffff;
-}
-
-[data-theme="light"] .subject-card[data-code="BTR50114"],
-[data-theme="light"] .topic-card[data-code="BTR50114"],
-[data-theme="light"] #tmmdCard,
-[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(3),
-[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(3),
-[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(3) {
-  --card-accent: #9333ea;
-  --card-accent-dark: #7e22ce;
-  --card-glow: rgba(147, 51, 234, 0.25);
-  --card-bg-tint: rgba(147, 51, 234, 0.08);
-  --card-badge-bg: #9333ea;
-  --card-badge-text: #ffffff;
-}
-
+.subjects-grid > .subject-card:nth-of-type(2),
 [data-theme="light"] .subject-card[data-code="BTR50115"],
 [data-theme="light"] .topic-card[data-code="BTR50115"],
 [data-theme="light"] #peCard,
 [data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(4),
 [data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(4),
-[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(4) {
-  --card-accent: #059669;
-  --card-accent-dark: #047857;
-  --card-glow: rgba(5, 150, 105, 0.25);
-  --card-bg-tint: rgba(5, 150, 105, 0.08);
-  --card-badge-bg: #059669;
-  --card-badge-text: #ffffff;
-}
-
-[data-theme="light"] .subject-card[data-code="BTR50116"],
-[data-theme="light"] .topic-card[data-code="BTR50116"],
-[data-theme="light"] #raCard,
-[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(5),
-[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(5),
-[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(5) {
-  --card-accent: #e11d48;
-  --card-accent-dark: #be123c;
-  --card-glow: rgba(225, 29, 72, 0.25);
-  --card-bg-tint: rgba(225, 29, 72, 0.08);
-  --card-badge-bg: #e11d48;
+.subjects-grid > .subject-card:nth-of-type(4) {
+  --card-accent: #086bcc;
+  --card-accent-dark: #034b94;
+  --card-glow: rgba(8, 107, 204, 0.25);
+  --card-bg-tint: rgba(8, 107, 204, 0.08);
+  --card-badge-bg: #086bcc;
   --card-badge-text: #ffffff;
 }
 

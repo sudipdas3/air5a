@@ -1041,6 +1041,12 @@ body {
   --sf-thickness: 3px;
   --_cut: 34px;
   --_bracket: 110px;
+  --card-accent: #38bdf8;
+  --card-accent-dark: #0284c7;
+  --card-glow: rgba(56, 189, 248, 0.45);
+  --card-bg-tint: rgba(56, 189, 248, 0.08);
+  --card-badge-bg: #38bdf8;
+  --card-badge-text: #000000;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1082,6 +1088,85 @@ body {
 
 .clickable { cursor: pointer; user-select: none; }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   5 DISTINCT SUBJECT COLOR PALETTES (CYBER SHAPED CARDS FROM PHOTO)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Subject 01: Robotics and Artificial Intelligence (BTR50112) - Electric Ice Cyan */
+.subject-card[data-code="BTR50112"],
+.topic-card[data-code="BTR50112"],
+#raiCard,
+#subjects .cards-grid > .subject-card:nth-of-type(1),
+#topics .cards-grid > .topic-card:nth-of-type(1),
+.subjects-grid > .subject-card:nth-of-type(1) {
+  --card-accent: #38bdf8;
+  --card-accent-dark: #0284c7;
+  --card-glow: rgba(56, 189, 248, 0.45);
+  --card-bg-tint: rgba(56, 189, 248, 0.08);
+  --card-badge-bg: #38bdf8;
+  --card-badge-text: #000000;
+}
+
+/* Subject 02: Robot Safety and Maintenance (BTR50113) - Safety Amber Gold */
+.subject-card[data-code="BTR50113"],
+.topic-card[data-code="BTR50113"],
+#rsmCard,
+#subjects .cards-grid > .subject-card:nth-of-type(2),
+#topics .cards-grid > .topic-card:nth-of-type(2),
+.subjects-grid > .subject-card:nth-of-type(2) {
+  --card-accent: #fbbf24;
+  --card-accent-dark: #d97706;
+  --card-glow: rgba(251, 191, 36, 0.45);
+  --card-bg-tint: rgba(251, 191, 36, 0.08);
+  --card-badge-bg: #fbbf24;
+  --card-badge-text: #000000;
+}
+
+/* Subject 03: Theory of Machine & Machine Design (BTR50114) - Electric Violet Purple */
+.subject-card[data-code="BTR50114"],
+.topic-card[data-code="BTR50114"],
+#tmmdCard,
+#subjects .cards-grid > .subject-card:nth-of-type(3),
+#topics .cards-grid > .topic-card:nth-of-type(3),
+.subjects-grid > .subject-card:nth-of-type(3) {
+  --card-accent: #c084fc;
+  --card-accent-dark: #9333ea;
+  --card-glow: rgba(192, 132, 252, 0.45);
+  --card-bg-tint: rgba(192, 132, 252, 0.08);
+  --card-badge-bg: #c084fc;
+  --card-badge-text: #000000;
+}
+
+/* Subject 04: Professional Ethics (BTR50115) - Emerald Mint / Cyber Green */
+.subject-card[data-code="BTR50115"],
+.topic-card[data-code="BTR50115"],
+#peCard,
+#subjects .cards-grid > .subject-card:nth-of-type(4),
+#topics .cards-grid > .topic-card:nth-of-type(4),
+.subjects-grid > .subject-card:nth-of-type(4) {
+  --card-accent: #34d399;
+  --card-accent-dark: #059669;
+  --card-glow: rgba(52, 211, 153, 0.45);
+  --card-bg-tint: rgba(52, 211, 153, 0.08);
+  --card-badge-bg: #34d399;
+  --card-badge-text: #000000;
+}
+
+/* Subject 05: Robotic Algorithms (BTR50116) - Neon Rose / Coral Pink */
+.subject-card[data-code="BTR50116"],
+.topic-card[data-code="BTR50116"],
+#raCard,
+#subjects .cards-grid > .subject-card:nth-of-type(5),
+#topics .cards-grid > .topic-card:nth-of-type(5),
+.subjects-grid > .subject-card:nth-of-type(5) {
+  --card-accent: #fb7185;
+  --card-accent-dark: #e11d48;
+  --card-glow: rgba(251, 113, 133, 0.45);
+  --card-bg-tint: rgba(251, 113, 133, 0.08);
+  --card-badge-bg: #fb7185;
+  --card-badge-text: #000000;
+}
+
 /* Top-Left Chamfered Cyber Bracket (Exact Match to Uploaded Photo) */
 .subject-card::before, .topic-card::before {
   content: '';
@@ -1090,7 +1175,7 @@ body {
   left: 0;
   width: var(--_bracket, 110px);
   height: var(--_bracket, 110px);
-  background: linear-gradient(135deg, #42c3fe 0%, #086bcc 100%);
+  background: linear-gradient(135deg, var(--card-accent) 0%, var(--card-accent-dark) 100%);
   pointer-events: none;
   z-index: 2;
   clip-path: polygon(
@@ -1114,7 +1199,7 @@ body {
   right: 0;
   width: var(--_bracket, 110px);
   height: var(--_bracket, 110px);
-  background: linear-gradient(135deg, #086bcc 0%, #42c3fe 100%);
+  background: linear-gradient(135deg, var(--card-accent-dark) 0%, var(--card-accent) 100%);
   pointer-events: none;
   z-index: 2;
   clip-path: polygon(
@@ -1132,16 +1217,16 @@ body {
 
 .subject-card:hover, .topic-card:hover {
   transform: translateY(-5px);
-  background: linear-gradient(145deg, rgba(12, 32, 64, 0.92) 0%, rgba(4, 14, 34, 0.98) 100%);
-  filter: drop-shadow(0 0 28px rgba(66, 195, 254, 0.35));
+  background: linear-gradient(145deg, rgba(12, 32, 64, 0.94) 0%, rgba(4, 14, 34, 0.98) 100%);
+  filter: drop-shadow(0 0 30px var(--card-glow));
 }
 .subject-card:hover::before, .topic-card:hover::before,
 .subject-card:hover::after, .topic-card:hover::after {
-  background: #42c3fe;
-  filter: drop-shadow(0 0 10px #42c3fe);
+  background: var(--card-accent);
+  filter: drop-shadow(0 0 12px var(--card-accent));
 }
 
-/* Solid Sky-Cyan Pill Badge (Exact Match to "Workshop 1" / "Workshop 2" in Photo) */
+/* Solid Subject Pill Badge (Exact Match to "Workshop 1" / "Workshop 2" in Photo) */
 .card-num {
   display: inline-flex;
   align-items: center;
@@ -1149,15 +1234,15 @@ body {
   font-family: var(--font-body);
   font-size: clamp(11.5px, 1.4vw, 13px);
   font-weight: 700;
-  color: #000000 !important;
-  background: #42c3fe !important;
+  color: var(--card-badge-text, #000000) !important;
+  background: var(--card-badge-bg, var(--card-accent)) !important;
   padding: 5px 18px !important;
   border-radius: var(--pill) !important;
   width: fit-content;
   letter-spacing: 0.02em;
   text-transform: none;
   margin-bottom: 4px;
-  box-shadow: 0 0 16px rgba(66, 195, 254, 0.45);
+  box-shadow: 0 0 16px var(--card-glow);
   border: none !important;
   position: relative;
   z-index: 3;
@@ -1165,7 +1250,7 @@ body {
 }
 .subject-card:hover .card-num, .topic-card:hover .card-num {
   transform: scale(1.04);
-  box-shadow: 0 0 22px rgba(66, 195, 254, 0.7);
+  box-shadow: 0 0 24px var(--card-accent);
 }
 
 /* Card Heading (Matches Photo Hierarchy) */
@@ -1198,8 +1283,8 @@ body {
   font-size: clamp(11px, 1.4vw, 12.5px);
   font-weight: 600;
   color: #e2e8f0;
-  background: rgba(66, 195, 254, 0.08);
-  border-left: 3px solid #42c3fe;
+  background: var(--card-bg-tint);
+  border-left: 3px solid var(--card-accent);
   border-radius: 4px;
   padding: 6px 12px;
   position: relative;
@@ -1213,8 +1298,8 @@ body {
   gap: 8px;
   font-size: clamp(11px, 1.4vw, 12px);
   font-weight: 600;
-  color: #42c3fe;
-  background: rgba(66, 195, 254, 0.08);
+  color: var(--card-accent);
+  background: var(--card-bg-tint);
   border-radius: 6px;
   padding: 6px 12px;
   position: relative;
@@ -1243,7 +1328,7 @@ body {
   white-space: nowrap;
 }
 .card-action-btn.primary {
-  background: linear-gradient(90deg, #42c3fe 0%, #086bcc 100%);
+  background: linear-gradient(90deg, var(--card-accent) 0%, var(--card-accent-dark) 100%);
   color: #000000;
   border: none;
 }
@@ -1251,18 +1336,19 @@ body {
   color: #ffffff;
 }
 .card-action-btn.primary:hover {
-  box-shadow: 0 0 16px rgba(66, 195, 254, 0.5);
+  box-shadow: 0 0 18px var(--card-glow);
   transform: translateY(-1px);
 }
 .card-action-btn.secondary {
-  background: rgba(66, 195, 254, 0.08);
-  border: 1px solid rgba(66, 195, 254, 0.3);
-  color: var(--cyan);
+  background: var(--card-bg-tint);
+  border: 1px solid var(--card-accent);
+  color: var(--card-accent);
 }
 .card-action-btn.secondary:hover {
-  background: rgba(66, 195, 254, 0.2);
-  color: #ffffff;
-  border-color: #42c3fe;
+  background: var(--card-accent);
+  color: #000000;
+  border-color: var(--card-accent);
+  box-shadow: 0 0 16px var(--card-glow);
 }
 
 .card-arrow {
@@ -1272,22 +1358,22 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(66, 195, 254, 0.1);
-  border: 1px solid rgba(66, 195, 254, 0.3);
+  background: var(--card-bg-tint);
+  border: 1px solid var(--card-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  color: var(--cyan);
-  opacity: 0.75;
+  color: var(--card-accent);
+  opacity: 0.85;
   transition: all 0.2s ease;
   z-index: 3;
 }
 .subject-card:hover .card-arrow, .topic-card:hover .card-arrow { 
   opacity: 1; 
-  background: #42c3fe;
+  background: var(--card-accent);
   color: #000000;
-  box-shadow: 0 0 16px rgba(66, 195, 254, 0.7);
+  box-shadow: 0 0 18px var(--card-accent);
   transform: translate(2px, -2px);
 }
 
@@ -1328,6 +1414,31 @@ body {
   border-color: transparent;
   font-weight: 700;
   box-shadow: 0 0 16px rgba(66, 195, 254, 0.4);
+}
+.filter-btn[data-filter="rai"].active {
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
+  color: #000000;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+.filter-btn[data-filter="rsm"].active {
+  background: linear-gradient(90deg, #fbbf24 0%, #d97706 100%);
+  color: #000000;
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.45);
+}
+.filter-btn[data-filter="tmmd"].active {
+  background: linear-gradient(90deg, #c084fc 0%, #9333ea 100%);
+  color: #000000;
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
+}
+.filter-btn[data-filter="pe"].active {
+  background: linear-gradient(90deg, #34d399 0%, #059669 100%);
+  color: #000000;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.45);
+}
+.filter-btn[data-filter="ra"].active {
+  background: linear-gradient(90deg, #fb7185 0%, #e11d48 100%);
+  color: #000000;
+  box-shadow: 0 0 16px rgba(251, 113, 133, 0.45);
 }
 [data-theme="light"] .filter-btn.active {
   color: #ffffff;
@@ -2020,12 +2131,12 @@ body {
 .subject-code-badge {
   font-family: var(--font-body);
   font-size: 0.82rem;
-  color: #000000;
-  background: #42c3fe;
+  color: var(--card-badge-text, #000000);
+  background: var(--card-badge-bg, var(--card-accent));
   padding: 4px 14px;
   border-radius: var(--pill);
   font-weight: 700;
-  box-shadow: 0 0 12px rgba(66, 195, 254, 0.4);
+  box-shadow: 0 0 14px var(--card-glow);
   border: none;
 }
 .subject-credits {
@@ -2036,13 +2147,18 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(66, 195, 254, 0.1);
-  border: 1px solid rgba(66, 195, 254, 0.25);
+  background: var(--card-bg-tint);
+  border: 1px solid var(--card-accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cyan);
+  color: var(--card-accent);
   margin-bottom: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.subject-card:hover .subject-icon-wrap {
+  transform: scale(1.08);
+  box-shadow: 0 0 16px var(--card-glow);
 }
 .subject-icon-wrap svg {
   width: 22px;
@@ -2069,7 +2185,7 @@ body {
   font-size: 0.76rem;
   color: var(--txt3);
   padding-top: 12px;
-  border-top: 1px solid rgba(66, 195, 254, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 16px;
 }
 .btn-submit-subject {
@@ -2079,7 +2195,7 @@ body {
   gap: 8px;
   width: 100%;
   padding: 10px 18px;
-  background: linear-gradient(90deg, #42c3fe 0%, #086bcc 100%);
+  background: linear-gradient(90deg, var(--card-accent) 0%, var(--card-accent-dark) 100%);
   color: #000000;
   border: none;
   border-radius: var(--pill);
@@ -2088,7 +2204,7 @@ body {
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 0 16px rgba(66, 195, 254, 0.35);
+  box-shadow: 0 0 16px var(--card-glow);
 }
 .btn-submit-subject svg {
   width: 16px;
@@ -2096,7 +2212,7 @@ body {
 }
 .btn-submit-subject:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(66, 195, 254, 0.6);
+  box-shadow: 0 0 25px var(--card-glow);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -2179,33 +2295,132 @@ body {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 246, 254, 0.95) 100%) !important;
   box-shadow: 0 10px 30px rgba(8, 28, 64, 0.1) !important;
 }
-[data-theme="light"] .subject-card::before,
-[data-theme="light"] .topic-card::before,
+
+/* Generic elements light brackets */
 [data-theme="light"] .guide-card::before,
 [data-theme="light"] .stat-box::before,
 [data-theme="light"] .notice-card::before,
 [data-theme="light"] .rubric-item::before,
-[data-theme="light"] .subject-card::after,
-[data-theme="light"] .topic-card::after,
 [data-theme="light"] .guide-card::after,
 [data-theme="light"] .stat-box::after,
 [data-theme="light"] .notice-card::after,
 [data-theme="light"] .rubric-item::after {
   background: linear-gradient(135deg, #086bcc 0%, #0284c7 100%) !important;
 }
-[data-theme="light"] .card-name {
+
+/* Subject cards light mode brackets (Inherits per-subject gradient) */
+[data-theme="light"] .subject-card::before,
+[data-theme="light"] .topic-card::before {
+  background: linear-gradient(135deg, var(--card-accent) 0%, var(--card-accent-dark) 100%) !important;
+}
+[data-theme="light"] .subject-card::after,
+[data-theme="light"] .topic-card::after {
+  background: linear-gradient(135deg, var(--card-accent-dark) 0%, var(--card-accent) 100%) !important;
+}
+
+[data-theme="light"] .card-name,
+[data-theme="light"] .subject-title {
   color: #040a16 !important;
 }
 [data-theme="light"] .card-num,
 [data-theme="light"] .subject-code-badge {
-  background: #086bcc !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 14px rgba(8, 107, 204, 0.35) !important;
+  background: var(--card-badge-bg, var(--card-accent)) !important;
+  color: var(--card-badge-text, #ffffff) !important;
+  box-shadow: 0 0 14px var(--card-glow) !important;
 }
 [data-theme="light"] .card-deadline {
   color: #1e293b !important;
-  background: rgba(8, 107, 204, 0.08) !important;
-  border-left-color: #086bcc !important;
+  background: var(--card-bg-tint) !important;
+  border-left-color: var(--card-accent) !important;
+}
+[data-theme="light"] .card-status-ready {
+  color: var(--card-accent) !important;
+  background: var(--card-bg-tint) !important;
+}
+[data-theme="light"] .card-action-btn.secondary {
+  border-color: var(--card-accent) !important;
+  color: var(--card-accent) !important;
+  background: var(--card-bg-tint) !important;
+}
+[data-theme="light"] .card-arrow {
+  color: var(--card-accent) !important;
+  border-color: var(--card-accent) !important;
+  background: var(--card-bg-tint) !important;
+}
+[data-theme="light"] .card-arrow:hover {
+  background: var(--card-accent) !important;
+  color: #ffffff !important;
+}
+
+/* Light Theme: 5 Distinct Subject Color Adjustments */
+[data-theme="light"] .subject-card[data-code="BTR50112"],
+[data-theme="light"] .topic-card[data-code="BTR50112"],
+[data-theme="light"] #raiCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(1),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(1),
+[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(1) {
+  --card-accent: #0284c7;
+  --card-accent-dark: #0369a1;
+  --card-glow: rgba(2, 132, 199, 0.25);
+  --card-bg-tint: rgba(2, 132, 199, 0.08);
+  --card-badge-bg: #0284c7;
+  --card-badge-text: #ffffff;
+}
+
+[data-theme="light"] .subject-card[data-code="BTR50113"],
+[data-theme="light"] .topic-card[data-code="BTR50113"],
+[data-theme="light"] #rsmCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(2),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(2),
+[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(2) {
+  --card-accent: #d97706;
+  --card-accent-dark: #b45309;
+  --card-glow: rgba(217, 119, 6, 0.25);
+  --card-bg-tint: rgba(217, 119, 6, 0.08);
+  --card-badge-bg: #d97706;
+  --card-badge-text: #ffffff;
+}
+
+[data-theme="light"] .subject-card[data-code="BTR50114"],
+[data-theme="light"] .topic-card[data-code="BTR50114"],
+[data-theme="light"] #tmmdCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(3),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(3),
+[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(3) {
+  --card-accent: #9333ea;
+  --card-accent-dark: #7e22ce;
+  --card-glow: rgba(147, 51, 234, 0.25);
+  --card-bg-tint: rgba(147, 51, 234, 0.08);
+  --card-badge-bg: #9333ea;
+  --card-badge-text: #ffffff;
+}
+
+[data-theme="light"] .subject-card[data-code="BTR50115"],
+[data-theme="light"] .topic-card[data-code="BTR50115"],
+[data-theme="light"] #peCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(4),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(4),
+[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(4) {
+  --card-accent: #059669;
+  --card-accent-dark: #047857;
+  --card-glow: rgba(5, 150, 105, 0.25);
+  --card-bg-tint: rgba(5, 150, 105, 0.08);
+  --card-badge-bg: #059669;
+  --card-badge-text: #ffffff;
+}
+
+[data-theme="light"] .subject-card[data-code="BTR50116"],
+[data-theme="light"] .topic-card[data-code="BTR50116"],
+[data-theme="light"] #raCard,
+[data-theme="light"] #subjects .cards-grid > .subject-card:nth-of-type(5),
+[data-theme="light"] #topics .cards-grid > .topic-card:nth-of-type(5),
+[data-theme="light"] .subjects-grid > .subject-card:nth-of-type(5) {
+  --card-accent: #e11d48;
+  --card-accent-dark: #be123c;
+  --card-glow: rgba(225, 29, 72, 0.25);
+  --card-bg-tint: rgba(225, 29, 72, 0.08);
+  --card-badge-bg: #e11d48;
+  --card-badge-text: #ffffff;
 }
 
 
@@ -2319,7 +2534,7 @@ body {
   <div class="cards-grid" role="list">
 
     <!-- Subject 01 -->
-    <div class="subject-card" role="listitem">
+    <div class="subject-card" role="listitem" data-code="BTR50112">
       <div class="card-num">Subject 01</div>
       <div>
         <div class="card-name">Robotics and Artificial Intelligence</div>
@@ -2334,7 +2549,7 @@ body {
     </div>
 
     <!-- Subject 02 -->
-    <div class="subject-card" role="listitem">
+    <div class="subject-card" role="listitem" data-code="BTR50113">
       <div class="card-num">Subject 02</div>
       <div>
         <div class="card-name">Robot Safety and Maintenance</div>
@@ -2349,7 +2564,7 @@ body {
     </div>
 
     <!-- Subject 03 -->
-    <div class="subject-card" role="listitem">
+    <div class="subject-card" role="listitem" data-code="BTR50114">
       <div class="card-num">Subject 03</div>
       <div>
         <div class="card-name">Theory of Machine & Machine Design</div>
@@ -2364,7 +2579,7 @@ body {
     </div>
 
     <!-- Subject 04 -->
-    <div class="subject-card" role="listitem">
+    <div class="subject-card" role="listitem" data-code="BTR50115">
       <div class="card-num">Subject 04</div>
       <div>
         <div class="card-name">Professional Ethics</div>
@@ -2379,7 +2594,7 @@ body {
     </div>
 
     <!-- Subject 05 -->
-    <div class="subject-card" role="listitem">
+    <div class="subject-card" role="listitem" data-code="BTR50116">
       <div class="card-num">Subject 05</div>
       <div>
         <div class="card-name">Robotic Algorithms</div>
@@ -2411,7 +2626,7 @@ body {
 
   <!-- Subject Quick Launch Grid -->
   <div class="cards-grid" role="list">
-    <div class="topic-card clickable" id="raiCard" role="listitem" tabindex="0" aria-label="View Robotics & AI topics">
+    <div class="topic-card clickable" id="raiCard" role="listitem" tabindex="0" data-code="BTR50112" aria-label="View Robotics & AI topics">
       <div class="card-num">Subject 01</div>
       <div>
         <div class="card-name">Robotics and Artificial Intelligence</div>
@@ -2421,7 +2636,7 @@ body {
       <div class="card-arrow">↗</div>
     </div>
 
-    <div class="topic-card clickable" id="rsmCard" role="listitem" tabindex="0" aria-label="View Robot Safety topics">
+    <div class="topic-card clickable" id="rsmCard" role="listitem" tabindex="0" data-code="BTR50113" aria-label="View Robot Safety topics">
       <div class="card-num">Subject 02</div>
       <div>
         <div class="card-name">Robot Safety and Maintenance</div>
@@ -2431,7 +2646,7 @@ body {
       <div class="card-arrow">↗</div>
     </div>
 
-    <div class="topic-card clickable" id="tmmdCard" role="listitem" tabindex="0" aria-label="View Theory of Machine topics">
+    <div class="topic-card clickable" id="tmmdCard" role="listitem" tabindex="0" data-code="BTR50114" aria-label="View Theory of Machine topics">
       <div class="card-num">Subject 03</div>
       <div>
         <div class="card-name">Theory of Machine & Machine Design</div>
@@ -2441,7 +2656,7 @@ body {
       <div class="card-arrow">↗</div>
     </div>
 
-    <div class="topic-card clickable" id="peCard" role="listitem" tabindex="0" aria-label="View Professional Ethics topics">
+    <div class="topic-card clickable" id="peCard" role="listitem" tabindex="0" data-code="BTR50115" aria-label="View Professional Ethics topics">
       <div class="card-num">Subject 04</div>
       <div>
         <div class="card-name">Professional Ethics</div>
@@ -2451,7 +2666,7 @@ body {
       <div class="card-arrow">↗</div>
     </div>
 
-    <div class="topic-card clickable" id="raCard" role="listitem" tabindex="0" aria-label="View Robotic Algorithms topics">
+    <div class="topic-card clickable" id="raCard" role="listitem" tabindex="0" data-code="BTR50116" aria-label="View Robotic Algorithms topics">
       <div class="card-num">Subject 05</div>
       <div>
         <div class="card-name">Robotic Algorithms</div>

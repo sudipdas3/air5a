@@ -395,6 +395,61 @@
     </div>
   </div>
 
+  <!-- Embedded Google Form Modal for BTR50113 -->
+  <div class="modal modal-wide" id="googleFormModal" aria-hidden="true" role="dialog" aria-labelledby="gFormModalTitle">
+    <div class="modal-overlay" id="gFormModalBackdrop"></div>
+    <div class="modal-card modal-card-wide" style="max-width: 960px; width: 95vw; padding: 24px; max-height: 94vh; display: flex; flex-direction: column;">
+      <button class="modal-close" id="closeGFormModalBtn" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="embed-top-bar" style="margin-bottom: 14px;">
+        <div>
+          <div class="pill-badge" style="margin-bottom: 6px;">
+            <span class="dot"></span>
+            <span>BTR50113 &bull; Official Department Google Form</span>
+          </div>
+          <h2 class="modal-title" id="gFormModalTitle" style="margin: 0; font-size: 1.25rem;">Robot Safety & Maintenance PPT Submission</h2>
+        </div>
+        <div class="embed-toolbar">
+          <a href="https://forms.gle/aH3QvZNi23RfpiWb9" target="_blank" rel="noopener noreferrer" class="embed-toolbar-btn primary">
+            <span>Open in Full Tab</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="embed-notice-box" style="margin-bottom: 12px; padding: 10px 14px;">
+        <div class="embed-notice-icon" style="font-size: 1.1rem;">💡</div>
+        <div class="embed-notice-content">
+          <div class="embed-notice-desc" style="font-size: 0.8rem;">
+            If your browser blocks Google Account sign-in or Drive file attachments in the frame below, click <strong>Open in Full Tab ↗</strong> to submit directly.
+          </div>
+        </div>
+      </div>
+
+      <div class="embed-container" style="flex: 1; min-height: 600px; height: 75vh;">
+        <iframe 
+          id="submitGFormIframe"
+          class="embed-iframe"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfP5n7nqjTnmcfQlLN7MDX2wsRQgNaGA4qB2kqyzug-FUebvg/viewform?embedded=true" 
+          width="100%" 
+          height="100%" 
+          style="min-height: 580px; height: 100%; border: none;"
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0" 
+          allow="clipboard-write; camera; microphone"
+          title="Robot Safety and Maintenance BTR50113 PPT Submission Form">
+          Loading Google Form…
+        </iframe>
+      </div>
+    </div>
+  </div>
+
   <script src="js/submit.js"></script>
 </body>
 </html>

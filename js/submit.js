@@ -38,8 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalBackdrop = document.getElementById('modalBackdrop');
   const subjectSelect = document.getElementById('subjectSelect');
   const selectedSubjectBadgeText = document.getElementById('selectedSubjectBadgeText');
+  const googleFormModal = document.getElementById('googleFormModal');
+  const closeGFormModalBtn = document.getElementById('closeGFormModalBtn');
+  const gFormModalBackdrop = document.getElementById('gFormModalBackdrop');
 
-  function openModal(subjectName) {
+  function openGoogleFormModal() {
+    if (!googleFormModal) return;
+    googleFormModal.classList.add('open');
+    googleFormModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGoogleFormModal() {
+    if (!googleFormModal) return;
+    googleFormModal.classList.remove('open');
+    googleFormModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (closeGFormModalBtn) closeGFormModalBtn.addEventListener('click', closeGoogleFormModal);
+  if (gFormModalBackdrop) gFormModalBackdrop.addEventListener('click', closeGoogleFormModal);
+
+  function openModal(subjectName, subjectCode) {
+    if (subjectCode === 'BTR50113' || (subjectName && subjectName.includes('BTR50113'))) {
+      openGoogleFormModal();
+      return;
+    }
     if (subjectName && subjectSelect) {
       subjectSelect.value = subjectName;
       if (selectedSubjectBadgeText) {
@@ -62,13 +86,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && submitModal.classList.contains('open')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (submitModal && submitModal.classList.contains('open')) {
+        closeModal();
+      }
+      if (googleFormModal && googleFormModal.classList.contains('open')) {
+        closeGoogleFormModal();
+      }
     }
   });
 
   if (subjectSelect) {
     subjectSelect.addEventListener('change', (e) => {
+      if (e.target.value.includes('BTR50113')) {
+        closeModal();
+        openGoogleFormModal();
+        return;
+      }
       if (selectedSubjectBadgeText) {
         selectedSubjectBadgeText.textContent = e.target.value;
       }
@@ -79,8 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.btn-submit-subject').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
+      const code = btn.getAttribute('data-code');
       const subject = btn.getAttribute('data-name');
-      openModal(subject);
+      openModal(subject, code);
     });
   });
 
@@ -90,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const code = card.getAttribute('data-code');
       const name = card.getAttribute('data-name');
       const full = `${name} (${code})`;
-      openModal(full);
+      openModal(full, code);
     });
   });
 

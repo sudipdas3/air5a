@@ -2663,6 +2663,252 @@ body {
 }
 
 
+/* ==========================================================================
+   EMBEDDED GOOGLE FORM SUBMISSION PORTAL
+   ========================================================================== */
+.embed-page-wrap {
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.embed-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.embed-page-header {
+  margin-bottom: 20px;
+}
+
+.embed-page-header .detail-meta {
+  margin-top: 12px;
+}
+
+.embed-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.embed-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  border-radius: var(--r2);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--txt);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.embed-toolbar-btn:hover {
+  border-color: var(--cyan);
+  background: var(--surface2);
+  color: var(--cyan);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--cyan-subtle);
+}
+
+.embed-toolbar-btn.primary {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px var(--cyan-glow);
+}
+
+.embed-toolbar-btn.primary:hover {
+  box-shadow: 0 6px 22px var(--cyan-glow);
+  transform: translateY(-2px);
+}
+
+.embed-notice-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--cyan);
+  border-radius: var(--r2);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.embed-notice-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.embed-notice-content {
+  flex: 1;
+}
+
+.embed-notice-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--txt);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.embed-notice-desc {
+  font-size: 0.82rem;
+  color: var(--txt2);
+  line-height: 1.5;
+}
+
+.embed-notice-desc a {
+  color: var(--cyan);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  min-height: 850px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.embed-container:hover {
+  border-color: var(--border2);
+}
+
+.embed-iframe {
+  display: block;
+  width: 100%;
+  height: 920px;
+  min-height: 850px;
+  border: none;
+  background: #ffffff;
+  border-radius: calc(var(--r) - 2px);
+}
+
+.embed-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 850px;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 10;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.embed-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.embed-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(66, 195, 254, 0.2);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.85s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.embed-loader-text {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  color: var(--txt);
+  text-transform: uppercase;
+}
+
+.embed-loader-sub {
+  font-size: 0.78rem;
+  color: var(--txt2);
+}
+
+/* Modal redirect notice */
+.modal-embed-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(66, 195, 254, 0.08);
+  border: 1px solid rgba(66, 195, 254, 0.3);
+  border-radius: var(--r2);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.modal-embed-callout-text {
+  font-size: 0.82rem;
+  color: var(--txt);
+  line-height: 1.4;
+}
+
+.modal-embed-callout-btn {
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--r2);
+  background: var(--cyan);
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-embed-callout-btn:hover {
+  background: #ffffff;
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .embed-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .embed-toolbar {
+    width: 100%;
+  }
+  .embed-toolbar-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  .embed-iframe {
+    height: 980px;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
@@ -2823,7 +3069,7 @@ body {
       <div class="card-deadline">📅 Last Submission Date: October 5, 2026</div>
       <div class="card-actions">
         <button class="card-action-btn primary" onclick="nav('rsm-detail')">View Topics & Schedule ↗</button>
-        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50113')">Submit PPT ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubjectSubmission('BTR50113')">Submit PPT ↗</button>
       </div>
       <div class="card-arrow" onclick="nav('rsm-detail')">↗</div>
     </div>
@@ -3112,7 +3358,7 @@ body {
     </table>
   </div>
   <div class="detail-footer-action">
-    <button class="btn-primary" onclick="openSubmitModal('BTR50113')">Submit PPT for Robot Safety →</button>
+    <button class="btn-primary" onclick="openSubjectSubmission('BTR50113')">Submit PPT for Robot Safety →</button>
   </div>
 </div>
 
@@ -3238,6 +3484,86 @@ body {
 
 
 <!-- =========================================================================
+     PAGE 10: EMBEDDED SUBMISSION - ROBOT SAFETY AND MAINTENANCE (BTR50113)
+========================================================================= -->
+<div class="page" id="submit-rsm">
+  <div class="embed-page-wrap">
+    <div class="embed-top-bar">
+      <button class="back-btn" onclick="goBack()">← Back</button>
+      <div class="embed-toolbar">
+        <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">
+          ● Form Online
+        </span>
+        <button type="button" class="embed-toolbar-btn" onclick="copyFormLink('https://forms.gle/aH3QvZNi23RfpiWb9')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Copy Link</span>
+        </button>
+        <button type="button" class="embed-toolbar-btn" onclick="reloadFormIframe('rsmFormIframe')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          <span>Reload</span>
+        </button>
+        <a href="https://forms.gle/aH3QvZNi23RfpiWb9" target="_blank" rel="noopener noreferrer" class="embed-toolbar-btn primary" title="Open Google Form in a new browser tab">
+          <span>Open in Full Tab</span>
+          <span class="btn-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="embed-page-header">
+      <div class="section-eyebrow">Subject 02 &bull; PPT Submission Portal</div>
+      <h2 class="section-title">Robot Safety & <em>Maintenance</em></h2>
+      <p class="section-desc">Course Code: <strong>BTR50113</strong> &nbsp;·&nbsp; Department of CSE-AI &nbsp;·&nbsp; Evaluation & Defense Deck</p>
+      <div class="detail-meta">
+        <span class="meta-pill cyan">BTR50113</span>
+        <span class="meta-pill slate">Semester V (AIR 5A)</span>
+        <span class="meta-pill slate">Accepts: PPTX / PPT / PDF</span>
+        <span class="meta-pill" style="color:var(--cyan);background:rgba(66,195,254,0.08);border-color:rgba(66,195,254,0.25);">Official Google Form</span>
+      </div>
+    </div>
+
+    <div class="embed-notice-box">
+      <div class="embed-notice-icon">💡</div>
+      <div class="embed-notice-content">
+        <div class="embed-notice-title">Google Form Account & File Upload Notice</div>
+        <div class="embed-notice-desc">
+          You can complete and submit the official form directly in the frame below. If your browser blocks Google Account sign-in or Drive file attachments inside embedded frames (e.g. Incognito or strict cookie restrictions), click <a href="https://forms.gle/aH3QvZNi23RfpiWb9" target="_blank" rel="noopener noreferrer">Open in Full Tab ↗</a> to submit with 100% full features enabled.
+        </div>
+      </div>
+    </div>
+
+    <div class="embed-container" id="rsmEmbedContainer">
+      <div class="embed-loader" id="rsmEmbedLoader">
+        <div class="embed-spinner"></div>
+        <div class="embed-loader-text">Loading Google Form...</div>
+        <div class="embed-loader-sub">Connecting to Brainware University Submission Gateway</div>
+      </div>
+      <iframe 
+        id="rsmFormIframe"
+        class="embed-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfP5n7nqjTnmcfQlLN7MDX2wsRQgNaGA4qB2kqyzug-FUebvg/viewform?embedded=true" 
+        width="100%" 
+        height="920" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0" 
+        allow="clipboard-write; camera; microphone"
+        title="Robot Safety and Maintenance BTR50113 PPT Submission Form"
+        onload="onIframeLoaded('rsmEmbedLoader')">
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================================
      INTERACTIVE PPT SUBMISSION MODAL
 ========================================================================= -->
 <div class="modal-backdrop" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -3262,6 +3588,15 @@ body {
             <option value="BTR50115">Professional Ethics (BTR50115)</option>
             <option value="BTR50116">Robotic Algorithms (BTR50116)</option>
           </select>
+        </div>
+
+        <div id="modalGoogleFormNotice" class="modal-embed-callout" style="display:none">
+          <div class="modal-embed-callout-text">
+            <strong>Google Form Portal:</strong> Robot Safety (BTR50113) submissions are collected via the official Google Form.
+          </div>
+          <button type="button" class="modal-embed-callout-btn" onclick="closeSubmitModal(); nav('submit-rsm');">
+            Open Google Form →
+          </button>
         </div>
 
         <div class="form-row two-col">
@@ -5897,6 +6232,7 @@ const pages = {
   'tmmd-detail': document.getElementById('tmmd-detail'),
   'pe-detail': document.getElementById('pe-detail'),
   'ra-detail': document.getElementById('ra-detail'),
+  'submit-rsm': document.getElementById('submit-rsm'),
 };
 
 let currentPage = 'home';
@@ -5930,6 +6266,12 @@ function showPage(name){
   if (name === 'pe-detail')   { const el = document.getElementById('peSearch');   if(el) el.value = ''; renderPeTable(peData); }
   if (name === 'ra-detail')   { const el = document.getElementById('raSearch');   if(el) el.value = ''; renderRaTable(raData); }
   if (name === 'topics')      { applyMasterFilters(); }
+  if (name === 'submit-rsm')  {
+    const iframe = document.getElementById('rsmFormIframe');
+    if (iframe && (!iframe.src || iframe.src === 'about:blank')) {
+      iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSfP5n7nqjTnmcfQlLN7MDX2wsRQgNaGA4qB2kqyzug-FUebvg/viewform?embedded=true';
+    }
+  }
 
   if (target && typeof target.querySelectorAll === 'function') {
     const cards = target.querySelectorAll('.subject-card, .topic-card');
@@ -6061,7 +6403,21 @@ document.addEventListener('visibilitychange', () => {
 ══════════════════════════════════════════ */
 let selectedFile = null;
 
+function openSubjectSubmission(subjectCode) {
+  if (subjectCode === 'BTR50113') {
+    nav('submit-rsm');
+    return;
+  }
+  openSubmitModal(subjectCode);
+}
+window.openSubjectSubmission = openSubjectSubmission;
+
 function openSubmitModal(subjectCode, rollCode) {
+  if (subjectCode === 'BTR50113' && !rollCode) {
+    nav('submit-rsm');
+    return;
+  }
+
   const modal = document.getElementById('submitModal');
   const formView = document.getElementById('modalFormView');
   const successView = document.getElementById('modalSuccessView');
@@ -6076,7 +6432,10 @@ function openSubmitModal(subjectCode, rollCode) {
 
   if (subjectCode) {
     const subjSelect = document.getElementById('modalSubject');
-    if (subjSelect) subjSelect.value = subjectCode;
+    if (subjSelect) {
+      subjSelect.value = subjectCode;
+      onModalSubjectChange();
+    }
   }
 
   if (rollCode) {
@@ -6114,9 +6473,56 @@ document.addEventListener('keydown', function(e){
 
 // Auto-populate Name and Topic when Roll or Subject is selected
 function onModalSubjectChange() {
+  const subjSelect = document.getElementById('modalSubject');
+  const googleNotice = document.getElementById('modalGoogleFormNotice');
+  if (subjSelect && googleNotice) {
+    if (subjSelect.value === 'BTR50113') {
+      googleNotice.style.display = 'flex';
+    } else {
+      googleNotice.style.display = 'none';
+    }
+  }
   onModalRollInput();
 }
 window.onModalSubjectChange = onModalSubjectChange;
+
+// Iframe helpers for embedded Google Form
+function onIframeLoaded(loaderId) {
+  const loader = document.getElementById(loaderId);
+  if (loader) {
+    loader.classList.add('loaded');
+  }
+}
+window.onIframeLoaded = onIframeLoaded;
+
+function reloadFormIframe(iframeId) {
+  const iframe = document.getElementById(iframeId);
+  const loader = document.getElementById('rsmEmbedLoader');
+  if (loader) loader.classList.remove('loaded');
+  if (iframe) {
+    const currentSrc = iframe.src;
+    iframe.src = '';
+    setTimeout(() => {
+      iframe.src = currentSrc;
+    }, 150);
+  }
+}
+window.reloadFormIframe = reloadFormIframe;
+
+function copyFormLink(url) {
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    navigator.clipboard.writeText(url).then(() => {
+      if (typeof showToast === 'function') {
+        showToast('✓ Google Form link copied to clipboard!');
+      }
+    }).catch(() => {
+      window.prompt('Copy Google Form link:', url);
+    });
+  } else {
+    window.prompt('Copy Google Form link:', url);
+  }
+}
+window.copyFormLink = copyFormLink;
 
 function onModalRollInput() {
   const rollInput = document.getElementById('modalRoll');

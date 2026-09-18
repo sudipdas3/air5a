@@ -2548,6 +2548,7 @@ const pages = {
   'tmmd-detail': document.getElementById('tmmd-detail'),
   'pe-detail': document.getElementById('pe-detail'),
   'ra-detail': document.getElementById('ra-detail'),
+  'submit-rsm': document.getElementById('submit-rsm'),
 };
 
 let currentPage = 'home';
@@ -2581,6 +2582,12 @@ function showPage(name){
   if (name === 'pe-detail')   { const el = document.getElementById('peSearch');   if(el) el.value = ''; renderPeTable(peData); }
   if (name === 'ra-detail')   { const el = document.getElementById('raSearch');   if(el) el.value = ''; renderRaTable(raData); }
   if (name === 'topics')      { applyMasterFilters(); }
+  if (name === 'submit-rsm')  {
+    const iframe = document.getElementById('rsmFormIframe');
+    if (iframe && (!iframe.src || iframe.src === 'about:blank')) {
+      iframe.src = 'https://docs.google.com/forms/d/e/1FAIpQLSfP5n7nqjTnmcfQlLN7MDX2wsRQgNaGA4qB2kqyzug-FUebvg/viewform?embedded=true';
+    }
+  }
 
   if (target && typeof target.querySelectorAll === 'function') {
     const cards = target.querySelectorAll('.subject-card, .topic-card');
@@ -2712,7 +2719,21 @@ document.addEventListener('visibilitychange', () => {
 ══════════════════════════════════════════ */
 let selectedFile = null;
 
+function openSubjectSubmission(subjectCode) {
+  if (subjectCode === 'BTR50113') {
+    nav('submit-rsm');
+    return;
+  }
+  openSubmitModal(subjectCode);
+}
+window.openSubjectSubmission = openSubjectSubmission;
+
 function openSubmitModal(subjectCode, rollCode) {
+  if (subjectCode === 'BTR50113' && !rollCode) {
+    nav('submit-rsm');
+    return;
+  }
+
   const modal = document.getElementById('submitModal');
   const formView = document.getElementById('modalFormView');
   const successView = document.getElementById('modalSuccessView');
@@ -2727,7 +2748,10 @@ function openSubmitModal(subjectCode, rollCode) {
 
   if (subjectCode) {
     const subjSelect = document.getElementById('modalSubject');
-    if (subjSelect) subjSelect.value = subjectCode;
+    if (subjSelect) {
+      subjSelect.value = subjectCode;
+      onModalSubjectChange();
+    }
   }
 
   if (rollCode) {
@@ -2765,9 +2789,56 @@ document.addEventListener('keydown', function(e){
 
 // Auto-populate Name and Topic when Roll or Subject is selected
 function onModalSubjectChange() {
+  const subjSelect = document.getElementById('modalSubject');
+  const googleNotice = document.getElementById('modalGoogleFormNotice');
+  if (subjSelect && googleNotice) {
+    if (subjSelect.value === 'BTR50113') {
+      googleNotice.style.display = 'flex';
+    } else {
+      googleNotice.style.display = 'none';
+    }
+  }
   onModalRollInput();
 }
 window.onModalSubjectChange = onModalSubjectChange;
+
+// Iframe helpers for embedded Google Form
+function onIframeLoaded(loaderId) {
+  const loader = document.getElementById(loaderId);
+  if (loader) {
+    loader.classList.add('loaded');
+  }
+}
+window.onIframeLoaded = onIframeLoaded;
+
+function reloadFormIframe(iframeId) {
+  const iframe = document.getElementById(iframeId);
+  const loader = document.getElementById('rsmEmbedLoader');
+  if (loader) loader.classList.remove('loaded');
+  if (iframe) {
+    const currentSrc = iframe.src;
+    iframe.src = '';
+    setTimeout(() => {
+      iframe.src = currentSrc;
+    }, 150);
+  }
+}
+window.reloadFormIframe = reloadFormIframe;
+
+function copyFormLink(url) {
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    navigator.clipboard.writeText(url).then(() => {
+      if (typeof showToast === 'function') {
+        showToast('✓ Google Form link copied to clipboard!');
+      }
+    }).catch(() => {
+      window.prompt('Copy Google Form link:', url);
+    });
+  } else {
+    window.prompt('Copy Google Form link:', url);
+  }
+}
+window.copyFormLink = copyFormLink;
 
 function onModalRollInput() {
   const rollInput = document.getElementById('modalRoll');

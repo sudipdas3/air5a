@@ -169,7 +169,7 @@
       <div class="card-deadline">📅 Last Submission Date: October 5, 2026</div>
       <div class="card-actions">
         <button class="card-action-btn primary" onclick="nav('rsm-detail')">View Topics & Schedule ↗</button>
-        <button class="card-action-btn secondary" onclick="openSubmitModal('BTR50113')">Submit PPT ↗</button>
+        <button class="card-action-btn secondary" onclick="openSubjectSubmission('BTR50113')">Submit PPT ↗</button>
       </div>
       <div class="card-arrow" onclick="nav('rsm-detail')">↗</div>
     </div>
@@ -458,7 +458,7 @@
     </table>
   </div>
   <div class="detail-footer-action">
-    <button class="btn-primary" onclick="openSubmitModal('BTR50113')">Submit PPT for Robot Safety →</button>
+    <button class="btn-primary" onclick="openSubjectSubmission('BTR50113')">Submit PPT for Robot Safety →</button>
   </div>
 </div>
 
@@ -584,8 +584,88 @@
 
 
 <!-- =========================================================================
-     INTERACTIVE PPT SUBMISSION MODAL
+     PAGE 10: EMBEDDED SUBMISSION - ROBOT SAFETY AND MAINTENANCE (BTR50113)
 ========================================================================= -->
+<div class="page" id="submit-rsm">
+  <div class="embed-page-wrap">
+    <div class="embed-top-bar">
+      <button class="back-btn" onclick="goBack()">← Back</button>
+      <div class="embed-toolbar">
+        <span class="meta-pill" style="color:var(--green);background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.25);">
+          ● Form Online
+        </span>
+        <button type="button" class="embed-toolbar-btn" onclick="copyFormLink('https://forms.gle/aH3QvZNi23RfpiWb9')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Copy Link</span>
+        </button>
+        <button type="button" class="embed-toolbar-btn" onclick="reloadFormIframe('rsmFormIframe')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          <span>Reload</span>
+        </button>
+        <a href="https://forms.gle/aH3QvZNi23RfpiWb9" target="_blank" rel="noopener noreferrer" class="embed-toolbar-btn primary" title="Open Google Form in a new browser tab">
+          <span>Open in Full Tab</span>
+          <span class="btn-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="embed-page-header">
+      <div class="section-eyebrow">Subject 02 &bull; PPT Submission Portal</div>
+      <h2 class="section-title">Robot Safety & <em>Maintenance</em></h2>
+      <p class="section-desc">Course Code: <strong>BTR50113</strong> &nbsp;·&nbsp; Department of CSE-AI &nbsp;·&nbsp; Evaluation & Defense Deck</p>
+      <div class="detail-meta">
+        <span class="meta-pill cyan">BTR50113</span>
+        <span class="meta-pill slate">Semester V (AIR 5A)</span>
+        <span class="meta-pill slate">Accepts: PPTX / PPT / PDF</span>
+        <span class="meta-pill" style="color:var(--cyan);background:rgba(66,195,254,0.08);border-color:rgba(66,195,254,0.25);">Official Google Form</span>
+      </div>
+    </div>
+
+    <div class="embed-notice-box">
+      <div class="embed-notice-icon">💡</div>
+      <div class="embed-notice-content">
+        <div class="embed-notice-title">Google Form Account & File Upload Notice</div>
+        <div class="embed-notice-desc">
+          You can complete and submit the official form directly in the frame below. If your browser blocks Google Account sign-in or Drive file attachments inside embedded frames (e.g. Incognito or strict cookie restrictions), click <a href="https://forms.gle/aH3QvZNi23RfpiWb9" target="_blank" rel="noopener noreferrer">Open in Full Tab ↗</a> to submit with 100% full features enabled.
+        </div>
+      </div>
+    </div>
+
+    <div class="embed-container" id="rsmEmbedContainer">
+      <div class="embed-loader" id="rsmEmbedLoader">
+        <div class="embed-spinner"></div>
+        <div class="embed-loader-text">Loading Google Form...</div>
+        <div class="embed-loader-sub">Connecting to Brainware University Submission Gateway</div>
+      </div>
+      <iframe 
+        id="rsmFormIframe"
+        class="embed-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfP5n7nqjTnmcfQlLN7MDX2wsRQgNaGA4qB2kqyzug-FUebvg/viewform?embedded=true" 
+        width="100%" 
+        height="920" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0" 
+        allow="clipboard-write; camera; microphone"
+        title="Robot Safety and Maintenance BTR50113 PPT Submission Form"
+        onload="onIframeLoaded('rsmEmbedLoader')">
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================================
+     INTERACTIVE PPT SUBMISSION MODAL
+======================================================================== -->
 <div class="modal-backdrop" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
     <div class="modal-header">
@@ -608,6 +688,15 @@
             <option value="BTR50115">Professional Ethics (BTR50115)</option>
             <option value="BTR50116">Robotic Algorithms (BTR50116)</option>
           </select>
+        </div>
+
+        <div id="modalGoogleFormNotice" class="modal-embed-callout" style="display:none">
+          <div class="modal-embed-callout-text">
+            <strong>Google Form Portal:</strong> Robot Safety (BTR50113) submissions are collected via the official Google Form.
+          </div>
+          <button type="button" class="modal-embed-callout-btn" onclick="closeSubmitModal(); nav('submit-rsm');">
+            Open Google Form →
+          </button>
         </div>
 
         <div class="form-row two-col">

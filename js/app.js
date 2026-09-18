@@ -2604,43 +2604,79 @@ function showPage(name){
   }
 }
 
-// Safe history API wrappers (prevent SecurityError on file:// protocol or sandbox iframes)
+// Safe history API wrappers (handles file://, sandboxed iframes, and local execution)
+let isModalHistoryPushed = false;
+
 function safeHistory(action, state, title, url) {
   try {
     if (window.history && typeof window.history[action] === 'function') {
       window.history[action](state, title, url);
     }
   } catch (e) {
-    // Protocol doesn't allow history states (e.g. file:// in some browsers)
+    // Protocol or sandbox restriction fallback
   }
 }
 
-function nav(name){
-  safeHistory('pushState', { page: name }, '', location.href);
-  showPage(name);
+function nav(name, replace = false){
+  const targetPage = pages[name] ? name : 'home';
+  const url = '#' + targetPage;
+  
+  if (replace) {
+    safeHistory('replaceState', { page: targetPage }, '', url);
+  } else if (currentPage !== targetPage || location.hash !== url) {
+    safeHistory('pushState', { page: targetPage }, '', url);
+  }
+  showPage(targetPage);
 }
 window.nav = nav;
 
 function goBack() {
-  try {
-    if (window.history && window.history.length > 1 && currentPage !== 'home') {
+  const modal = document.getElementById('submitModal');
+  if (modal && modal.classList.contains('open')) {
+    closeSubmitModal();
+    return;
+  }
+  
+  // If user is on a subject detail page, return directly to subjects
+  if (currentPage.endsWith('-detail')) {
+    nav('subjects');
+    return;
+  }
+  
+  if (currentPage === 'submit-rsm') {
+    nav('subjects');
+    return;
+  }
+
+  if (currentPage !== 'home') {
+    if (window.history && window.history.length > 1) {
       window.history.back();
     } else {
       nav('home');
     }
-  } catch (e) {
-    nav('home');
   }
 }
 window.goBack = goBack;
 
-// In-page Back button listeners
-['backBtn', 'backBtn2', 'backBtn3', 'backBtn4', 'backBtn5', 'backBtn6', 'backBtn7', 'backBtn8'].forEach(id => {
+// In-page Back button listeners with explicit destination targeting
+const backBtnSubjectList = ['backBtn3', 'backBtn4', 'backBtn5', 'backBtn7', 'backBtn8'];
+backBtnSubjectList.forEach(id => {
   const el = document.getElementById(id);
   if (el) {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      goBack();
+      nav('subjects');
+    });
+  }
+});
+
+const backBtnHomeList = ['backBtn', 'backBtn2', 'backBtn6'];
+backBtnHomeList.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      nav('home');
     });
   }
 });
@@ -2682,16 +2718,42 @@ Object.keys(topicCardMap).forEach(id => {
 
 // Hardware / Browser Back button handling
 window.addEventListener('popstate', e => {
-  const page = (e.state && e.state.page) ? e.state.page : 'home';
-  showPage(page);
+  const modal = document.getElementById('submitModal');
+  // If modal was open and user pressed device back button, close modal first
+  if (modal && modal.classList.contains('open')) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    isModalHistoryPushed = false;
+    return;
+  }
+
+  let targetPage = 'home';
+  if (e.state && e.state.page && pages[e.state.page]) {
+    targetPage = e.state.page;
+  } else if (location.hash && pages[location.hash.slice(1)]) {
+    targetPage = location.hash.slice(1);
+  }
+  showPage(targetPage);
 });
 
-// Visibility change history sync
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible' && history.state && history.state.page !== currentPage) {
-    safeHistory('replaceState', { page: currentPage }, '', location.href);
+// Sync on hash change
+window.addEventListener('hashchange', () => {
+  const hashPage = location.hash.slice(1);
+  if (hashPage && pages[hashPage] && hashPage !== currentPage) {
+    showPage(hashPage);
   }
 });
+
+// Initialize on page load based on current hash if present
+(function initRouting(){
+  const initialHash = location.hash.slice(1);
+  if (initialHash && pages[initialHash]) {
+    showPage(initialHash);
+    safeHistory('replaceState', { page: initialHash }, '', '#' + initialHash);
+  } else {
+    safeHistory('replaceState', { page: 'home' }, '', '#home');
+  }
+})();
 
 // Touch swipe-back gesture for iOS/Android
 (function setupSwipeBack(){
@@ -2708,7 +2770,7 @@ document.addEventListener('visibilitychange', () => {
     if (!e.changedTouches || e.changedTouches.length === 0) return;
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
-    if (touchStartX < 40 && dx > 60 && dy < 80 && currentPage !== 'home') {
+    if (touchStartX < 45 && dx > 70 && dy < 70 && currentPage !== 'home') {
       goBack();
     }
   }, { passive: true });
@@ -2794,6 +2856,11 @@ function openSubmitModal(subjectCode, rollCode) {
 
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  if (!isModalHistoryPushed) {
+    safeHistory('pushState', { page: currentPage, modal: true }, '', location.hash);
+    isModalHistoryPushed = true;
+  }
 }
 window.openSubmitModal = openSubmitModal;
 
@@ -2801,6 +2868,14 @@ function closeSubmitModal() {
   const modal = document.getElementById('submitModal');
   if (modal) modal.classList.remove('open');
   document.body.style.overflow = '';
+  if (isModalHistoryPushed) {
+    isModalHistoryPushed = false;
+    if (history.state && history.state.modal) {
+      try {
+        history.back();
+      } catch(e) {}
+    }
+  }
 }
 window.closeSubmitModal = closeSubmitModal;
 

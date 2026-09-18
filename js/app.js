@@ -135,7 +135,7 @@ const SUBJECTS_META = [
     "name": "Robotics and Artificial Intelligence",
     "short": "Robotics & AI",
     "softDeadline": "28/09/2026",
-    "presDate": "05/10/2026",
+    "presDate": "To be announced",
     "status": "ACTIVE"
   },
   {
@@ -183,7 +183,7 @@ const raiData = [
     "name": "SOUMEN BHANDARI",
     "sub": "28/09/2026",
     "topic": "Humanoid Robotics Technology and Social Robots",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 2,
@@ -191,7 +191,7 @@ const raiData = [
     "name": "DHRUBAJOTI KAR",
     "sub": "28/09/2026",
     "topic": "Sensors in Humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 3,
@@ -199,7 +199,7 @@ const raiData = [
     "name": "NIMESH SAMANTA",
     "sub": "28/09/2026",
     "topic": "Actuation types for humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 4,
@@ -207,7 +207,7 @@ const raiData = [
     "name": "SUBHAJIT BHAKTA",
     "sub": "28/09/2026",
     "topic": "System Integration in Humanoid Robot, Social Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 5,
@@ -215,7 +215,7 @@ const raiData = [
     "name": "ATANU BISWAS",
     "sub": "28/09/2026",
     "topic": "Need of Social Robots",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 6,
@@ -223,7 +223,7 @@ const raiData = [
     "name": "JOGA JYOTHENDRAVEERAVENKATASATYASURYAKANTH",
     "sub": "28/09/2026",
     "topic": "Assistive and Social Robots in the Healthcare Sector and other",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 7,
@@ -231,7 +231,7 @@ const raiData = [
     "name": "SANIA AKTAR",
     "sub": "28/09/2026",
     "topic": "Case study On Humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 8,
@@ -239,7 +239,7 @@ const raiData = [
     "name": "DIPSIKHA PAYRA",
     "sub": "28/09/2026",
     "topic": "Swarm Robotics Characteristics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 9,
@@ -247,7 +247,7 @@ const raiData = [
     "name": "SUPARNA GHORA",
     "sub": "28/09/2026",
     "topic": "Swarm Robotics and Multi-Robotic Systems",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 10,
@@ -255,7 +255,7 @@ const raiData = [
     "name": "DIPIKA MAITY",
     "sub": "28/09/2026",
     "topic": "Experimental Platforms in Swarm Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 11,
@@ -263,7 +263,7 @@ const raiData = [
     "name": "AKASH BAIRAGI",
     "sub": "28/09/2026",
     "topic": "Tasks in Swarm Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 12,
@@ -271,7 +271,7 @@ const raiData = [
     "name": "ANKAN DUTTA",
     "sub": "28/09/2026",
     "topic": "Swarm Robots used in Real world applications",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 13,
@@ -279,7 +279,7 @@ const raiData = [
     "name": "ARNAB SAHANA",
     "sub": "28/09/2026",
     "topic": "Smart Robots, Smart Robots applications",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 14,
@@ -287,7 +287,7 @@ const raiData = [
     "name": "SUPRAJIT DE",
     "sub": "28/09/2026",
     "topic": "Robotics for Warfare Applications",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 15,
@@ -295,7 +295,7 @@ const raiData = [
     "name": "SHILPI BHOWMICK",
     "sub": "28/09/2026",
     "topic": "Human Robot Interaction (HRI) Definition",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 16,
@@ -303,7 +303,7 @@ const raiData = [
     "name": "MAHUYA BHOWMICK",
     "sub": "28/09/2026",
     "topic": "History, Need of HRI, Ethical Issues for HRI",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 17,
@@ -311,7 +311,7 @@ const raiData = [
     "name": "SAIKAT HAZRA",
     "sub": "28/09/2026",
     "topic": "Multi-Modal Perception",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 18,
@@ -319,7 +319,7 @@ const raiData = [
     "name": "SK SAHIL UDDIN",
     "sub": "28/09/2026",
     "topic": "Social, Service, and Assistive Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 19,
@@ -327,7 +327,7 @@ const raiData = [
     "name": "SHANE ALI",
     "sub": "28/09/2026",
     "topic": "HRI Architecture, Collaborative Robots",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 20,
@@ -335,7 +335,7 @@ const raiData = [
     "name": "PRERANA BANERJEE",
     "sub": "28/09/2026",
     "topic": "Definition, Types of Collaboration",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 21,
@@ -343,7 +343,7 @@ const raiData = [
     "name": "ARNAB KUMAR JANA",
     "sub": "28/09/2026",
     "topic": "Applications of collaborative robots",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 22,
@@ -351,7 +351,7 @@ const raiData = [
     "name": "ARIJIT SAIN",
     "sub": "28/09/2026",
     "topic": "collaborative Robot Technology",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 23,
@@ -359,7 +359,7 @@ const raiData = [
     "name": "Mohit Kumar",
     "sub": "28/09/2026",
     "topic": "Industry 4.0 and Internet of Robotic things (IORT)",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 24,
@@ -367,7 +367,7 @@ const raiData = [
     "name": "Biswajit Chakraborty",
     "sub": "28/09/2026",
     "topic": "Industry 4.0 and Internet of Robotic things (IORT)",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 25,
@@ -375,7 +375,7 @@ const raiData = [
     "name": "Disha Mandal",
     "sub": "28/09/2026",
     "topic": "Industry 4.0 and Internet of Robotic things (IORT)",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 26,
@@ -383,7 +383,7 @@ const raiData = [
     "name": "Dipan Paul",
     "sub": "28/09/2026",
     "topic": "Internet of Things and Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 27,
@@ -391,7 +391,7 @@ const raiData = [
     "name": "Sagar Sk",
     "sub": "28/09/2026",
     "topic": "Internet of Things and Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 28,
@@ -399,7 +399,7 @@ const raiData = [
     "name": "Sayan Basak",
     "sub": "28/09/2026",
     "topic": "Internet of Things and Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 29,
@@ -407,7 +407,7 @@ const raiData = [
     "name": "UJJAL DOLUI",
     "sub": "28/09/2026",
     "topic": "Applications and developments of the Internet of Robotic Things",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 30,
@@ -415,7 +415,7 @@ const raiData = [
     "name": "ABHISHEK MONDAL",
     "sub": "28/09/2026",
     "topic": "Applications and developments of the Internet of Robotic Things",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 31,
@@ -423,7 +423,7 @@ const raiData = [
     "name": "SANDIP PARAMANIK",
     "sub": "28/09/2026",
     "topic": "Applications and developments of the Internet of Robotic Things",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 32,
@@ -431,7 +431,7 @@ const raiData = [
     "name": "ARITRA MALIK",
     "sub": "28/09/2026",
     "topic": "Applications and developments of the Internet of Robotic Things",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 33,
@@ -439,7 +439,7 @@ const raiData = [
     "name": "ANIRBAN SARKAR",
     "sub": "28/09/2026",
     "topic": "Natural Language Processing Introduction",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 34,
@@ -447,7 +447,7 @@ const raiData = [
     "name": "ANUBRATA BHATTACHARYA",
     "sub": "28/09/2026",
     "topic": "Natural Language Processing Introduction",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 35,
@@ -455,7 +455,7 @@ const raiData = [
     "name": "MALAIKA FIRDOUS AMIR",
     "sub": "28/09/2026",
     "topic": "Classical Approaches to Natural Language Processing",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 36,
@@ -463,7 +463,7 @@ const raiData = [
     "name": "PRIYAM JANA",
     "sub": "28/09/2026",
     "topic": "Classical Approaches to Natural Language Processing",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 37,
@@ -471,7 +471,7 @@ const raiData = [
     "name": "SOUMIK PAL",
     "sub": "28/09/2026",
     "topic": "Logics for AI and Automated Reasoning",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 38,
@@ -479,7 +479,7 @@ const raiData = [
     "name": "HIRAK GANGULY",
     "sub": "28/09/2026",
     "topic": "Logics for AI and Automated Reasoning",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 39,
@@ -487,7 +487,7 @@ const raiData = [
     "name": "SIBKATULLA AL ISLAM",
     "sub": "28/09/2026",
     "topic": "Automated Reasoning, Methods of Reasoning",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 40,
@@ -495,7 +495,7 @@ const raiData = [
     "name": "TURNA BERA",
     "sub": "28/09/2026",
     "topic": "Reasoning types",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 41,
@@ -503,7 +503,7 @@ const raiData = [
     "name": "KUNTAL MANDAL",
     "sub": "28/09/2026",
     "topic": "Use of Automated reasoning in AI",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 42,
@@ -511,7 +511,7 @@ const raiData = [
     "name": "SUDIP DAS",
     "sub": "28/09/2026",
     "topic": "Reasoning and its types",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 43,
@@ -519,7 +519,7 @@ const raiData = [
     "name": "RAJARSHEE BERA",
     "sub": "28/09/2026",
     "topic": "Applications for Automated Reasoning",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 44,
@@ -527,7 +527,7 @@ const raiData = [
     "name": "KAZI WASIM AKRAM",
     "sub": "28/09/2026",
     "topic": "Mathematical consideration",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 45,
@@ -535,7 +535,7 @@ const raiData = [
     "name": "GAUSUL AZAM SK",
     "sub": "28/09/2026",
     "topic": "Humanoid Robotics Technology and Social Robots",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 46,
@@ -543,7 +543,7 @@ const raiData = [
     "name": "MASUDUL ALAM",
     "sub": "28/09/2026",
     "topic": "Sensors in Humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 47,
@@ -551,7 +551,7 @@ const raiData = [
     "name": "SUBHAM KUMBHAKAR",
     "sub": "28/09/2026",
     "topic": "Actuation types for humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 48,
@@ -559,7 +559,7 @@ const raiData = [
     "name": "ARITRIK DEV",
     "sub": "28/09/2026",
     "topic": "System Integration in Humanoid Robot, Social Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 49,
@@ -567,7 +567,7 @@ const raiData = [
     "name": "KRISH BISHWAKARMA",
     "sub": "28/09/2026",
     "topic": "Need of Social Robots",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 50,
@@ -575,7 +575,7 @@ const raiData = [
     "name": "BARNALI MANDAL",
     "sub": "28/09/2026",
     "topic": "Assistive and Social Robots in the Healthcare Sector and other",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 51,
@@ -583,7 +583,7 @@ const raiData = [
     "name": "ROHAN KAR",
     "sub": "28/09/2026",
     "topic": "Control of Humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 52,
@@ -591,7 +591,7 @@ const raiData = [
     "name": "ROHON DAS",
     "sub": "28/09/2026",
     "topic": "Case study On Humanoid Robot",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 53,
@@ -599,7 +599,7 @@ const raiData = [
     "name": "DEBABRATA DEY",
     "sub": "28/09/2026",
     "topic": "Swarm Robotics Characteristics",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 54,
@@ -607,7 +607,7 @@ const raiData = [
     "name": "PRAGYANSHU SAGAR GIRI",
     "sub": "28/09/2026",
     "topic": "Swarm Robotics and Multi-Robotic Systems",
-    "pres": "05/10/2026"
+    "pres": ""
   },
   {
     "sl": 55,
@@ -615,7 +615,7 @@ const raiData = [
     "name": "MAHAPRASHAD KARMAKAR",
     "sub": "28/09/2026",
     "topic": "Experimental Platforms in Swarm Robotics",
-    "pres": "05/10/2026"
+    "pres": ""
   }
 ];
 const rsmData = [
@@ -2416,23 +2416,25 @@ function renderTableRows(tbodyId, countId, data, subjectCode, countSingular = 's
   }
 
   if (data.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7" class="td-empty">No matching records found. Try modifying your search keywords.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="td-empty">No matching records found. Try modifying your search keywords.</td></tr>`;
     return;
   }
 
-  tbody.innerHTML = data.map(r => `
-    <tr>
-      <td class="td-sl">${String(r.sl).padStart(2, '0')}</td>
-      <td class="td-code"><span class="code-pill">${r.code}</span></td>
-      <td class="td-name">${r.name}</td>
-      <td class="td-sub">${r.sub}</td>
-      <td class="td-topic">${r.topic}</td>
-      <td class="td-date">${r.pres}</td>
-      <td>
-        <button class="table-btn-submit" onclick="openSubmitModal('${subjectCode}', '${r.code}')">Submit</button>
-      </td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = data.map(r => {
+    const hasDate = r.pres && r.pres.trim() && r.pres !== '—';
+    const presDisplay = hasDate 
+      ? `<span class="pres-date-val">${r.pres}</span>` 
+      : `<span class="pres-date-tba" title="Date not yet scheduled by department">—</span>`;
+    return `
+      <tr>
+        <td class="td-sl">${String(r.sl).padStart(2, '0')}</td>
+        <td class="td-code"><span class="code-pill">${r.code}</span></td>
+        <td class="td-name">${r.name}</td>
+        <td class="td-topic">${r.topic}</td>
+        <td class="td-date">${presDisplay}</td>
+      </tr>
+    `;
+  }).join('');
 }
 
 function renderRaiTable(data)  { renderTableRows('raiTbody', 'raiCount', data, 'BTR50112'); }
@@ -2447,27 +2449,29 @@ function renderMasterTable(data) {
   if (!tbody) return;
 
   if (countEl) {
-    countEl.innerHTML = `Showing <strong>${data.length}</strong> of 280 topic allocations`;
+    countEl.innerHTML = `Showing <strong>${data.length}</strong> of ${masterData.length} topic allocations`;
   }
 
   if (data.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7" class="td-empty">No matching topics found across all subjects.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="td-empty">No matching topics found across all subjects.</td></tr>`;
     return;
   }
 
-  tbody.innerHTML = data.map(r => `
-    <tr>
-      <td class="td-sl">${String(r.sl).padStart(2, '0')}</td>
-      <td class="td-sub-badge"><span class="sub-tag ${r.subjectKey}">${r.subjectName}</span></td>
-      <td class="td-code"><span class="code-pill">${r.code}</span></td>
-      <td class="td-name">${r.name}</td>
-      <td class="td-topic">${r.topic}</td>
-      <td class="td-date">${r.pres}</td>
-      <td>
-        <button class="table-btn-submit" onclick="openSubmitModal('${r.subjectCode}', '${r.code}')">Submit</button>
-      </td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = data.map(r => {
+    const hasDate = r.pres && r.pres.trim() && r.pres !== '—';
+    const presDisplay = hasDate 
+      ? `<span class="pres-date-val">${r.pres}</span>` 
+      : `<span class="pres-date-tba" title="Date not yet scheduled by department">—</span>`;
+    return `
+      <tr>
+        <td class="td-sl">${String(r.sl).padStart(2, '0')}</td>
+        <td class="td-code"><span class="code-pill">${r.code}</span></td>
+        <td class="td-name">${r.name}</td>
+        <td class="td-topic"><span class="sub-tag ${r.subjectKey}">${r.subjectName}</span> ${r.topic}</td>
+        <td class="td-date">${presDisplay}</td>
+      </tr>
+    `;
+  }).join('');
 }
 
 /* ══════════════════════════════════════════

@@ -1827,14 +1827,26 @@ body {
 
 .td-sl    { color: var(--txt3); font-weight: 600; white-space: nowrap; font-family: var(--font-mono); font-size: 0.9em; }
 .td-code  { white-space: nowrap; }
-.td-name { color: var(--txt-heading); font-weight: 600; }
-.td-sub   { white-space: nowrap; font-family: var(--font-mono); font-size: 0.88em; color: var(--txt2); }
+.td-name  { color: var(--txt-heading); font-weight: 600; }
 .td-date {
-  white-space: nowrap; font-weight: 600;
-  color: var(--cyan);
-  font-family: var(--font-mono); font-size: 0.88em;
+  white-space: nowrap;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
 }
-.td-topic { color: var(--txt); max-width: 320px; line-height: 1.45; }
+.pres-date-val {
+  color: var(--cyan);
+  font-weight: 600;
+}
+.pres-date-tba {
+  color: var(--txt3);
+  font-weight: 500;
+  opacity: 0.65;
+}
+[data-theme="light"] .pres-date-val {
+  color: #0284c7;
+}
+.td-topic { color: var(--txt); max-width: 480px; line-height: 1.5; font-weight: 500; }
 .td-empty {
   text-align: center;
   padding: 36px 16px !important;

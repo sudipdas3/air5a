@@ -2719,9 +2719,38 @@ document.addEventListener('visibilitychange', () => {
 ══════════════════════════════════════════ */
 let selectedFile = null;
 
+// Official Google Forms for PPT Submission across all 5 core subjects
+const SUBJECT_GOOGLE_FORMS = {
+  'BTR50112': {
+    name: 'Robotics and Artificial Intelligence',
+    url: 'https://forms.gle/BFtHZ1xs6i8ej7LT6'
+  },
+  'BTR50113': {
+    name: 'Robot Safety and Maintenance',
+    url: 'https://forms.gle/QyTjQNBShAkmym879'
+  },
+  'BTR50114': {
+    name: 'Theory of Machine & Machine Design',
+    url: 'https://forms.gle/XPsQoRgDLFohLeP96'
+  },
+  'BTR50115': {
+    name: 'Professional Ethics',
+    url: 'https://forms.gle/AQ23qEcpwCw3rmn58'
+  },
+  'BTR50116': {
+    name: 'Robotic Algorithms',
+    url: 'https://forms.gle/634qrTnzSsBa6UXF9'
+  }
+};
+window.SUBJECT_GOOGLE_FORMS = SUBJECT_GOOGLE_FORMS;
+
 function openSubjectSubmission(subjectCode) {
-  if (subjectCode === 'BTR50113') {
-    nav('submit-rsm');
+  const form = SUBJECT_GOOGLE_FORMS[subjectCode];
+  if (form && form.url) {
+    window.open(form.url, '_blank', 'noopener,noreferrer');
+    if (typeof showToast === 'function') {
+      showToast(`✓ Opening Google Form for ${form.name} in a new tab…`);
+    }
     return;
   }
   openSubmitModal(subjectCode);
@@ -2729,8 +2758,9 @@ function openSubjectSubmission(subjectCode) {
 window.openSubjectSubmission = openSubjectSubmission;
 
 function openSubmitModal(subjectCode, rollCode) {
-  if (subjectCode === 'BTR50113' && !rollCode) {
-    nav('submit-rsm');
+  // If subject code is specified, open that subject's official Google Form directly in a new tab
+  if (subjectCode && SUBJECT_GOOGLE_FORMS[subjectCode] && !rollCode) {
+    openSubjectSubmission(subjectCode);
     return;
   }
 
@@ -2791,9 +2821,24 @@ document.addEventListener('keydown', function(e){
 function onModalSubjectChange() {
   const subjSelect = document.getElementById('modalSubject');
   const googleNotice = document.getElementById('modalGoogleFormNotice');
-  if (subjSelect && googleNotice) {
-    if (subjSelect.value === 'BTR50113') {
+  const subjVal = subjSelect ? subjSelect.value : '';
+  const formInfo = SUBJECT_GOOGLE_FORMS[subjVal];
+
+  if (googleNotice) {
+    if (formInfo) {
       googleNotice.style.display = 'flex';
+      const textEl = googleNotice.querySelector('.modal-embed-callout-text');
+      if (textEl) {
+        textEl.innerHTML = `<strong>Official Google Form:</strong> ${formInfo.name} (${subjVal}) submissions are accepted via Google Form.`;
+      }
+      const btnEl = googleNotice.querySelector('.modal-embed-callout-btn');
+      if (btnEl) {
+        btnEl.onclick = function() {
+          closeSubmitModal();
+          openSubjectSubmission(subjVal);
+        };
+        btnEl.textContent = `Open ${subjVal} Google Form ↗`;
+      }
     } else {
       googleNotice.style.display = 'none';
     }

@@ -59,10 +59,48 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeGFormModalBtn) closeGFormModalBtn.addEventListener('click', closeGoogleFormModal);
   if (gFormModalBackdrop) gFormModalBackdrop.addEventListener('click', closeGoogleFormModal);
 
+  // Official Google Forms for PPT Submission across all 5 core subjects
+  const SUBJECT_GOOGLE_FORMS = {
+    'BTR50112': {
+      name: 'Robotics and Artificial Intelligence',
+      url: 'https://forms.gle/BFtHZ1xs6i8ej7LT6'
+    },
+    'BTR50113': {
+      name: 'Robot Safety and Maintenance',
+      url: 'https://forms.gle/QyTjQNBShAkmym879'
+    },
+    'BTR50114': {
+      name: 'Theory of Machine & Machine Design',
+      url: 'https://forms.gle/XPsQoRgDLFohLeP96'
+    },
+    'BTR50115': {
+      name: 'Professional Ethics',
+      url: 'https://forms.gle/AQ23qEcpwCw3rmn58'
+    },
+    'BTR50116': {
+      name: 'Robotic Algorithms',
+      url: 'https://forms.gle/634qrTnzSsBa6UXF9'
+    }
+  };
+
+  function openSubjectForm(subjectCode) {
+    const form = SUBJECT_GOOGLE_FORMS[subjectCode];
+    if (form && form.url) {
+      window.open(form.url, '_blank', 'noopener,noreferrer');
+      return true;
+    }
+    return false;
+  }
+
   function openModal(subjectName, subjectCode) {
-    if (subjectCode === 'BTR50113' || (subjectName && subjectName.includes('BTR50113'))) {
-      openGoogleFormModal();
+    if (subjectCode && openSubjectForm(subjectCode)) {
       return;
+    }
+    for (const [code, form] of Object.entries(SUBJECT_GOOGLE_FORMS)) {
+      if (subjectName && subjectName.includes(code)) {
+        openSubjectForm(code);
+        return;
+      }
     }
     if (subjectName && subjectSelect) {
       subjectSelect.value = subjectName;
@@ -98,10 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (subjectSelect) {
     subjectSelect.addEventListener('change', (e) => {
-      if (e.target.value.includes('BTR50113')) {
-        closeModal();
-        openGoogleFormModal();
-        return;
+      const selected = e.target.value;
+      for (const [code, form] of Object.entries(SUBJECT_GOOGLE_FORMS)) {
+        if (selected.includes(code)) {
+          closeModal();
+          openSubjectForm(code);
+          return;
+        }
       }
       if (selectedSubjectBadgeText) {
         selectedSubjectBadgeText.textContent = e.target.value;
@@ -114,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const code = btn.getAttribute('data-code');
+      if (openSubjectForm(code)) return;
       const subject = btn.getAttribute('data-name');
       openModal(subject, code);
     });
@@ -123,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('.btn-submit-subject')) return;
       const code = card.getAttribute('data-code');
+      if (openSubjectForm(code)) return;
       const name = card.getAttribute('data-name');
       const full = `${name} (${code})`;
       openModal(full, code);

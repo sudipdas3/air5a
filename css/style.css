@@ -538,6 +538,7 @@ body {
   border: 1.5px solid transparent;
   background: linear-gradient(135deg, rgba(66, 195, 254, 0.75) 0%, rgba(8, 107, 204, 0.15) 50%, rgba(66, 195, 254, 0.75) 100%) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: spinCounter 16s linear infinite;

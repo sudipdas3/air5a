@@ -2663,6 +2663,12 @@ body {
     font-size: 9px !important;
     padding: 6px 12px !important;
   }
+  .card-action-btn {
+    min-height: 35px !important;
+    height: 35px !important;
+    font-size: 0.76rem !important;
+    padding: 0 10px !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2674,8 +2680,8 @@ body {
     margin: 0 auto;
   }
   .subject-card, .topic-card {
-    min-height: auto;
-    padding: 24px 20px 34px;
+    min-height: auto !important;
+    padding: 22px 18px 24px !important;
   }
   .filter-pills {
     display: flex;
@@ -2696,15 +2702,25 @@ body {
 
 @media (max-width: 520px) {
   .card-actions {
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-top: 14px !important;
   }
   .card-action-btn {
-    width: 100%;
-    min-height: 44px;
-    text-align: center;
-    justify-content: center;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 0 14px !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    border-radius: 9px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 }
 

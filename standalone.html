@@ -2518,19 +2518,120 @@ body {
 }
 
 @media (max-width: 768px) {
+  .site-nav-wrap {
+    top: max(8px, env(safe-area-inset-top, 8px));
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .site-nav {
-    padding: 5px 8px 5px 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 520px;
+    padding: 8px 10px;
+    gap: 7px;
+    border-radius: 20px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55), 0 0 1px rgba(66, 195, 254, 0.4);
+    box-sizing: border-box;
+  }
+  .site-nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    order: 1;
+  }
+  .nav-brand {
+    order: 1;
     gap: 8px;
-    max-width: 96vw;
+    flex-shrink: 0;
+  }
+  .nav-brand-logo {
+    width: 26px;
+    height: 26px;
+  }
+  .nav-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    display: block;
+    color: var(--txt-heading);
+    letter-spacing: 0.05em;
   }
   .nav-sub { display: none; }
-  .nav-link { padding: 6px 10px; font-size: 0.78rem; min-height: 36px; }
-  .nav-btn-submit { padding: 6px 12px; font-size: 0.78rem; min-height: 36px; }
+  .nav-actions {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 50%;
+  }
+  .nav-btn-submit {
+    padding: 6px 13px;
+    font-size: 0.78rem;
+    min-height: 34px;
+    border-radius: var(--pill);
+    gap: 4px;
+  }
+  .nav-links {
+    order: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 4px;
+    background: rgba(0, 229, 255, 0.04);
+    padding: 3px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 229, 255, 0.12);
+    box-sizing: border-box;
+  }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 6px 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    min-height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
 
-  .page { padding: clamp(80px, 14vw, 100px) clamp(12px, 3.5vw, 28px) clamp(32px, 6vw, 60px); }
-  #home { padding-top: clamp(86px, 15vw, 110px); }
-  #subjects, #topics, #deadlines, #rai-detail, #rsm-detail, #tmmd-detail, #pe-detail, #ra-detail {
-    padding-top: clamp(86px, 15vw, 110px);
+  /* Space from Logo and Page Top Spacing on Mobile/Tablets */
+  .page { 
+    padding: calc(env(safe-area-inset-top, 0px) + clamp(142px, 24vw, 170px)) clamp(12px, 3.5vw, 28px) clamp(36px, 6vw, 64px); 
+  }
+  #home { 
+    padding-top: calc(env(safe-area-inset-top, 0px) + clamp(155px, 27vw, 188px)); 
+  }
+  #subjects, #topics, #deadlines, #rai-detail, #rsm-detail, #tmmd-detail, #pe-detail, #ra-detail, #submit-rsm {
+    padding-top: calc(env(safe-area-inset-top, 0px) + clamp(142px, 24vw, 170px));
+  }
+
+  .hero-logo-showcase {
+    width: clamp(120px, 30vw, 150px);
+    height: clamp(120px, 30vw, 150px);
+    margin: clamp(16px, 3.5vw, 24px) auto clamp(20px, 4vw, 30px);
+  }
+  .uni-badge {
+    padding: 6px 16px;
+    font-size: clamp(9.5px, 2.2vw, 11px);
+    letter-spacing: 0.08em;
+    max-width: 94vw;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
   }
   .section-title { font-size: clamp(1.4rem, 4.5vw, 2.4rem); }
   .detail-header h2 { font-size: clamp(1.3rem, 4vw, 2rem); }
@@ -2551,13 +2652,11 @@ body {
     min-height: auto;
     padding: 24px 20px 34px;
   }
-  .card-actions {
-    flex-direction: row;
-    gap: 8px;
-  }
-  .card-action-btn {
-    flex: 1 1 130px;
-    min-height: 44px;
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
   }
   .table-scroll-hint {
     display: flex;
@@ -2570,29 +2669,48 @@ body {
   }
 }
 
+@media (max-width: 520px) {
+  .card-actions {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .card-action-btn {
+    width: 100%;
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 480px) {
   .site-nav-wrap {
-    top: 10px;
-    padding: 0 6px;
+    top: max(6px, env(safe-area-inset-top, 6px));
+    padding: 0 8px;
   }
   .site-nav {
-    width: 100%;
-    padding: 4px 6px;
-    gap: 4px;
-    justify-content: space-between;
+    padding: 7px 9px;
+    gap: 6px;
+    border-radius: 18px;
   }
-  .nav-brand { gap: 6px; }
-  .nav-title { font-size: 0.82rem; }
-  .nav-links { gap: 2px; }
-  .nav-link { padding: 5px 7px; font-size: 0.74rem; }
-  .nav-btn-submit { padding: 5px 9px; font-size: 0.74rem; }
+  .nav-title { font-size: 0.86rem; }
+  .nav-btn-submit {
+    padding: 5px 11px;
+    font-size: 0.76rem;
+    min-height: 32px;
+  }
+  .nav-link {
+    font-size: 0.74rem;
+    padding: 5px 2px;
+    min-height: 30px;
+  }
   
-  .hero-line1 { font-size: clamp(1.6rem, 8vw, 2.4rem); }
-  .hero-line2 { font-size: clamp(1rem, 4.8vw, 1.5rem); }
+  .hero-line1 { font-size: clamp(1.6rem, 7.5vw, 2.4rem); }
+  .hero-line2 { font-size: clamp(0.95rem, 4.2vw, 1.4rem); }
   .notice-card { width: 100%; padding: 12px 14px; font-size: 0.85rem; }
-  .cta-group { flex-direction: column; width: 100%; }
+  .cta-group { flex-direction: column; width: 100%; max-width: 360px; margin: 0 auto; gap: 10px; }
   .cta-group .btn-primary, .cta-group .btn-secondary { width: 100%; min-height: 46px; }
-  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 8px; max-width: 440px; margin: 0 auto; }
   .stat-box { padding: 12px 8px; }
   .stat-num { font-size: 1.4rem; }
   .stat-lbl { font-size: 9px; }
@@ -2602,9 +2720,21 @@ body {
   .modal-box { width: 95vw; padding: 20px 16px; margin: 12px auto; }
 }
 
-@media (max-width: 360px) {
-  .nav-title { display: none; }
-  .nav-link { padding: 4px 5px; font-size: 0.7rem; }
+@media (max-width: 380px) {
+  .site-nav {
+    padding: 6px 7px;
+    gap: 5px;
+  }
+  .nav-brand-logo { width: 22px; height: 22px; }
+  .nav-title { font-size: 0.8rem; }
+  .nav-btn-submit {
+    padding: 5px 8px;
+    font-size: 0.72rem;
+  }
+  .nav-link {
+    font-size: 0.7rem;
+    padding: 4px 1px;
+  }
   .card-action-btn { font-size: 0.74rem; padding: 7px 10px; }
 }
 
